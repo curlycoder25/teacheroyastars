@@ -1,0 +1,114 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Exam Categories">
+    <main class="max-w-screen-xl mx-auto px-6 py-12">
+        
+        <section class="mb-10 text-center md:text-left">
+            <h2 class="text-3xl md:text-4xl font-black text-on-surface tracking-tight mb-2">Stellar Missions</h2>
+            <p class="text-on-surface/60 font-medium">Choose your constellation to begin your knowledge assessment.</p>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="group relative overflow-hidden bg-white rounded-4xl p-8 shadow-sm border border-accent/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div class="absolute -top-4 -right-4 text-tertiary/10 group-hover:text-tertiary/20 transition-colors">
+                    <span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">star</span>
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="bg-primary/5 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-primary text-3xl">school</span>
+                    </div>
+                    <span class="inline-block px-3 py-1 bg-surface-container-low rounded-full text-[10px] font-black uppercase tracking-widest text-primary mb-4">Foundation level</span>
+                    <h3 class="text-2xl font-bold text-on-surface mb-3">Grade 9 Exam</h3>
+                    <p class="text-on-surface/60 mb-8 leading-relaxed text-sm">Master the foundations of the ninth galaxy through cosmic challenges.</p>
+                    <button class="w-full py-4 bg-primary text-white rounded-full font-bold flex items-center justify-center gap-2 active:scale-95 transition-all">
+                        Launch Mission <span class="material-symbols-outlined text-sm">rocket_launch</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden bg-gradient-to-br from-secondary to-[#a40113] rounded-4xl p-8 shadow-xl shadow-secondary/20 transition-all duration-300 hover:-translate-y-1">
+                <div class="absolute top-4 right-4 text-white/40 animate-pulse">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="bg-white/20 w-14 h-14 rounded-2xl flex items-center justify-center mb-6 backdrop-blur-sm">
+                        <span class="material-symbols-outlined text-white text-3xl">workspace_premium</span>
+                    </div>
+                    <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-[10px] font-black uppercase tracking-widest text-white mb-4">In Progress</span>
+                    <h3 class="text-2xl font-bold text-white mb-3">Grade 11 Exam</h3>
+                    <p class="text-white/80 mb-8 leading-relaxed text-sm">Navigate the complex nebulae of advanced concepts and theory.</p>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between text-[11px] text-white mb-2 font-black tracking-widest uppercase">
+                            <span>Current Orbit</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+                            <div class="h-full bg-tertiary rounded-full w-[65%] shadow-[0_0_10px_rgba(254,179,0,0.5)]"></div>
+                        </div>
+                    </div>
+                    <button class="w-full py-4 bg-white text-secondary font-bold rounded-full flex items-center justify-center gap-2 active:scale-95 transition-all">
+                        Continue Journey <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="group relative overflow-hidden bg-white rounded-4xl p-8 shadow-sm border border-accent/10 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div class="absolute -bottom-8 -right-8 text-accent/5">
+                    <span class="material-symbols-outlined text-[140px]" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+                </div>
+                
+                <div class="relative z-10">
+                    <div class="bg-tertiary/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                        <span class="material-symbols-outlined text-tertiary text-3xl">translate</span>
+                    </div>
+                    <span class="inline-block px-3 py-1 bg-surface-container-low rounded-full text-[10px] font-black uppercase tracking-widest text-tertiary mb-4">Universal Core</span>
+                    <h3 class="text-2xl font-bold text-on-surface mb-3">General Grammar</h3>
+                    <p class="text-on-surface/60 mb-8 leading-relaxed text-sm">Decode the universal language. Refine your syntax across every known sector.</p>
+                    
+                    <div class="grid grid-cols-2 gap-3 mb-8">
+                        <div class="bg-surface p-3 rounded-2xl border border-accent/5">
+                            <p class="text-[10px] font-black text-on-surface/40 uppercase">Tasks</p>
+                            <p class="text-lg font-black text-primary">24</p>
+                        </div>
+                        <div class="bg-surface p-3 rounded-2xl border border-accent/5">
+                            <p class="text-[10px] font-black text-on-surface/40 uppercase">Stars</p>
+                            <p class="text-lg font-black text-tertiary">1.2k</p>
+                        </div>
+                    </div>
+                    <button class="w-full py-4 bg-primary text-white rounded-full font-bold flex items-center justify-center gap-2 active:scale-95 transition-all">
+                        Enter Archive <span class="material-symbols-outlined text-sm">explore</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <section class="mt-12 bg-accent/5 rounded-4xl p-8 border border-accent/10 relative overflow-hidden">
+            <div class="relative z-10 flex flex-col md:flex-row items-center gap-8">
+                <div class="flex-1">
+                    <span class="text-secondary font-black text-xs uppercase tracking-widest mb-2 block">Stellar Strategy</span>
+                    <h3 class="text-2xl font-bold text-on-surface mb-4">Exam Preparation Tips</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary">verified</span>
+                            <p class="text-on-surface/70 text-sm leading-relaxed">
+                                <span class="font-bold text-on-surface">Pace Yourself:</span> Like a comet, steady momentum is key. Spend 20 minutes on each grammar cluster.
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="material-symbols-outlined text-tertiary">verified</span>
+                            <p class="text-on-surface/70 text-sm leading-relaxed">
+                                <span class="font-bold text-on-surface">Review Archive:</span> Visit past mistakes in the Topic section to strengthen your mental shield.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</MainLayout>
