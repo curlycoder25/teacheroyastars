@@ -1,10 +1,10 @@
 ---
 // src/layouts/MainLayout.astro
-const { title, hideHeader = false } = Astro.props; // hideHeader əlavə etdik
-const pathname = new URL(Astro.request.url).pathname;
-const currentPath = pathname.slice(1).replace(/\/$/, "");
+const { title, hideHeader = false, isIndex = false } = Astro.props; 
+const pathname = Astro.url.pathname;
+const currentPath = pathname.replace(/^\/|\/$/g, "");
 
-const activeClass = "bg-[#D32F2F] text-white rounded-full px-5 py-2 flex flex-col items-center transition-all duration-300 shadow-md scale-95";
+const activeClass = "bg-[#b5161e] text-white rounded-full px-5 py-2 flex flex-col items-center transition-all duration-300 shadow-md scale-95";
 const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5 py-2 transition-all duration-300 hover:opacity-100";
 ---
 
@@ -44,16 +44,29 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
                 <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#b5161e]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                        <h1 class="text-xl font-extrabold tracking-tighter">
+                        <h1 class="text-xl font-black tracking-tighter">
                             <span class="text-[#155f98]">Teacher </span><span class="text-[#b5161e]">Roya’s</span> <span class="text-[#155f98]">Stars</span>
                         </h1>
                     </div>
-                    <button class="font-bold text-[#b5161e]">Sign Up</button>
+
+                    <div>
+                        {isIndex ? (
+                            /* Ana səhifədirsə Sign Up düyməsi */
+                            <button class="font-bold text-[#b5161e] text-sm active:scale-90 transition-transform">Sign Up</button>
+                        ) : (
+                            /* Digər bütün səhifələrdə Profil JD dairəsi */
+                            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-[#d1e4ff] shadow-sm bg-[#83bdfd] flex items-center justify-center text-white font-bold text-xs">
+                                JD
+                            </div>
+                        )}
+                    </div>
                 </div>
             </header>
         )}
 
-        <slot />
+        <main class={!hideHeader ? "pt-24 pb-32" : ""}>
+            <slot />
+        </main>
 
         <nav class="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl rounded-t-[2.5rem] shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 pb-8 pt-4 flex justify-around items-center border-t border-white/50">
             <a href="/" class="flex flex-col items-center">

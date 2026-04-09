@@ -2,24 +2,8 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="İmtahan Nəticəsi" hideHeader={true}>
+<MainLayout title="İmtahan Nəticəsi">
     
-    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-primary/5">
-        <div class="flex items-center justify-between px-6 h-16 max-w-screen-xl mx-auto">
-            <div class="flex items-center gap-4">
-                <a href="/mockexam" class="text-primary active:scale-90 transition-transform">
-                    <span class="material-symbols-outlined">arrow_back</span>
-                </a>
-                <h1 class="font-black tracking-tighter text-lg italic">
-                    <span class="text-primary">Teacher </span><span class="text-secondary">Roya's</span> <span class="text-primary">Stars</span>
-                </h1>
-            </div>
-            <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-accent/20">
-                <img src="/api/placeholder/40/40" alt="User" class="w-full h-full object-cover" />
-            </div>
-        </div>
-    </header>
-
     <main class="pt-24 px-6 pb-32 max-w-screen-md mx-auto space-y-8">
         
         <section class="relative overflow-hidden rounded-4xl bg-gradient-to-br from-secondary to-[#a40113] p-8 text-white shadow-2xl">
