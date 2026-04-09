@@ -1,0 +1,120 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="İmtahan Nəticəsi" hideHeader={true}>
+    
+    <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-primary/5">
+        <div class="flex items-center justify-between px-6 h-16 max-w-screen-xl mx-auto">
+            <div class="flex items-center gap-4">
+                <a href="/mockexam" class="text-primary active:scale-90 transition-transform">
+                    <span class="material-symbols-outlined">arrow_back</span>
+                </a>
+                <h1 class="font-black tracking-tighter text-lg italic">
+                    <span class="text-primary">Teacher </span><span class="text-secondary">Roya's</span> <span class="text-primary">Stars</span>
+                </h1>
+            </div>
+            <div class="h-10 w-10 rounded-full overflow-hidden border-2 border-accent/20">
+                <img src="/api/placeholder/40/40" alt="User" class="w-full h-full object-cover" />
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-24 px-6 pb-32 max-w-screen-md mx-auto space-y-8">
+        
+        <section class="relative overflow-hidden rounded-4xl bg-gradient-to-br from-secondary to-[#a40113] p-8 text-white shadow-2xl">
+            <div class="absolute -top-4 -right-4 text-tertiary opacity-30 transform rotate-12 scale-150 pointer-events-none">
+                <span class="material-symbols-outlined !text-[120px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            
+            <div class="relative z-10 flex flex-col items-center text-center">
+                <span class="text-[10px] font-black uppercase tracking-[0.2em] bg-white/20 px-4 py-1 rounded-full mb-4">
+                    Grade 9 (Mock 1)
+                </span>
+                <h2 class="text-4xl font-black mb-2 leading-tight">You're a Star!</h2>
+                <div class="flex items-baseline gap-1 mt-2">
+                    <span class="text-6xl font-black">22</span>
+                    <span class="text-2xl opacity-70">/ 25</span>
+                </div>
+                <p class="mt-4 text-white/80 font-medium text-sm max-w-[240px]">
+                    You've mastered the fundamentals. Almost there!
+                </p>
+            </div>
+        </section>
+
+        <section class="space-y-6">
+            <div class="flex items-center justify-between px-2">
+                <h3 class="text-xl font-black text-on-surface">Review Answers</h3>
+                <span class="text-sm font-bold text-secondary">3 Incorrect</span>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-5 rounded-3xl shadow-sm border-l-4 border-emerald-500 flex gap-4 border border-primary/5">
+                    <div class="flex-shrink-0">
+                        <div class="h-8 w-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                            <span class="material-symbols-outlined !text-xl">check</span>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="font-bold text-on-surface text-sm">Question 1: What is the closest star to Earth?</p>
+                        <p class="text-xs font-bold text-emerald-600">Your answer: The Sun</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl shadow-sm border-l-4 border-secondary flex gap-4 border border-primary/5">
+                    <div class="flex-shrink-0">
+                        <div class="h-8 w-8 rounded-full bg-red-50 flex items-center justify-center text-secondary">
+                            <span class="material-symbols-outlined !text-xl">close</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3 flex-1">
+                        <p class="font-bold text-on-surface text-sm">Question 2: Which galaxy is closest to the Milky Way?</p>
+                        <div class="flex flex-col gap-2">
+                            <p class="text-xs font-bold text-secondary">Your answer: Andromeda Galaxy</p>
+                            <div class="bg-emerald-50 px-3 py-2 rounded-2xl w-fit border border-emerald-100">
+                                <p class="text-[10px] text-emerald-700 font-black uppercase">Correct answer:</p>
+                                <p class="text-xs font-bold text-emerald-600">Large Magellanic Cloud</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-5 rounded-3xl shadow-sm border-l-4 border-emerald-500 flex gap-4 border border-primary/5">
+                    <div class="flex-shrink-0">
+                        <div class="h-8 w-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600">
+                            <span class="material-symbols-outlined !text-xl">check</span>
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <p class="font-bold text-on-surface text-sm">Question 3: How many planets are in our solar system?</p>
+                        <p class="text-xs font-bold text-emerald-600">Your answer: 8</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-accent/5 p-8 rounded-4xl space-y-6 border border-accent/10">
+            <div class="text-center">
+                <h3 class="text-lg font-black text-on-surface mb-2 tracking-tight">Enjoyed this Exam?</h3>
+                <p class="text-xs font-bold text-on-surface/50 uppercase tracking-widest">Help us improve the curriculum.</p>
+            </div>
+
+            <div class="flex justify-center gap-2">
+                {[1, 2, 3, 4, 5].map((i) => (
+                    <span class="material-symbols-outlined !text-4xl text-tertiary cursor-pointer active:scale-90 transition-transform" style="font-variation-settings: 'FILL' 1;">star</span>
+                ))}
+            </div>
+
+            <div class="space-y-2">
+                <textarea 
+                    class="w-full bg-white border-none rounded-3xl focus:ring-2 focus:ring-primary p-4 text-on-surface text-sm placeholder:text-on-surface/30 shadow-inner min-h-[100px]" 
+                    placeholder="Tell us what you liked..."
+                ></textarea>
+            </div>
+
+            <button class="w-full bg-primary text-white py-4 rounded-full font-black shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                Submit Review
+            </button>
+        </section>
+    </main>
+</MainLayout>
