@@ -1,0 +1,151 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout title="Final Mastery Exam" isUserLoggedIn={true}>
+    
+    <section class="space-y-4 mb-12 px-2">
+        <h1 class="text-4xl md:text-5xl font-black text-[#213041] tracking-tighter leading-tight uppercase italic">
+            Final Mastery <span class="text-[#b5161e]">Exam</span>
+        </h1>
+        <p class="text-[#213041]/60 font-medium text-lg italic pr-4">Demonstrate your progress, little star! Good luck on your cosmic mission.</p>
+        
+        <div class="flex items-center gap-4 pt-4">
+            <div class="flex items-center gap-2 bg-[#b5161e]/10 px-6 py-2.5 rounded-full border border-[#b5161e]/10">
+                <span class="material-symbols-outlined text-[#b5161e] text-sm italic">timer</span>
+                <span class="text-xs font-black text-[#b5161e] uppercase tracking-widest italic">45:00 Left</span>
+            </div>
+            <div class="flex items-center gap-2 bg-[#feb300]/10 px-6 py-2.5 rounded-full border border-[#feb300]/10">
+                <span class="material-symbols-outlined text-[#feb300] text-sm filled-icon" style="font-variation-settings: 'FILL' 1;">grade</span>
+                <span class="text-xs font-black text-[#feb300] uppercase tracking-widest italic">Level 4</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-6 mb-12">
+        <div class="flex items-center gap-3 px-4">
+            <div class="p-3 bg-primary/10 rounded-2xl">
+                <span class="material-symbols-outlined text-primary">headphones</span>
+            </div>
+            <h2 class="text-2xl font-black text-[#213041] uppercase italic tracking-tight">1. Listening</h2>
+        </div>
+
+        <div class="relative bg-white p-10 rounded-[48px] shadow-xl shadow-[#155f98]/5 overflow-hidden group border border-primary/5">
+            <div class="absolute -top-10 -right-10 text-[#feb300] opacity-10 group-hover:scale-110 transition-transform duration-1000">
+                <span class="material-symbols-outlined text-[180px] filled-icon" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            
+            <div class="relative z-10 space-y-8">
+                <p class="text-[#213041]/60 font-medium italic text-base">Listen to the short story and prepare for the questions below.</p>
+                
+                <div class="bg-[#f3f6ff] p-8 rounded-[32px] flex flex-col md:flex-row items-center gap-8 border border-[#d1e4ff]">
+                    <button class="w-20 h-20 bg-primary text-white rounded-full flex items-center justify-center shadow-2xl active:scale-90 transition-all group-hover:scale-105">
+                        <span class="material-symbols-outlined text-4xl filled-icon" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+                    </button>
+                    <div class="flex-1 w-full space-y-4">
+                        <div class="flex justify-between text-[10px] font-black text-primary tracking-[0.2em] uppercase italic">
+                            <span>The Starry Night.mp3</span>
+                            <span>02:45</span>
+                        </div>
+                        <div class="h-3 bg-white rounded-full overflow-hidden p-0.5 border border-[#d1e4ff]">
+                            <div class="h-full w-1/3 bg-[#feb300] rounded-full relative shadow-[0_0_10px_rgba(254,179,0,0.5)]"></div>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined text-[#213041]/40 !text-3xl">volume_up</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-6 mb-12">
+        <div class="flex items-center gap-3 px-4">
+            <div class="p-3 bg-secondary/10 rounded-2xl">
+                <span class="material-symbols-outlined text-secondary">rule</span>
+            </div>
+            <h2 class="text-2xl font-black text-[#213041] uppercase italic tracking-tight">2. Grammar Tests</h2>
+        </div>
+
+        <div class="bg-secondary p-10 rounded-[48px] shadow-2xl shadow-[#b5161e]/20 relative overflow-hidden group border-4 border-white/5">
+            <div class="absolute -top-10 -right-10 opacity-20 text-white group-hover:rotate-45 transition-transform duration-1000">
+                <span class="material-symbols-outlined text-[200px]">auto_awesome</span>
+            </div>
+            
+            <div class="relative z-10 space-y-8">
+                <span class="inline-block bg-white/20 text-white text-[10px] font-black uppercase tracking-[0.2em] px-5 py-2 rounded-full backdrop-blur-md italic">Question 01</span>
+                <h3 class="text-2xl md:text-3xl font-black text-white italic tracking-tight leading-tight uppercase pr-8">Which sentence uses the present perfect tense correctly?</h3>
+                
+                <div class="grid gap-4">
+                    <button class="flex items-center justify-between bg-white/10 text-white p-6 rounded-[28px] font-black italic uppercase text-sm border border-white/10 hover:bg-white/20 transition-all active:scale-[0.98] text-left">
+                        <span>A. She have finished her homework already.</span>
+                        <span class="material-symbols-outlined opacity-30">radio_button_unchecked</span>
+                    </button>
+                    <button class="flex items-center justify-between bg-white text-[#b5161e] p-6 rounded-[28px] font-black italic uppercase text-sm shadow-xl active:scale-[0.98] text-left">
+                        <span>B. She has finished her homework already.</span>
+                        <span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                    </button>
+                    <button class="flex items-center justify-between bg-white/10 text-white p-6 rounded-[28px] font-black italic uppercase text-sm border border-white/10 hover:bg-white/20 transition-all active:scale-[0.98] text-left">
+                        <span>C. She finishing her homework already.</span>
+                        <span class="material-symbols-outlined opacity-30">radio_button_unchecked</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-6 mb-12">
+        <div class="flex items-center gap-3 px-4">
+            <div class="p-3 bg-[#feb300]/10 rounded-2xl">
+                <span class="material-symbols-outlined text-[#7b5400]">edit_note</span>
+            </div>
+            <h2 class="text-2xl font-black text-[#213041] uppercase italic tracking-tight">3. Grammar Questions</h2>
+        </div>
+
+        <div class="bg-white p-10 rounded-[48px] shadow-xl shadow-[#155f98]/5 border border-primary/5 space-y-8">
+            <div class="space-y-4">
+                <label class="block text-xl font-black text-[#213041] italic uppercase leading-snug">
+                    Rewrite in passive voice: <br/>
+                    <span class="text-primary tracking-tight">"The teacher inspires the students."</span>
+                </label>
+                <div class="relative">
+                    <textarea class="w-full bg-[#f3f6ff] border-none rounded-[32px] p-8 font-bold italic text-[#213041] focus:ring-4 focus:ring-primary/20 placeholder:text-[#213041]/30 transition-all outline-none min-h-[150px]" placeholder="Type your answer here..."></textarea>
+                    <div class="absolute bottom-6 right-8 flex items-center gap-2 text-[10px] font-black text-[#213041]/30 uppercase tracking-widest italic">
+                        <span class="material-symbols-outlined text-sm">keyboard</span>
+                        <span>Auto-saving Mission</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="space-y-6 mb-20">
+        <div class="flex items-center gap-3 px-4">
+            <div class="p-3 bg-[#f3f6ff] rounded-2xl border border-[#d1e4ff]">
+                <span class="material-symbols-outlined text-[#213041]">image</span>
+            </div>
+            <h2 class="text-2xl font-black text-[#213041] uppercase italic tracking-tight">4. Image Description</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-stretch">
+            <div class="rounded-[48px] overflow-hidden h-full min-h-[350px] shadow-2xl border-4 border-white">
+                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV8K93Du-xkhM5cTh3E0PVOOqTij1M-Mj9sg5vgN8qxcgxuYGO3CZA7CvPwYBDx1Xyeh6Gq-uXkDlIu57JK0q6CgQ0gyCdsjDQGbM8lawOQqXyKE_K-hJn6CEmu5MCKpWOeCAyprR3lUrTu6ejC4IY8yihm3LJeGL-P9pnZ4xHpzL0HJC7q7f961IzwsNjMKUypWMSR_EQSM0HO2xlc0e3urifWpCgZVLEupqAstaZpDnw7VqYJ8UvfMTIkyhZxzMeuccB5Mnz7A" alt="Study space"/>
+            </div>
+            <div class="bg-white p-10 rounded-[48px] shadow-xl shadow-[#155f98]/5 flex flex-col justify-between border border-primary/5">
+                <div class="space-y-4">
+                    <h4 class="text-xl font-black text-[#213041] uppercase italic leading-tight">Describe what you see in the image.</h4>
+                    <p class="text-xs text-[#213041]/50 font-black uppercase tracking-[0.1em] italic">Use at least 3 adjectives to describe the mood.</p>
+                </div>
+                <textarea class="w-full mt-10 bg-[#f3f6ff] border-none rounded-[32px] p-8 font-bold italic text-[#213041] focus:ring-4 focus:ring-primary/20 transition-all outline-none min-h-[200px]" placeholder="Example: The bright and organized desk..."></textarea>
+            </div>
+        </div>
+    </section>
+
+    <div class="flex justify-center pb-24">
+        <button class="group relative px-16 py-6 bg-[#b5161e] text-white rounded-full font-black text-lg shadow-2xl shadow-[#b5161e]/30 active:scale-95 transition-all uppercase tracking-[0.2em] italic overflow-hidden">
+            <div class="relative flex items-center gap-4">
+                <span>Submit Exam</span>
+                <span class="material-symbols-outlined !text-2xl">send</span>
+            </div>
+        </button>
+    </div>
+
+</MainLayout>

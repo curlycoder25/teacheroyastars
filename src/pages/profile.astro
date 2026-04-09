@@ -1,7 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-// İstifadəçi məlumatları (Gələcəkdə bunları verilənlər bazasından çəkə bilərsən)
+// User Data
 const user = {
     name: "John",
     surname: "Doe",
@@ -11,79 +11,77 @@ const user = {
     initials: "JD"
 };
 
-// Rəng mövzuları
+// Color Themes
 const themes = [
-    { name: "Default", color: "bg-primary", active: true },
+    { name: "Default", color: "bg-[#155f98]", active: true },
     { name: "Green", color: "bg-emerald-500" },
-    { name: "Yellow", color: "bg-tertiary" },
-    { name: "Pink", color: "bg-pink-300" },
+    { name: "Yellow", color: "bg-[#feb300]" },
+    { name: "Pink", color: "bg-pink-400" },
     { name: "Purple", color: "bg-purple-600" },
-    { name: "Orange", color: "bg-orange-500" }
+    { name: "Red", color: "bg-[#b5161e]" }
 ];
 ---
 
-<MainLayout title="Profile">
-    
-    <main class="pt-24 pb-32 px-6 max-w-2xl mx-auto space-y-8">
+<MainLayout title="My Profile" isUserLoggedIn={true}>
         
-        <section class="relative bg-white rounded-4xl p-8 shadow-sm flex flex-col items-center overflow-hidden border border-primary/5">
-            <div class="absolute -top-4 -right-4 text-tertiary opacity-40 transform rotate-12">
-                <span class="material-symbols-outlined !text-6xl" style="font-variation-settings: 'FILL' 1;">star</span>
+        <section class="relative bg-white rounded-[48px] p-10 shadow-xl shadow-[#155f98]/5 flex flex-col items-center overflow-hidden border border-primary/5">
+            <div class="absolute -top-6 -right-6 text-[#feb300] opacity-30 transform rotate-12">
+                <span class="material-symbols-outlined !text-8xl" style="font-variation-settings: 'FILL' 1;">star</span>
             </div>
             
             <div class="relative">
-                <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface p-1 shadow-lg bg-white">
-                    <div class="w-full h-full bg-accent rounded-full flex items-center justify-center text-white text-4xl font-black italic">
+                <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-[#f3f6ff] p-1 shadow-2xl bg-white">
+                    <div class="w-full h-full bg-[#83bdfd] rounded-full flex items-center justify-center text-white text-4xl font-black italic uppercase tracking-tighter">
                         {user.initials}
                     </div>
                 </div>
-                <button class="absolute bottom-0 right-0 bg-primary text-white p-2.5 rounded-full shadow-lg active:scale-95 transition-transform border-4 border-white">
+                <button class="absolute bottom-1 right-1 bg-[#b5161e] text-white p-3 rounded-full shadow-lg active:scale-90 transition-transform border-4 border-white flex items-center justify-center">
                     <span class="material-symbols-outlined text-lg">edit</span>
                 </button>
             </div>
             
-            <div class="mt-6 text-center">
-                <h2 class="text-2xl font-black text-on-surface tracking-tight">{user.name} {user.surname}</h2>
-                <p class="text-on-surface-variant font-bold text-xs flex items-center justify-center gap-1.5 mt-1 uppercase tracking-widest">
-                    <span class="material-symbols-outlined text-tertiary text-lg" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
-                    {user.status}
-                </p>
+            <div class="mt-8 text-center">
+                <h2 class="text-3xl font-black text-[#213041] tracking-tight italic uppercase">{user.name} {user.surname}</h2>
+                <div class="inline-flex items-center gap-2 mt-2 bg-[#feb300]/10 px-4 py-1.5 rounded-full border border-[#feb300]/20">
+                    <span class="material-symbols-outlined text-[#feb300] text-lg filled-icon" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                    <span class="text-[#213041] font-black text-[10px] uppercase tracking-[0.15em]">{user.status}</span>
+                </div>
             </div>
         </section>
 
         <section class="space-y-4">
-            <div class="flex items-center gap-2 px-1">
-                <span class="material-symbols-outlined text-primary">person_outline</span>
-                <h3 class="text-lg font-black text-on-surface">Account Details</h3>
+            <div class="flex items-center gap-2 px-4 italic">
+                <span class="material-symbols-outlined text-[#155f98]">person_outline</span>
+                <h3 class="text-lg font-black text-[#213041] uppercase tracking-tight">Account Details</h3>
             </div>
             
-            <div class="bg-white rounded-4xl p-6 space-y-5 border border-primary/5 shadow-sm">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase tracking-widest text-on-surface/40 ml-1">Name</label>
-                        <div class="bg-surface rounded-2xl px-4 py-3.5 text-on-surface font-bold text-sm">
+            <div class="bg-white rounded-[40px] p-8 space-y-6 border border-primary/5 shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">First Name</label>
+                        <div class="bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-primary/5 italic">
                             {user.name}
                         </div>
                     </div>
-                    <div class="space-y-1.5">
-                        <label class="text-[10px] font-black uppercase tracking-widest text-on-surface/40 ml-1">Surname</label>
-                        <div class="bg-surface rounded-2xl px-4 py-3.5 text-on-surface font-bold text-sm">
+                    <div class="space-y-2">
+                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">Last Name</label>
+                        <div class="bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-primary/5 italic">
                             {user.surname}
                         </div>
                     </div>
                 </div>
 
-                <div class="space-y-1.5">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-on-surface/40 ml-1">Email</label>
-                    <div class="bg-surface rounded-2xl px-4 py-3.5 flex items-center justify-between text-on-surface font-bold text-sm">
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">Email Address</label>
+                    <div class="bg-[#f3f6ff] rounded-2xl px-5 py-4 flex items-center justify-between text-[#213041] font-bold text-sm border border-primary/5 italic">
                         <span>{user.email}</span>
-                        <span class="material-symbols-outlined text-emerald-500 text-base">verified</span>
+                        <span class="material-symbols-outlined text-emerald-500 text-xl filled-icon" style="font-variation-settings: 'FILL' 1;">verified</span>
                     </div>
                 </div>
 
-                <div class="space-y-1.5">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-on-surface/40 ml-1">Phone number</label>
-                    <div class="bg-surface rounded-2xl px-4 py-3.5 text-on-surface font-bold text-sm">
+                <div class="space-y-2">
+                    <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">Mobile Number</label>
+                    <div class="bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-primary/5 italic">
                         {user.phone}
                     </div>
                 </div>
@@ -91,30 +89,29 @@ const themes = [
         </section>
 
         <section class="space-y-4">
-            <div class="flex items-center gap-2 px-1">
-                <span class="material-symbols-outlined text-primary">palette</span>
-                <h3 class="text-lg font-black text-on-surface">Interface Theme</h3>
+            <div class="flex items-center gap-2 px-4 italic">
+                <span class="material-symbols-outlined text-[#155f98]">palette</span>
+                <h3 class="text-lg font-black text-[#213041] uppercase tracking-tight">Interface Theme</h3>
             </div>
             
-            <div class="bg-white rounded-4xl p-6 border border-primary/5 shadow-sm">
-                <div class="grid grid-cols-3 gap-3">
+            <div class="bg-white rounded-[40px] p-8 border border-primary/5 shadow-md">
+                <div class="grid grid-cols-3 sm:grid-cols-6 gap-4">
                     {themes.map((theme) => (
-                        <button class={`flex flex-col items-center gap-3 p-4 rounded-3xl transition-all active:scale-95 ${theme.active ? 'bg-primary text-white shadow-lg' : 'bg-surface text-on-surface-variant'}`}>
-                            <div class={`w-10 h-10 rounded-full ${theme.color} shadow-inner flex items-center justify-center border-2 border-white`}>
-                                {theme.active && <span class="material-symbols-outlined text-white text-base">check</span>}
+                        <button class={`flex flex-col items-center gap-3 p-4 rounded-3xl transition-all active:scale-90 border-2 ${theme.active ? 'bg-[#f3f6ff] border-[#155f98] shadow-sm' : 'bg-transparent border-transparent'}`}>
+                            <div class={`w-10 h-10 rounded-full ${theme.color} shadow-inner flex items-center justify-center border-4 border-white`}>
+                                {theme.active && <span class="material-symbols-outlined text-white text-base font-bold">check</span>}
                             </div>
-                            <span class="text-[10px] font-black uppercase tracking-tight">{theme.name}</span>
+                            <span class="text-[9px] font-black uppercase tracking-tighter text-[#213041]/60">{theme.name}</span>
                         </button>
                     ))}
                 </div>
             </div>
         </section>
 
-        <section class="pt-4 pb-10">
-            <button class="w-full bg-white border-2 border-primary/10 text-secondary py-4 rounded-full font-black flex items-center justify-center gap-2 active:bg-secondary/5 transition-all shadow-sm">
+        <section class="pt-6 pb-12">
+            <a href="/" class="w-full bg-white border-4 border-[#b5161e]/10 text-[#b5161e] py-5 rounded-full font-black flex items-center justify-center gap-3 active:bg-[#b5161e]/5 transition-all shadow-sm no-underline uppercase text-xs tracking-[0.2em] italic">
                 <span class="material-symbols-outlined">logout</span>
-                Sign Out
-            </button>
+                Secure Sign Out
+            </a>
         </section>
-    </main>
 </MainLayout>

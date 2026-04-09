@@ -3,3 +3,10 @@ node_modules/
 .astro/
 dist/
 npm-debug.log*
+.vscode/
+.idea/
+*.log
+*.env
+*.local
+*.cache
+*.tmp

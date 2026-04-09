@@ -1,6 +1,6 @@
 ---
-// src/layouts/MainLayout.astro
-const { title, hideHeader = false, isIndex = false } = Astro.props; 
+// hideNavbar əlavə edildi
+const { title, hideHeader = false, hideNavbar = false, isIndex = false } = Astro.props; 
 const pathname = Astro.url.pathname;
 const currentPath = pathname.replace(/^\/|\/$/g, "");
 
@@ -34,6 +34,7 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
                 background: radial-gradient(circle at top right, #e2e8f0, #f3f6ff);
                 min-height: 100vh;
             }
+            ::-webkit-scrollbar { width: 0px; background: transparent; }
         </style>
     </head>
     
@@ -41,7 +42,7 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
         
         {!hideHeader && (
             <header class="fixed top-0 w-full z-50 bg-[#f3f6ff]/80 backdrop-blur-xl border-b border-[#d1e4ff]">
-                <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+                <div class="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
                     <div class="flex items-center gap-2">
                         <span class="material-symbols-outlined text-[#b5161e]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
                         <h1 class="text-xl font-black tracking-tighter">
@@ -51,10 +52,8 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
 
                     <div>
                         {isIndex ? (
-                            /* Ana səhifədirsə Sign Up düyməsi */
                             <button class="font-bold text-[#b5161e] text-sm active:scale-90 transition-transform">Sign Up</button>
                         ) : (
-                            /* Digər bütün səhifələrdə Profil JD dairəsi */
                             <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-[#d1e4ff] shadow-sm bg-[#83bdfd] flex items-center justify-center text-white font-bold text-xs">
                                 JD
                             </div>
@@ -64,35 +63,43 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
             </header>
         )}
 
-        <main class={!hideHeader ? "pt-24 pb-32" : ""}>
+        <main class:list={[
+            "px-6 max-w-5xl mx-auto relative",
+            {"pt-24": !hideHeader}, // Header varsa padding
+            {"pt-8": hideHeader},  // Header yoxdursa az padding
+            {"pb-32": !hideNavbar}, // Navbar varsa padding
+            {"pb-8": hideNavbar}   // Navbar yoxdursa az padding
+        ]}>
             <slot />
         </main>
 
-        <nav class="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl rounded-t-[2.5rem] shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 pb-8 pt-4 flex justify-around items-center border-t border-white/50">
-            <a href="/" class="flex flex-col items-center">
-                <div class={currentPath === "" ? activeClass : inactiveClass}>
-                    <span class="material-symbols-outlined" style={currentPath === "" ? "font-variation-settings: 'FILL' 1;" : ""}>home</span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Home</span>
-                </div>
-            </a>
-            <a href="/topics" class="flex flex-col items-center">
-                <div class={currentPath === "topics" ? activeClass : inactiveClass}>
-                    <span class="material-symbols-outlined" style={currentPath === "topics" ? "font-variation-settings: 'FILL' 1;" : ""}>rocket_launch</span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Topics</span>
-                </div>
-            </a>
-            <a href="/exam" class="flex flex-col items-center">
-                <div class={currentPath === "exam" ? activeClass : inactiveClass}>
-                    <span class="material-symbols-outlined" style={currentPath === "exam" ? "font-variation-settings: 'FILL' 1;" : ""}>quiz</span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Exam</span>
-                </div>
-            </a>
-            <a href="/profile" class="flex flex-col items-center">
-                <div class={currentPath === "profile" ? activeClass : inactiveClass}>
-                    <span class="material-symbols-outlined" style={currentPath === "profile" ? "font-variation-settings: 'FILL' 1;" : ""}>person</span>
-                    <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Profile</span>
-                </div>
-            </a>
-        </nav>
+        {!hideNavbar && (
+            <nav class="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl rounded-t-[2.5rem] shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 pb-8 pt-4 flex justify-around items-center border-t border-white/50">
+                <a href="/" class="flex flex-col items-center no-underline">
+                    <div class={currentPath === "" ? activeClass : inactiveClass}>
+                        <span class="material-symbols-outlined" style={currentPath === "" ? "font-variation-settings: 'FILL' 1;" : ""}>home</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Home</span>
+                    </div>
+                </a>
+                <a href="/topics" class="flex flex-col items-center no-underline">
+                    <div class={currentPath === "topics" ? activeClass : inactiveClass}>
+                        <span class="material-symbols-outlined" style={currentPath === "topics" ? "font-variation-settings: 'FILL' 1;" : ""}>rocket_launch</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Topics</span>
+                    </div>
+                </a>
+                <a href="/exam" class="flex flex-col items-center no-underline">
+                    <div class={currentPath === "exam" ? activeClass : inactiveClass}>
+                        <span class="material-symbols-outlined" style={currentPath === "exam" ? "font-variation-settings: 'FILL' 1;" : ""}>quiz</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Exam</span>
+                    </div>
+                </a>
+                <a href="/profile" class="flex flex-col items-center no-underline">
+                    <div class={currentPath === "profile" ? activeClass : inactiveClass}>
+                        <span class="material-symbols-outlined" style={currentPath === "profile" ? "font-variation-settings: 'FILL' 1;" : ""}>person</span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Profile</span>
+                    </div>
+                </a>
+            </nav>
+        )}
     </body>
 </html>

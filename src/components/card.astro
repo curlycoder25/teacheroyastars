@@ -7,6 +7,7 @@ interface Props {
   description: string;
   progress?: string;
   iconName?: string;
+  class?: string; 
 }
 
 const { 
@@ -16,14 +17,15 @@ const {
   title, 
   description, 
   progress, 
-  iconName = "star" 
+  iconName = "star",
+  class: className 
 } = Astro.props;
 
-// Dizayn Variantları - Künclər rounded-[48px] (Çox yumşaq)
+// Dizayn Variantları - Daha stabil rənglər
 const variants = {
-  red: "bg-secondary text-white shadow-2xl shadow-secondary/20 border-white/5 hover:brightness-110",
-  white: "bg-white text-on-surface border-primary/5 shadow-md hover:shadow-xl hover:border-primary/10",
-  gray: "bg-surface-variant/30 border-primary/5 grayscale opacity-60 pointer-events-none"
+  red: "bg-[#b5161e] text-white shadow-xl shadow-[#b5161e]/15 border-white/10 hover:brightness-105",
+  white: "bg-white text-[#213041] border-[#d1e4ff] shadow-sm hover:shadow-lg hover:border-[#155f98]/20",
+  gray: "bg-[#f3f6ff] border-[#d1e4ff] grayscale opacity-60 pointer-events-none"
 };
 
 const Element = href ? 'a' : 'div';
@@ -32,59 +34,60 @@ const Element = href ? 'a' : 'div';
 <Element 
   href={href} 
   class:list={[
-    "relative group p-10 rounded-[48px] flex flex-col justify-between min-h-[300px] transition-all duration-300 active:scale-[0.97] border-4 block overflow-hidden",
-    variants[variant]
+    "relative group p-7 rounded-[32px] flex flex-col justify-between min-h-[240px] transition-all duration-300 active:scale-[0.98] border-2 block overflow-hidden no-underline",
+    variants[variant],
+    className
   ]}
 >
-  <div class="absolute -top-4 -right-4 opacity-20 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 pointer-events-none select-none">
-    <span class="material-symbols-outlined !text-9xl" style="font-variation-settings: 'FILL' 1;">
+  <div class="absolute -top-3 -right-3 opacity-10 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-700 pointer-events-none select-none">
+    <span class="material-symbols-outlined !text-[100px]" style="font-variation-settings: 'FILL' 1;">
       {iconName}
     </span>
   </div>
 
-  <div class="relative z-10 space-y-6">
+  <div class="relative z-10 space-y-4">
     {badgeText && (
       <span class:list={[
-        "inline-block px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-widest border self-start shadow-sm",
-        variant === 'red' ? 'bg-white/20 border-white/10' : 'bg-surface border-primary/5'
+        "inline-block px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-[0.15em] border self-start shadow-sm italic",
+        variant === 'red' ? 'bg-white/20 border-white/10' : 'bg-[#f3f6ff] border-[#d1e4ff]'
       ]}>
         {badgeText}
       </span>
     )}
 
     <div>
-        <h3 class="text-3xl font-black italic tracking-tight leading-tight uppercase mb-2">{title}</h3>
+        <h3 class="text-xl md:text-2xl font-black italic tracking-tight leading-tight uppercase mb-1">{title}</h3>
         <p class:list={[
-            "text-sm font-medium leading-relaxed italic pr-10",
-            variant === 'red' ? 'text-white/80' : 'text-on-surface/50'
+            "text-xs font-medium leading-relaxed italic pr-8",
+            variant === 'red' ? 'text-white/80' : 'text-[#213041]/50'
         ]}>
             {description}
         </p>
     </div>
   </div>
 
-  <div class="mt-auto pt-8 space-y-4 relative z-10">
+  <div class="mt-auto pt-6 space-y-4 relative z-10">
     {progress && (
-      <>
-        <div class="flex justify-between items-end text-[11px] font-black uppercase tracking-widest opacity-80 italic">
-          <span>{variant === 'red' ? 'Progress' : 'Ready Status'}</span>
+      <div class="space-y-2">
+        <div class="flex justify-between items-end text-[9px] font-black uppercase tracking-[0.2em] opacity-80 italic">
+          <span>{variant === 'red' ? 'Mission Progress' : 'Ready Status'}</span>
           <span>{progress}%</span>
         </div>
         <div class:list={[
-          "h-3 w-full rounded-full overflow-hidden shadow-inner p-0.5 border",
-          variant === 'red' ? 'bg-white/20 border-white/5' : 'bg-surface border-primary/5'
+          "h-2.5 w-full rounded-full overflow-hidden shadow-inner p-0.5 border",
+          variant === 'red' ? 'bg-white/20 border-white/5' : 'bg-[#f3f6ff] border-[#d1e4ff]'
         ]}>
           <div 
-              class="h-full bg-tertiary rounded-full shadow-[0_0_15px_rgba(255,179,0,0.7)] transition-all duration-1000 ease-out" 
+              class="h-full bg-[#feb300] rounded-full shadow-[0_0_12px_rgba(255,179,0,0.6)] transition-all duration-1000 ease-out" 
               style={`width: ${progress}%`}
           ></div>
         </div>
-      </>
+      </div>
     )}
     
     <div class:list={[
-        "w-full py-4 rounded-full font-black text-center text-xs uppercase tracking-widest shadow-lg transition-all active:scale-95",
-        variant === 'red' ? 'bg-white text-secondary' : 'bg-secondary text-white'
+        "w-full py-3.5 rounded-full font-black text-center text-[10px] uppercase tracking-[0.2em] shadow-lg transition-all active:scale-95 italic",
+        variant === 'red' ? 'bg-white text-[#b5161e]' : 'bg-[#b5161e] text-white'
     ]}>
         {variant === 'red' ? 'Review Mission' : variant === 'gray' ? 'Locked' : 'Continue Learning'}
     </div>
