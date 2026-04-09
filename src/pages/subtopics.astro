@@ -2,136 +2,124 @@
 import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayout title="Topics">
-    <main class="pt-24 pb-32 px-6 max-w-5xl mx-auto relative overflow-hidden">
+<MainLayout title="Nouns - Lessons">
+    <main class="pt-24 pb-32 px-6 max-w-2xl mx-auto relative overflow-hidden">
         
-        <div class="absolute -top-6 -right-4 opacity-10 pointer-events-none select-none">
-            <span class="material-symbols-outlined !text-[120px]">rocket_launch</span>
-        </div>
-
-        <section class="mb-10 text-center md:text-left">
-            <h2 class="text-3xl md:text-4xl font-black text-on-surface tracking-tight mb-2 italic">Learning Universe</h2>
-            <p class="text-on-surface/60 font-medium text-lg leading-relaxed max-w-2xl">
-                Embark on your journey through the grammar galaxies. Every star earned brings you closer to mastery!
-            </p>
+        <section class="mb-10 text-center">
+            <h2 class="text-3xl font-black text-on-surface mb-2 tracking-tight italic">Topic 01: Nouns</h2>
+            <p class="text-on-surface/60 text-sm font-medium leading-relaxed">Explore the different types of nouns in our grammar galaxy.</p>
         </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div class="space-y-6">
             
-            <article class="relative group overflow-hidden rounded-4xl bg-secondary text-white p-8 shadow-xl shadow-secondary/20 flex flex-col justify-between min-h-[300px] transition-all active:scale-[0.98]">
-                <div class="absolute -top-4 -right-4 text-white/10">
-                    <span class="material-symbols-outlined !text-[100px]" style="font-variation-settings: 'FILL' 1;">star</span>
+            <div class="relative group overflow-hidden bg-secondary rounded-4xl p-8 shadow-xl shadow-secondary/20 transition-all active:scale-[0.98]">
+                <div class="absolute -top-4 -right-4 text-white opacity-20 transform rotate-12 pointer-events-none">
+                    <span class="material-symbols-outlined !text-6xl" style="font-variation-settings: 'FILL' 1;">star</span>
                 </div>
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-white/20 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border border-white/10 text-center">Topic 01</span>
-                        <div class="bg-white text-secondary px-3 py-1 rounded-full text-[10px] font-black flex items-center justify-center gap-1 shadow-sm">
-                            <span class="material-symbols-outlined !text-[14px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                            COMPLETED
+                
+                <div class="relative z-10 flex flex-col gap-6">
+                    <div class="flex justify-between items-start">
+                        <div class="bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10">
+                            <span class="text-[10px] uppercase font-black tracking-widest text-white">Lesson 01</span>
                         </div>
+                        <span class="material-symbols-outlined text-white !text-2xl" style="font-variation-settings: 'FILL' 1;">check_circle</span>
                     </div>
-                    <h3 class="font-black text-2xl mb-2 tracking-tight italic">Nouns & Objects</h3>
-                    <p class="text-white/80 text-sm mb-6 leading-relaxed">The building blocks of every sentence in the universe.</p>
-                </div>
-                <div class="space-y-4">
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-[11px] font-black uppercase tracking-widest opacity-80">
-                            <span>Progress</span>
-                            <span>100%</span>
-                        </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-black text-white mb-1 italic">Compound Nouns</h3>
+                        <p class="text-white/70 text-xs font-medium uppercase tracking-wider">Completed on Oct 12</p>
+                    </div>
+
+                    <div class="flex items-center gap-3">
                         <div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
-                            <div class="h-full bg-tertiary w-full rounded-full shadow-[0_0_10px_rgba(255,179,0,0.6)]"></div>
+                            <div class="h-full bg-tertiary w-full shadow-[0_0_10px_rgba(255,179,0,0.5)]"></div>
                         </div>
+                        <span class="text-[10px] font-black text-white">100%</span>
                     </div>
-                    <button class="w-full bg-white text-secondary font-black py-3.5 rounded-full text-sm active:scale-95 transition-all shadow-md">
-                        Review Lesson
-                    </button>
                 </div>
-            </article>
+            </div>
 
-            <article class="relative group overflow-hidden rounded-4xl bg-white text-on-surface p-8 shadow-sm border border-primary/5 flex flex-col justify-between min-h-[300px] transition-all active:scale-[0.98]">
-                <div class="absolute -top-4 -right-4 text-primary/5">
-                    <span class="material-symbols-outlined !text-[100px]">work</span>
+            <div class="relative group bg-white rounded-4xl p-8 shadow-sm border border-primary/5 transition-all active:scale-[0.98]">
+                <div class="absolute -top-4 -right-4 text-tertiary opacity-10 transform rotate-12 pointer-events-none">
+                    <span class="material-symbols-outlined !text-6xl" style="font-variation-settings: 'FILL' 0;">star</span>
                 </div>
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-surface text-on-surface/50 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border border-primary/5">Topic 02</span>
-                        <div class="bg-secondary/10 text-secondary px-3 py-1 rounded-full text-[10px] font-black flex items-center justify-center gap-1">
-                            <span class="material-symbols-outlined !text-[14px]">schedule</span>
-                            IN PROGRESS
+                
+                <div class="relative z-10 flex flex-col gap-6">
+                    <div class="flex justify-between items-start">
+                        <div class="bg-surface px-3 py-1 rounded-full border border-primary/5">
+                            <span class="text-[10px] uppercase font-black tracking-widest text-primary">Lesson 02</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 bg-secondary/5 px-2 py-1 rounded-full">
+                            <span class="material-symbols-outlined text-tertiary !text-sm animate-pulse" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                            <span class="text-[9px] font-black text-secondary uppercase tracking-widest">In Progress</span>
                         </div>
                     </div>
-                    <h3 class="font-black text-2xl mb-2 tracking-tight italic">Action Verbs</h3>
-                    <p class="text-on-surface/60 text-sm mb-6 leading-relaxed">Learn necə make your sentences move and groove.</p>
-                </div>
-                <div class="space-y-4">
-                    <div class="space-y-2">
-                        <div class="flex justify-between text-[11px] font-black uppercase tracking-widest text-on-surface/40">
-                            <span>Current Orbit</span>
-                            <span class="text-secondary">65%</span>
-                        </div>
-                        <div class="h-2 w-full bg-surface rounded-full overflow-hidden border border-primary/5">
-                            <div class="h-full bg-tertiary w-[65%] rounded-full shadow-[0_0_12px_rgba(255,179,0,0.4)]"></div>
-                        </div>
-                    </div>
-                    <button class="w-full bg-secondary text-white font-black py-3.5 rounded-full text-sm active:scale-95 transition-all shadow-lg shadow-secondary/20">
-                        Continue Mission
-                    </button>
-                </div>
-            </article>
 
-            <article class="relative group overflow-hidden rounded-4xl bg-surface-variant/30 text-on-surface/40 p-8 flex flex-col justify-between min-h-[300px] border border-primary/5 grayscale opacity-70">
-                <div class="absolute inset-0 bg-white/20 backdrop-blur-[1px] z-10 flex flex-col items-center justify-center pointer-events-none">
-                    <span class="material-symbols-outlined !text-4xl text-on-surface/40 mb-2">lock</span>
-                    <span class="text-[9px] font-black uppercase tracking-widest text-on-surface/40">Prerequisite: Action Verbs</span>
-                </div>
-                <div>
-                    <div class="flex justify-between items-start mb-4">
-                        <span class="bg-on-surface/5 text-on-surface/40 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Topic 03</span>
-                        <div class="bg-on-surface/5 text-on-surface/40 px-3 py-1 rounded-full text-[10px] font-black">LOCKED</div>
+                    <div>
+                        <h3 class="text-xl font-black text-on-surface mb-1 italic">Countable & Uncountable</h3>
+                        <p class="text-on-surface/50 text-xs font-medium uppercase tracking-wider">Continue where you left off</p>
                     </div>
-                    <h3 class="font-black text-2xl mb-2 tracking-tight italic">Simple Tenses</h3>
-                    <p class="text-on-surface/40 text-sm mb-6">Master the past, present, and future of time-traveling words.</p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <div class="h-2.5 w-full bg-surface rounded-full overflow-hidden border border-primary/5 shadow-inner">
+                                <div class="h-full bg-tertiary rounded-full shadow-[0_0_12px_rgba(255,179,0,0.4)]" style="width: 65%"></div>
+                            </div>
+                            <span class="text-[10px] font-black text-on-surface">65%</span>
+                        </div>
+                        <button class="w-full bg-primary text-white py-4 rounded-full font-black text-sm shadow-lg shadow-primary/20 active:scale-95 transition-all">
+                            Resume Learning
+                        </button>
+                    </div>
                 </div>
-                <button class="w-full bg-on-surface/10 text-on-surface/30 font-black py-3.5 rounded-full text-sm cursor-not-allowed">
-                    Locked
-                </button>
-            </article>
+            </div>
+
+            <div class="relative bg-surface-variant/20 rounded-4xl border border-primary/5 grayscale opacity-60">
+                <div class="p-8 flex flex-col gap-6">
+                    <div class="flex justify-between items-start">
+                        <div class="bg-on-surface/5 px-3 py-1 rounded-full">
+                            <span class="text-[10px] uppercase font-black tracking-widest text-on-surface/40">Lesson 03</span>
+                        </div>
+                        <span class="material-symbols-outlined text-on-surface/40 !text-xl">lock</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-black text-on-surface/40 mb-1 italic">Proper & Common Nouns</h3>
+                        <p class="text-on-surface/40 text-[10px] font-black uppercase tracking-widest">Unlock after Lesson 02</p>
+                    </div>
+                    <div class="h-2 w-full bg-on-surface/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-on-surface/10 w-0"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative bg-surface-variant/20 rounded-4xl border border-primary/5 grayscale opacity-60">
+                <div class="p-8 flex flex-col gap-6">
+                    <div class="flex justify-between items-start">
+                        <div class="bg-on-surface/5 px-3 py-1 rounded-full">
+                            <span class="text-[10px] uppercase font-black tracking-widest text-on-surface/40">Lesson 04</span>
+                        </div>
+                        <span class="material-symbols-outlined text-on-surface/40 !text-xl">lock</span>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-black text-on-surface/40 mb-1 italic">Abstract & Concrete</h3>
+                        <p class="text-on-surface/40 text-[10px] font-black uppercase tracking-widest">Locked in the galaxy</p>
+                    </div>
+                    <div class="h-2 w-full bg-on-surface/5 rounded-full overflow-hidden">
+                        <div class="h-full bg-on-surface/10 w-0"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <section class="bg-white/60 backdrop-blur-md rounded-4xl p-8 border border-white flex flex-col md:flex-row items-center gap-10 shadow-sm relative overflow-hidden">
-            <div class="absolute top-0 right-0 p-4 opacity-5">
-                <span class="material-symbols-outlined !text-[150px]">auto_awesome</span>
+        <div class="mt-16 flex justify-center">
+            <div class="p-8 bg-white/40 backdrop-blur-xl rounded-4xl text-center max-w-xs border border-white shadow-sm relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent"></div>
+                <img class="w-20 h-20 mx-auto mb-4 drop-shadow-lg group-hover:scale-110 transition-transform duration-500" 
+                     src="/api/placeholder/80/80" 
+                     alt="Motivation Rocket"/>
+                <h4 class="font-black text-on-surface text-sm italic">Keep reaching for the stars!</h4>
+                <p class="text-on-surface/60 text-[10px] font-black uppercase tracking-widest mt-2">You're doing great, star student.</p>
             </div>
-            
-            <div class="relative flex-shrink-0">
-                <svg class="w-32 h-32 -rotate-90">
-                    <circle class="text-surface" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-width="8"></circle>
-                    <circle class="text-secondary" cx="64" cy="64" fill="transparent" r="58" stroke="currentColor" stroke-dasharray="364.4" stroke-dashoffset="182.2" stroke-linecap="round" stroke-width="8"></circle>
-                </svg>
-                <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <span class="text-2xl font-black text-on-surface leading-none">50%</span>
-                    <span class="text-[10px] font-black text-on-surface/40 uppercase tracking-tighter">Overall</span>
-                </div>
-            </div>
-
-            <div class="text-center md:text-left flex-grow space-y-4">
-                <h4 class="text-xl font-black text-on-surface italic tracking-tight">You're making stellar progress!</h4>
-                <p class="text-on-surface/60 text-sm font-medium leading-relaxed">
-                    You've completed <span class="font-black text-secondary uppercase">1 out of 2</span> available topics. Keep going to reach the next rank: 
-                    <span class="bg-tertiary/10 text-tertiary font-black px-2 py-1 rounded-lg ml-1">Star Voyager</span>.
-                </p>
-                <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-primary/5 text-xs font-black uppercase text-on-surface/70">
-                        <span class="material-symbols-outlined !text-lg text-primary" style="font-variation-settings: 'FILL' 1;">rocket</span> 
-                        1/4 Planets
-                    </div>
-                    <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm border border-primary/5 text-xs font-black uppercase text-on-surface/70">
-                        <span class="material-symbols-outlined !text-lg text-tertiary" style="font-variation-settings: 'FILL' 1;">stars</span> 
-                        Next: 20 Stars
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 </MainLayout>
