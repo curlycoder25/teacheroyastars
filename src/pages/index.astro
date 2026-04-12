@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+// Əgər Astro-nun daxili Image komponentini istifadə etmək istəsən bura import əlavə edə bilərsən
 ---
 
 <MainLayout title="Welcome" isIndex={true} hideNavbar={true}>
@@ -18,8 +19,12 @@ import MainLayout from '../layouts/MainLayout.astro';
                 </div>
 
                 <div class="bg-white rounded-full p-4 shadow-2xl shadow-[#155f98]/10 border-4 border-[#83bdfd]/20 relative overflow-hidden group">
-                    <div class="w-36 h-36 rounded-full bg-[#83bdfd] flex items-center justify-center text-white text-5xl font-black transition-transform duration-700 group-hover:scale-110">
-                        TR
+                    <div class="w-36 h-36 rounded-full bg-[#83bdfd] flex items-center justify-center overflow-hidden">
+                        <img 
+                            src="assets/images/logoroya.jpeg" 
+                            alt="Teacher Roya's Stars Logo" 
+                            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
                     </div>
                 </div>
             </div>
