@@ -1,57 +1,60 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import Card from '../components/card.astro'; // Komponenti import edirik
+import Card from '../components/card.astro';
+import '../styles/subtopics.css'; // CSS faylının adını bura uyğunlaşdır
 ---
 
-<MainLayout title="Nouns - Lessons">
-        <section class="mb-10 text-center">
-            <h2 class="text-3xl font-black text-on-surface mb-2 tracking-tight italic uppercase">Topic 01: Nouns</h2>
-            <p class="text-on-surface/60 text-sm font-medium leading-relaxed max-w-xs mx-auto">
-                Explore the different types of nouns in our grammar galaxy.
-            </p>
-        </section>
+<MainLayout title="Nouns - Subtopics">
+    
+    <section class="subtopics-header">
+        <h2 class="subtopics-title">Topic 01: Nouns</h2>
+        <p class="subtopics-subtitle">
+            Explore the different types of nouns in our grammar galaxy.
+        </p>
+    </section>
 
-        <div class="space-y-6">
+    <div class="subtopics-container">
+        <Card 
+            variant="red"
+            badgeText="Lesson 01"
+            title="Compound Nouns"
+            description="Completed on Oct 12"
+            progress="100"
+            iconName="star"
+        />
+
+        <Card 
+            variant="white"
+            href="/lesson"
+            badgeText="Lesson 02"
+            title="Countable & Uncountable"
+            description="Continue where you left off"
+            progress="65"
+            iconName="bolt"
+        />
+
+        <Card 
+            variant="gray"
+            badgeText="Lesson 03"
+            title="Proper & Common Nouns"
+            description="Unlock after Lesson 02"
+            iconName="lock"
+        />
+    </div>
+
+    <div class="motivation-wrapper">
+        <div class="motivation-card group hover:shadow-xl">
+            <div class="motivation-gradient"></div>
             
-            <Card 
-                variant="red"
-                badgeText="Lesson 01"
-                title="Compound Nouns"
-                description="Completed on Oct 12"
-                progress="100"
-                iconName="star"
-            />
-
-            <Card 
-                variant="white"
-                href="/lesson"
-                badgeText="Lesson 02"
-                title="Countable & Uncountable"
-                description="Continue where you left off"
-                progress="65"
-                iconName="bolt"
-            />
-
-            <Card 
-                variant="gray"
-                badgeText="Lesson 03"
-                title="Proper & Common Nouns"
-                description="Unlock after Lesson 02"
-                iconName="lock"
-            />
-
-        </div>
-
-        <div class="mt-16 flex justify-center">
-            <div class="p-10 bg-white/40 backdrop-blur-xl rounded-[48px] text-center max-w-xs border border-white shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
-                <div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-transparent"></div>
-                <div class="w-20 h-20 mx-auto mb-4 bg-white rounded-full flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500">
-                     <span class="material-symbols-outlined !text-4xl text-tertiary" style="font-variation-settings: 'FILL' 1;">rocket_launch</span>
-                </div>
-                <h4 class="font-black text-on-surface text-sm italic tracking-tight">Keep reaching for the stars!</h4>
-                <p class="text-on-surface/50 text-[10px] font-black uppercase tracking-widest mt-2 leading-relaxed">
-                    You're doing great,<br/>star student.
-                </p>
+            <div class="motivation-icon-circle group-hover:scale-110">
+                 <span class="material-symbols-outlined !text-5xl text-[#feb300]">rocket_launch</span>
             </div>
+            
+            <h4 class="motivation-title">Keep reaching for the stars!</h4>
+            <p class="motivation-subtitle">
+                You're doing great,<br/>star student.
+            </p>
         </div>
+    </div>
+
 </MainLayout>

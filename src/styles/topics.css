@@ -1,0 +1,68 @@
+/* Arxa fondakı dekorativ elementlər */
+.bg-decor-star {
+    @apply absolute top-20 right-10 opacity-20 pointer-events-none select-none;
+}
+
+.bg-decor-rocket {
+    @apply absolute bottom-40 left-5 opacity-10 scale-150 pointer-events-none select-none;
+}
+
+/* Üst Banner (Universe Banner) */
+.universe-banner {
+    /* text-white istifadə olundu ki, xəta verməsin */
+    @apply bg-primary text-white p-10 md:p-16 rounded-[48px] relative overflow-hidden shadow-2xl shadow-primary/20 mb-10 transition-all duration-500;
+}
+
+.universe-title {
+    @apply text-4xl md:text-6xl font-black mb-4 leading-tight italic uppercase tracking-tight;
+}
+
+.universe-text {
+    /* text-white və opacity istifadə olundu */
+    @apply text-white opacity-90 text-sm md:text-lg max-w-xl font-medium italic leading-relaxed;
+}
+
+/* Banner daxilindəki ikonlar */
+.banner-icon-magic {
+    @apply absolute -top-4 -right-4 text-tertiary opacity-30 transform rotate-12 transition-transform duration-700;
+}
+
+.banner-icon-rocket {
+    @apply absolute -bottom-6 right-10 w-40 h-40 opacity-20 pointer-events-none;
+}
+
+/* Modul Başlığı */
+.module-header {
+    @apply flex items-center justify-between mb-8 px-4 mt-12;
+}
+
+.module-title {
+    /* text-slate-800 kimi standart klass istifadə olundu */
+    @apply text-xl md:text-3xl font-black text-slate-800 tracking-tight uppercase italic;
+}
+
+/* Grid Sistemi */
+.modules-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10;
+}
+
+/* Pagination Nöqtələri */
+.pagination-container {
+    @apply mt-20 flex justify-center gap-4;
+}
+
+.dot {
+    @apply w-3 h-3 rounded-full transition-all duration-300;
+}
+
+.dot-active {
+    @apply bg-tertiary shadow-[0_0_15px_rgba(254,179,0,0.8)] scale-150;
+}
+
+.dot-inactive {
+    @apply bg-primary/40 hover:bg-primary/60 cursor-pointer;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+}

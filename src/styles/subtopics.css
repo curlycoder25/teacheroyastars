@@ -1,0 +1,47 @@
+/* Başlıq Bölməsi */
+.subtopics-header {
+    @apply mb-12 text-center pt-8;
+}
+
+.subtopics-title {
+    /* Navbar-a uyğun: Düz (italic deyil), Böyük və Qalın */
+    @apply text-4xl md:text-6xl font-black text-slate-900 mb-4 tracking-tighter uppercase;
+}
+
+.subtopics-subtitle {
+    @apply text-slate-500 text-base md:text-lg font-medium leading-relaxed max-w-md mx-auto;
+}
+
+/* Kartların Konteyneri - Macbook-da çox yayılmasın deyə max-w-4xl */
+.subtopics-container {
+    @apply space-y-6 max-w-4xl mx-auto px-4;
+}
+
+/* Motivasiya Bloku (Aşağıdakı Raket qutusu) */
+.motivation-wrapper {
+    @apply mt-20 flex justify-center pb-12;
+}
+
+.motivation-card {
+    @apply p-12 bg-white/40 backdrop-blur-xl rounded-[48px] text-center w-full max-w-md border border-white shadow-sm relative overflow-hidden transition-all duration-500;
+}
+
+.motivation-gradient {
+    @apply absolute inset-0 bg-gradient-to-br from-[#feb300]/10 to-transparent pointer-events-none;
+}
+
+.motivation-icon-circle {
+    @apply w-24 h-24 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-500;
+}
+
+.motivation-title {
+    @apply font-black text-slate-800 text-xl tracking-tight;
+}
+
+.motivation-subtitle {
+    @apply text-slate-400 text-xs font-black uppercase tracking-[0.2em] mt-3 leading-relaxed;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+}

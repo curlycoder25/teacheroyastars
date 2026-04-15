@@ -1,11 +1,15 @@
 ---
-// hideNavbar əlavə edildi
 const { title, hideHeader = false, hideNavbar = false, isIndex = false } = Astro.props; 
 const pathname = Astro.url.pathname;
 const currentPath = pathname.replace(/^\/|\/$/g, "");
 
-const activeClass = "bg-[#b5161e] text-white rounded-full px-5 py-2 flex flex-col items-center transition-all duration-300 shadow-md scale-95";
-const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5 py-2 transition-all duration-300 hover:opacity-100";
+// Mobil Stillər (Aşağıdakı yuvarlaq navbar)
+const mobileActiveClass = "bg-[#b5161e] text-white rounded-full px-5 py-2 flex flex-col items-center transition-all duration-300 shadow-md scale-95";
+const mobileInactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5 py-2 transition-all duration-300 hover:opacity-100";
+
+// Desktop Stillər (Yuxarıdakı navbar - İtalic/Maili ləğv edildi)
+const desktopActiveClass = "text-[#b5161e] font-black border-b-2 border-[#b5161e] pb-1 flex items-center gap-2 transition-all text-xl uppercase tracking-tighter";
+const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-100 flex items-center gap-2 transition-all text-xl uppercase tracking-tighter";
 ---
 
 <html lang="az">
@@ -22,7 +26,7 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
 
         <style is:global>
-            body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; -webkit-tap-highlight-color: transparent; }
+            body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
             .material-symbols-outlined {
                 font-family: 'Material Symbols Outlined' !important;
                 font-size: 24px;
@@ -34,28 +38,52 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
                 background: radial-gradient(circle at top right, #e2e8f0, #f3f6ff);
                 min-height: 100vh;
             }
-            ::-webkit-scrollbar { width: 0px; background: transparent; }
+            ::-webkit-scrollbar { width: 0px; }
+            
+            @media (min-width: 1024px) {
+                .mobile-nav { display: none; }
+            }
         </style>
     </head>
     
     <body class="bg-[#f3f6ff] text-[#213041] celestial-bg relative overflow-x-hidden">
         
         {!hideHeader && (
-            <header class="fixed top-0 w-full z-50 bg-[#f3f6ff]/80 backdrop-blur-xl border-b border-[#d1e4ff]">
-                <div class="flex items-center justify-between px-6 py-4 max-w-5xl mx-auto">
-                    <div class="flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[#b5161e]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                        <h1 class="text-xl font-black tracking-tighter">
-                            <span class="text-[#155f98]">Teacher </span><span class="text-[#b5161e]">Roya’s</span> <span class="text-[#155f98]">Stars</span>
-                        </h1>
+            <header class="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-[#d1e4ff]">
+                <div class="flex items-center justify-between px-10 py-5 w-full mx-auto">
+                    
+                    <div class="flex-1 flex justify-start">
+                        <div class="flex items-center gap-2 group cursor-pointer">
+                            <span class="material-symbols-outlined text-[#b5161e] !text-4xl transition-transform group-hover:rotate-12" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            <h1 class="text-2xl md:text-3xl font-black tracking-tighter uppercase leading-none">
+                                <span class="text-[#155f98]">Teacher </span><span class="text-[#b5161e]">Roya’s</span> <span class="text-[#155f98]">Stars</span>
+                            </h1>
+                        </div>
                     </div>
 
-                    <div>
+                    {!hideNavbar && (
+                        <nav class="hidden lg:flex items-center gap-16">
+                            <a href="/" class={currentPath === "" ? desktopActiveClass : desktopInactiveClass + " no-underline"}>
+                                <span class="material-symbols-outlined !text-2xl">home</span> Home
+                            </a>
+                            <a href="/topics" class={currentPath === "topics" ? desktopActiveClass : desktopInactiveClass + " no-underline"}>
+                                <span class="material-symbols-outlined !text-2xl">rocket_launch</span> Topics
+                            </a>
+                            <a href="/exam" class={currentPath === "exam" ? desktopActiveClass : desktopInactiveClass + " no-underline"}>
+                                <span class="material-symbols-outlined !text-2xl">quiz</span> Exam
+                            </a>
+                        </nav>
+                    )}
+
+                    <div class="flex-1 flex justify-end">
                         {isIndex ? (
-                            <button class="font-bold text-[#b5161e] text-sm active:scale-90 transition-transform">Sign Up</button>
+                            <button class="bg-[#b5161e] text-white px-10 py-3 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl shadow-red-900/20">Sign Up</button>
                         ) : (
-                            <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-[#d1e4ff] shadow-sm bg-[#83bdfd] flex items-center justify-center text-white font-bold text-xs">
-                                JD
+                            <div class="flex items-center gap-3 bg-[#d1e4ff]/30 pl-6 pr-2 py-1.5 rounded-full border border-[#d1e4ff] hover:bg-[#d1e4ff]/50 transition-all cursor-pointer">
+                                <span class="text-sm font-black uppercase tracking-[0.2em] text-[#155f98]">Stellar Student</span>
+                                <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-sm bg-[#83bdfd] flex items-center justify-center text-white font-bold">
+                                    <span class="text-xs">JD</span>
+                                </div>
                             </div>
                         )}
                     </div>
@@ -64,37 +92,35 @@ const inactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5
         )}
 
         <main class:list={[
-            "px-6 max-w-5xl mx-auto relative",
-            {"pt-24": !hideHeader}, // Header varsa padding
-            {"pt-8": hideHeader},  // Header yoxdursa az padding
-            {"pb-32": !hideNavbar}, // Navbar varsa padding
-            {"pb-8": hideNavbar}   // Navbar yoxdursa az padding
+            "px-10 max-w-[1500px] mx-auto relative",
+            {"pt-32": !hideHeader}, 
+            {"pb-32 lg:pb-12": !hideNavbar}
         ]}>
             <slot />
         </main>
 
         {!hideNavbar && (
-            <nav class="fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl rounded-t-[2.5rem] shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 pb-8 pt-4 flex justify-around items-center border-t border-white/50">
+            <nav class="mobile-nav lg:hidden fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl rounded-t-[2.5rem] shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 pb-8 pt-4 flex justify-around items-center border-t border-white/50">
                 <a href="/" class="flex flex-col items-center no-underline">
-                    <div class={currentPath === "" ? activeClass : inactiveClass}>
+                    <div class={currentPath === "" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "" ? "font-variation-settings: 'FILL' 1;" : ""}>home</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Home</span>
                     </div>
                 </a>
                 <a href="/topics" class="flex flex-col items-center no-underline">
-                    <div class={currentPath === "topics" ? activeClass : inactiveClass}>
+                    <div class={currentPath === "topics" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "topics" ? "font-variation-settings: 'FILL' 1;" : ""}>rocket_launch</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Topics</span>
                     </div>
                 </a>
                 <a href="/exam" class="flex flex-col items-center no-underline">
-                    <div class={currentPath === "exam" ? activeClass : inactiveClass}>
+                    <div class={currentPath === "exam" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "exam" ? "font-variation-settings: 'FILL' 1;" : ""}>quiz</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Exam</span>
                     </div>
                 </a>
                 <a href="/profile" class="flex flex-col items-center no-underline">
-                    <div class={currentPath === "profile" ? activeClass : inactiveClass}>
+                    <div class={currentPath === "profile" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "profile" ? "font-variation-settings: 'FILL' 1;" : ""}>person</span>
                         <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Profile</span>
                     </div>
