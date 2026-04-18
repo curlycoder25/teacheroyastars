@@ -1,0 +1,52 @@
+/* Ana Section */
+.welcome-section {
+    @apply flex flex-col items-center justify-center py-12 text-center space-y-10 relative overflow-hidden min-h-[80vh];
+}
+
+/* Böyük Ulduz İkonu */
+.welcome-star-container {
+    @apply relative mb-4;
+}
+
+.welcome-star-glow {
+    @apply absolute inset-0 bg-[#feb300] blur-3xl opacity-20 animate-pulse transition-opacity;
+}
+
+.welcome-title {
+    /* Navbar stili: Düz, Qalın, Böyük */
+    @apply text-3xl md:text-5xl font-black text-[#213041] uppercase tracking-tighter leading-tight;
+}
+
+.welcome-subtitle {
+    @apply text-slate-500 font-medium max-w-md mx-auto leading-relaxed text-sm md:text-base;
+}
+
+/* Seçim Kartları */
+.welcome-grid {
+    @apply grid grid-cols-1 gap-5 w-full max-w-md px-6 mx-auto;
+}
+
+.welcome-card {
+    @apply p-8 bg-white rounded-[32px] md:rounded-[40px] border-2 border-slate-100 transition-all no-underline text-left flex items-center gap-6 active:scale-95 shadow-lg shadow-blue-900/5;
+}
+
+/* Kart daxili ikonlar */
+.card-icon-box {
+    @apply text-white p-5 rounded-[20px] md:rounded-[24px] shadow-xl transition-transform duration-300;
+}
+
+.icon-red { @apply bg-[#af101a] shadow-red-900/20; }
+.icon-blue { @apply bg-[#155f98] shadow-blue-900/20; }
+
+.card-title {
+    @apply font-black text-slate-800 text-base md:text-lg uppercase tracking-tight;
+}
+
+.card-subtitle {
+    @apply text-[10px] text-slate-400 font-black uppercase tracking-widest mt-1;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+}

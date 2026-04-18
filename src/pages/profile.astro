@@ -1,5 +1,6 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import '../styles/profile.css';
 
 // User Data
 const user = {
@@ -18,100 +19,100 @@ const themes = [
     { name: "Yellow", color: "bg-[#feb300]" },
     { name: "Pink", color: "bg-pink-400" },
     { name: "Purple", color: "bg-purple-600" },
-    { name: "Red", color: "bg-[#b5161e]" }
+    { name: "Red", color: "bg-[#af101a]" }
 ];
 ---
 
 <MainLayout title="My Profile" isUserLoggedIn={true}>
         
-        <section class="relative bg-white rounded-[48px] p-10 shadow-xl shadow-[#155f98]/5 flex flex-col items-center overflow-hidden border border-primary/5">
-            <div class="absolute -top-6 -right-6 text-[#feb300] opacity-30 transform rotate-12">
-                <span class="material-symbols-outlined !text-8xl" style="font-variation-settings: 'FILL' 1;">star</span>
+        <section class="profile-card">
+            <div class="profile-star-decor">
+                <span class="material-symbols-outlined !text-8xl">star</span>
             </div>
             
             <div class="relative">
-                <div class="w-36 h-36 rounded-full overflow-hidden border-4 border-[#f3f6ff] p-1 shadow-2xl bg-white">
-                    <div class="w-full h-full bg-[#83bdfd] rounded-full flex items-center justify-center text-white text-4xl font-black italic uppercase tracking-tighter">
+                <div class="avatar-container">
+                    <div class="avatar-placeholder">
                         {user.initials}
                     </div>
                 </div>
-                <button class="absolute bottom-1 right-1 bg-[#155f98] text-white p-3 rounded-full shadow-lg active:scale-90 transition-transform border-4 border-white flex items-center justify-center">
-                    <span class="material-symbols-outlined text-lg">photo_camera</span>
+                <button class="avatar-upload-btn">
+                    <span class="material-symbols-outlined !text-lg">photo_camera</span>
                 </button>
             </div>
             
-            <div class="mt-8 text-center">
-                <h2 class="text-3xl font-black text-[#213041] tracking-tight italic uppercase">{user.name} {user.surname}</h2>
-                <div class="inline-flex items-center gap-2 mt-2 bg-[#feb300]/10 px-4 py-1.5 rounded-full border border-[#feb300]/20">
-                    <span class="material-symbols-outlined text-[#feb300] text-lg filled-icon" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
-                    <span class="text-[#213041] font-black text-[10px] uppercase tracking-[0.15em]">{user.status}</span>
+            <div class="text-center">
+                <h2 class="profile-name">{user.name} {user.surname}</h2>
+                <div class="inline-flex items-center gap-2 mt-3 bg-[#feb300]/10 px-4 py-1.5 rounded-full border border-yellow-200/50">
+                    <span class="material-symbols-outlined text-[#feb300] !text-lg">workspace_premium</span>
+                    <span class="text-[#213041] font-black text-[10px] uppercase tracking-widest">{user.status}</span>
                 </div>
             </div>
         </section>
 
-        <section class="space-y-4">
-            <div class="flex items-center gap-2 px-4 italic">
-                <span class="material-symbols-outlined text-[#155f98]">person_outline</span>
-                <h3 class="text-lg font-black text-[#213041] uppercase tracking-tight">Account Details</h3>
+        <section class="section-wrapper">
+            <div class="section-label">
+                <span class="material-symbols-outlined !text-xl text-[#155f98]">person</span>
+                <h3 class="section-label-text">Account Details</h3>
             </div>
             
-            <form class="bg-white rounded-[40px] p-8 space-y-6 border border-primary/5 shadow-md">
+            <form class="profile-form">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">First Name</label>
-                        <input type="text" value={user.name} class="w-full bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-primary/5 italic outline-none focus:ring-2 focus:ring-[#155f98]/20 transition-all" />
+                    <div class="input-group">
+                        <label class="field-label">First Name</label>
+                        <input type="text" value={user.name} class="profile-input" />
                     </div>
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">Last Name</label>
-                        <input type="text" value={user.surname} class="w-full bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-primary/5 italic outline-none focus:ring-2 focus:ring-[#155f98]/20 transition-all" />
+                    <div class="input-group">
+                        <label class="field-label">Last Name</label>
+                        <input type="text" value={user.surname} class="profile-input" />
                     </div>
                 </div>
 
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">Email Address</label>
+                <div class="input-group">
+                    <label class="field-label">Email Address</label>
                     <div class="relative flex items-center">
-                        <input type="email" value={user.email} class="w-full bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-primary/5 italic outline-none" readonly />
-                        <span class="material-symbols-outlined text-emerald-500 text-xl absolute right-4" style="font-variation-settings: 'FILL' 1;">verified</span>
+                        <input type="email" value={user.email} class="profile-input opacity-70 cursor-not-allowed" readonly />
+                        <span class="material-symbols-outlined text-emerald-500 absolute right-4">verified</span>
                     </div>
                 </div>
 
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-[0.2em] text-[#213041]/40 ml-2">Mobile Number</label>
-                    <input type="tel" value={user.phone} class="w-full bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-primary/5 italic outline-none focus:ring-2 focus:ring-[#155f98]/20 transition-all" />
+                <div class="input-group">
+                    <label class="field-label">Mobile Number</label>
+                    <input type="tel" value={user.phone} class="profile-input" />
                 </div>
 
                 <div class="pt-4">
-                    <button type="submit" class="w-full bg-[#155f98] text-white py-5 rounded-full font-black flex items-center justify-center gap-3 active:scale-95 transition-all shadow-xl shadow-[#155f98]/20 uppercase text-xs tracking-[0.2em] italic">
-                        <span class="material-symbols-outlined">save</span>
+                    <button type="submit" class="btn-save">
+                        <span class="material-symbols-outlined !text-xl">save</span>
                         Save Galaxy Changes
                     </button>
                 </div>
             </form>
         </section>
 
-        <section class="space-y-4">
-            <div class="flex items-center gap-2 px-4 italic">
-                <span class="material-symbols-outlined text-[#155f98]">palette</span>
-                <h3 class="text-lg font-black text-[#213041] uppercase tracking-tight">Interface Theme</h3>
+        <section class="section-wrapper">
+            <div class="section-label">
+                <span class="material-symbols-outlined !text-xl text-[#155f98]">palette</span>
+                <h3 class="section-label-text">Interface Theme</h3>
             </div>
             
-            <div class="bg-white rounded-[40px] p-8 border border-primary/5 shadow-md">
-                <div class="grid grid-cols-3 sm:grid-cols-6 gap-4">
+            <div class="profile-form">
+                <div class="theme-grid">
                     {themes.map((theme) => (
-                        <button class={`flex flex-col items-center gap-3 p-4 rounded-3xl transition-all active:scale-90 border-2 ${theme.active ? 'bg-[#f3f6ff] border-[#155f98] shadow-sm' : 'bg-transparent border-transparent'}`}>
-                            <div class={`w-10 h-10 rounded-full ${theme.color} shadow-inner flex items-center justify-center border-4 border-white`}>
-                                {theme.active && <span class="material-symbols-outlined text-white text-base font-bold">check</span>}
+                        <button class={`theme-btn ${theme.active ? 'bg-blue-50 border-blue-400 shadow-sm' : 'bg-transparent border-transparent'}`}>
+                            <div class={`w-10 h-10 rounded-full ${theme.color} border-4 border-white shadow-inner flex items-center justify-center`}>
+                                {theme.active && <span class="material-symbols-outlined text-white !text-sm">check</span>}
                             </div>
-                            <span class="text-[9px] font-black uppercase tracking-tighter text-[#213041]/60">{theme.name}</span>
+                            <span class="text-[9px] font-black uppercase text-slate-500">{theme.name}</span>
                         </button>
                     ))}
                 </div>
             </div>
         </section>
 
-        <section class="pt-6 pb-12">
-            <a href="/" class="w-full bg-white border-4 border-[#b5161e]/10 text-[#b5161e] py-5 rounded-full font-black flex items-center justify-center gap-3 active:bg-[#b5161e]/5 transition-all shadow-sm no-underline uppercase text-xs tracking-[0.2em] italic">
-                <span class="material-symbols-outlined">logout</span>
+        <section class="max-w-[1000px] mx-auto pb-20">
+            <a href="/login" class="btn-logout">
+                <span class="material-symbols-outlined !text-xl">logout</span>
                 Secure Sign Out
             </a>
         </section>

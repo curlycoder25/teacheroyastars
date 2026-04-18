@@ -1,0 +1,68 @@
+/* Başlıq Bölməsi */
+.exam-hero {
+    @apply space-y-4 mb-12 px-4 pt-6 max-w-[1200px] mx-auto;
+}
+
+.exam-hero-title {
+    @apply text-3xl md:text-5xl lg:text-6xl font-black text-[#213041] tracking-tighter leading-tight uppercase;
+}
+
+.exam-hero-subtitle {
+    @apply text-[#213041]/60 font-medium text-base md:text-lg italic pr-4;
+}
+
+/* Bölmə Başlıqları (Listening, Grammar və s.) */
+.section-label {
+    @apply flex items-center gap-3 px-4 mb-6 max-w-[1200px] mx-auto;
+}
+
+.section-label-text {
+    @apply text-xl md:text-2xl font-black text-[#213041] uppercase tracking-tight;
+}
+
+/* Ağ Kartlar (Listening & Writing) */
+.exam-card-white {
+    @apply relative bg-white p-8 md:p-12 rounded-[32px] md:rounded-[48px] shadow-xl shadow-blue-900/5 overflow-hidden border border-slate-100 mb-12 max-w-[1200px] mx-auto;
+}
+
+/* Audio Player Bloku */
+.audio-player {
+    @apply bg-[#f3f6ff] p-6 md:p-8 rounded-[24px] md:rounded-[32px] flex flex-col md:flex-row items-center gap-6 border border-[#d1e4ff];
+}
+
+/* Rəngli Kartlar (Grammar Test - Background Red/Blue) */
+.exam-card-colored {
+    @apply bg-[#155f98] p-8 md:p-12 rounded-[32px] md:rounded-[48px] shadow-2xl shadow-blue-900/20 relative overflow-hidden mb-12 border-4 border-white/5 max-w-[1200px] mx-auto;
+}
+
+/* Test Variantları */
+.test-option-btn {
+    @apply flex items-center justify-between p-5 md:p-6 rounded-[20px] md:rounded-[28px] font-black uppercase text-xs md:text-sm transition-all active:scale-[0.98] text-left w-full;
+}
+
+.option-default {
+    @apply bg-white/10 text-white border border-white/10 hover:bg-white/20;
+}
+
+.option-selected {
+    @apply bg-white text-[#155f98] shadow-xl;
+}
+
+/* Textarea / Input Sahələri */
+.exam-textarea {
+    @apply w-full bg-[#f3f6ff] border-none rounded-[24px] md:rounded-[32px] p-6 md:p-8 font-bold text-[#213041] focus:ring-4 focus:ring-primary/10 transition-all outline-none min-h-[150px] text-sm md:text-base;
+}
+
+/* Image Description Grid */
+.image-exam-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20 max-w-[1200px] mx-auto;
+}
+
+.exam-image-container {
+    @apply rounded-[32px] md:rounded-[48px] overflow-hidden h-full min-h-[300px] shadow-lg border-4 border-white;
+}
+
+/* Material Symbols Default */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
+}
