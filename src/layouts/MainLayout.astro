@@ -3,11 +3,11 @@ const { title, hideHeader = false, hideNavbar = false, isIndex = false } = Astro
 const pathname = Astro.url.pathname;
 const currentPath = pathname.replace(/^\/|\/$/g, "");
 
-// Mobil Stillər
-const mobileActiveClass = "bg-[#b5161e] text-white rounded-full px-5 py-2 flex flex-col items-center transition-all duration-300 shadow-md scale-95";
-const mobileInactiveClass = "text-[#213041] opacity-60 flex flex-col items-center px-5 py-2 transition-all duration-300 hover:opacity-100";
+// Mobil Naviqasiya Stilləri
+const mobileActiveClass = "bg-[#b5161e] text-white rounded-full px-4 py-2 flex flex-col items-center transition-all duration-300 shadow-md scale-95";
+const mobileInactiveClass = "text-[#213041] opacity-50 flex flex-col items-center px-4 py-2 transition-all duration-300";
 
-// Desktop Stillər (Daha incə və zərif)
+// Desktop Naviqasiya Stilləri
 const desktopActiveClass = "text-[#b5161e] font-black border-b-2 border-[#b5161e] pb-1 flex items-center gap-2 transition-all text-sm uppercase tracking-widest";
 const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-100 flex items-center gap-2 transition-all text-sm uppercase tracking-widest";
 ---
@@ -15,7 +15,7 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
 <html lang="az">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
         <title>{title} | Teacher Roya’s Stars</title>
         
         <script src="https://cdn.tailwindcss.com"></script>
@@ -26,18 +26,52 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet"/>
 
         <style is:global>
-            body { font-family: 'Plus Jakarta Sans', sans-serif; margin: 0; }
+            body { 
+                font-family: 'Plus Jakarta Sans', sans-serif; 
+                margin: 0; 
+                -webkit-tap-highlight-color: transparent;
+            }
+            
             .material-symbols-outlined {
                 font-family: 'Material Symbols Outlined' !important;
-                font-size: 20px; /* Daha incə ikonlar */
+                font-size: 20px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
+
+            /* MOBİL ÜÇÜN MASTER DÜZƏLİŞLƏR */
+            @media (max-width: 768px) {
+                /* Başlıqların ekranı boğmasının qarşısını alırıq */
+                h1 { font-size: 1.5rem !important; line-height: 1.2 !important; }
+                h2 { font-size: 1.25rem !important; line-height: 1.2 !important; }
+                
+                /* İkonların mobildə çox böyük olmamasını təmin edirik */
+                .material-symbols-outlined.!text-9xl { font-size: 5rem !important; }
+                .material-symbols-outlined.!text-[120px] { font-size: 4rem !important; }
+                .material-symbols-outlined.!text-[180px] { font-size: 6rem !important; }
+
+                /* Kartların daxili boşluqlarını (padding) sığallayırıq */
+                section, .signup-card, .login-card, .lesson-card, .question-container, .feedback-container {
+                    padding-left: 1.5rem !important;
+                    padding-right: 1.5rem !important;
+                    border-radius: 32px !important;
+                }
+                
+                /* Ulduzların (Rate) mobildə yan-yana sığması üçün */
+                .flex.justify-center.gap-4 {
+                    gap: 0.5rem !important;
+                }
+                .material-symbols-outlined.!text-[44px] {
+                    font-size: 32px !important;
+                }
+            }
+
             .celestial-bg {
                 background: radial-gradient(circle at top right, #e2e8f0, #f3f6ff);
                 min-height: 100vh;
             }
+            
             ::-webkit-scrollbar { width: 0px; }
             
             @media (min-width: 1024px) {
@@ -50,19 +84,19 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
         
         {!hideHeader && (
             <header class="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-[#d1e4ff]">
-                <div class="flex items-center justify-between px-10 py-3 w-full max-w-[1300px] mx-auto">
+                <div class="flex items-center justify-between px-6 md:px-10 py-3 w-full max-w-[1300px] mx-auto">
                     
                     <div class="flex-1 flex justify-start">
-                        <a href="/" class="flex items-center gap-2 group cursor-pointer no-underline">
-                            <span class="material-symbols-outlined text-[#b5161e] !text-3xl transition-transform group-hover:rotate-12" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
-                            <h1 class="text-xl font-black tracking-tighter uppercase leading-none">
-                                <span class="text-[#155f98]">Teacher </span><span class="text-[#b5161e]">Roya’s</span> <span class="text-[#155f98]">Stars</span>
+                        <a href="/" class="flex items-center gap-1.5 group no-underline">
+                            <span class="material-symbols-outlined text-[#b5161e] !text-2xl md:!text-3xl transition-transform" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                            <h1 class="text-lg md:text-xl font-black tracking-tighter uppercase leading-none">
+                                <span class="text-[#155f98]">Teacher </span><span class="text-[#af101a]">Roya’s</span> <span class="text-[#155f98] hidden sm:inline">Stars</span>
                             </h1>
                         </a>
                     </div>
 
                     {!hideNavbar && (
-                        <nav class="hidden lg:flex items-center gap-10">
+                        <nav class="hidden lg:flex items-center gap-8">
                             <a href="/" class={currentPath === "" ? desktopActiveClass : desktopInactiveClass + " no-underline"}>
                                 <span class="material-symbols-outlined">home</span> Home
                             </a>
@@ -77,13 +111,13 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
 
                     <div class="flex-1 flex justify-end">
                         {isIndex ? (
-                            <button class="bg-[#b5161e] text-white px-8 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-red-900/10">Sign Up</button>
+                            <button class="bg-[#af101a] text-white px-5 md:px-8 py-2 md:py-2.5 rounded-full font-bold text-xs md:text-sm shadow-lg shadow-red-900/10">Sign Up</button>
                         ) : (
-                            <a href="/profile" class="flex flex-col items-center gap-0.5 group no-underline transition-all active:scale-95">
-                                <div class="w-9 h-9 rounded-full bg-[#83bdfd] flex items-center justify-center text-white font-bold text-[10px] border-2 border-white shadow-sm group-hover:shadow-md transition-all">
+                            <a href="/profile" class="flex flex-col items-center gap-0.5 group no-underline">
+                                <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-[#83bdfd] flex items-center justify-center text-white font-bold text-[10px] border-2 border-white shadow-sm">
                                     JD
                                 </div>
-                                <span class="text-[8px] font-black uppercase tracking-widest text-[#155f98] opacity-50 group-hover:opacity-100 transition-opacity">
+                                <span class="text-[7px] md:text-[8px] font-black uppercase tracking-widest text-[#155f98] opacity-50">
                                     Profile
                                 </span>
                             </a>
@@ -94,37 +128,37 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
         )}
 
         <main class:list={[
-            "px-6 md:px-10 max-w-[1300px] mx-auto relative",
-            {"pt-24": !hideHeader}, 
+            "px-4 md:px-10 max-w-[1300px] mx-auto relative",
+            {"pt-20 md:pt-28": !hideHeader}, 
             {"pb-32 lg:pb-12": !hideNavbar}
         ]}>
             <slot />
         </main>
 
         {!hideNavbar && (
-            <nav class="mobile-nav lg:hidden fixed bottom-0 left-0 w-full z-50 bg-white/90 backdrop-blur-xl rounded-t-[2.5rem] shadow-[0_-8px_30px_rgb(0,0,0,0.06)] px-2 pb-8 pt-4 flex justify-around items-center border-t border-white/50">
-                <a href="/" class="flex flex-col items-center no-underline">
+            <nav class="mobile-nav lg:hidden fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl rounded-t-[2rem] shadow-[0_-4px_20px_rgba(0,0,0,0.05)] px-4 pb-6 pt-3 flex justify-around items-center border-t border-white/50">
+                <a href="/" class="no-underline">
                     <div class={currentPath === "" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "" ? "font-variation-settings: 'FILL' 1;" : ""}>home</span>
-                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Home</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest mt-0.5">Home</span>
                     </div>
                 </a>
-                <a href="/topics" class="flex flex-col items-center no-underline">
+                <a href="/topics" class="no-underline">
                     <div class={currentPath === "topics" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "topics" ? "font-variation-settings: 'FILL' 1;" : ""}>rocket_launch</span>
-                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Topics</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest mt-0.5">Topics</span>
                     </div>
                 </a>
-                <a href="/exam" class="flex flex-col items-center no-underline">
+                <a href="/exam" class="no-underline">
                     <div class={currentPath === "exam" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "exam" ? "font-variation-settings: 'FILL' 1;" : ""}>quiz</span>
-                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Exam</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest mt-0.5">Exam</span>
                     </div>
                 </a>
-                <a href="/profile" class="flex flex-col items-center no-underline">
+                <a href="/profile" class="no-underline">
                     <div class={currentPath === "profile" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined" style={currentPath === "profile" ? "font-variation-settings: 'FILL' 1;" : ""}>person</span>
-                        <span class="text-[10px] font-bold uppercase tracking-widest mt-0.5">Profile</span>
+                        <span class="text-[9px] font-bold uppercase tracking-widest mt-0.5">Profile</span>
                     </div>
                 </a>
             </nav>
