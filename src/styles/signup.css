@@ -5,20 +5,22 @@
 
 /* Əsas Kontent Konteyneri */
 .signup-section {
-    @apply flex flex-col items-center justify-center min-h-[90vh] relative py-12 px-6;
+    /* Mobildə py-8, Desktopda py-12 */
+    @apply flex flex-col items-center justify-center min-h-[90vh] relative py-8 md:py-12 px-4 md:px-6;
 }
 
 /* Sign Up Kartı */
 .signup-card {
-    @apply w-full max-w-md bg-white rounded-[40px] md:rounded-[48px] p-8 md:p-12 shadow-2xl shadow-blue-900/5 border border-white/40 relative mx-auto;
+    /* Mobildə p-6 və daha kiçik radius */
+    @apply w-full max-w-md bg-white rounded-[32px] md:rounded-[48px] p-6 md:p-12 shadow-2xl shadow-blue-900/5 border border-white/40 relative mx-auto;
 }
 
 .signup-title {
-    @apply text-2xl md:text-3xl font-black text-[#213041] tracking-tighter uppercase mb-2;
+    @apply text-xl md:text-3xl font-black text-[#213041] tracking-tighter uppercase mb-2;
 }
 
 .signup-subtitle {
-    @apply text-slate-400 text-sm font-medium;
+    @apply text-slate-400 text-[11px] md:text-sm font-medium;
 }
 
 /* Form Elementləri */
@@ -27,15 +29,33 @@
 }
 
 .signup-label {
-    @apply text-[10px] font-black uppercase tracking-widest text-[#155f98] ml-2;
+    @apply text-[9px] md:text-[10px] font-black uppercase tracking-widest text-[#155f98] ml-2;
 }
 
-/* İkonlar yoxdur, yazı soldan başlayır */
+/* INPUT DÜZƏLİŞİ */
 .signup-input {
-    @apply w-full px-6 py-4 bg-[#f3f6ff] border-none rounded-2xl focus:ring-4 focus:ring-blue-100 text-[#213041] font-bold outline-none transition-all placeholder:text-slate-300 text-sm;
+    /* py-3.5 mobildə daha zərifdir */
+    @apply w-full px-5 py-3.5 md:py-4 bg-[#f3f6ff] border-none rounded-2xl focus:ring-4 focus:ring-blue-100 text-[#213041] font-bold outline-none transition-all placeholder:text-slate-300 text-sm;
 }
 
-/* Düymə */
+/* DÜYMƏ DÜZƏLİŞİ (Yekun Mobil Ölçü) */
 .btn-signup {
-    @apply w-full bg-[#af101a] text-white py-5 mt-6 rounded-full font-black text-sm uppercase tracking-widest shadow-xl shadow-red-900/20 active:scale-95 transition-all flex items-center justify-center gap-2;
+    /* py-3.5: Mobildə düyməni incəldir
+       md:py-5: Desktopda normal hündürlüyü qaytarır
+       text-[10px]: Mobildə yazını zərif edir
+    */
+    @apply w-full bg-[#af101a] text-white py-3.5 md:py-5 mt-4 md:mt-6 rounded-full font-black text-[10px] md:text-sm uppercase tracking-widest shadow-xl shadow-red-900/20 active:scale-95 transition-all flex items-center justify-center gap-2;
+}
+
+/* Material İkonlar düymə daxilində kiçilsin */
+.btn-signup .material-symbols-outlined {
+    @apply !text-base md:!text-xl;
+}
+
+/* Əlavə mobil toxunuşlar */
+@media (max-width: 768px) {
+    .btn-signup {
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
+    }
 }
