@@ -43,15 +43,11 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
 
             /* MOBİL MASTER DÜZƏLİŞLƏR */
             @media (max-width: 768px) {
-                /* Loqo mətni çox kiçilməsin amma sığsın */
                 .logo-text { font-size: 11px !important; }
                 .logo-icon { font-size: 18px !important; }
-                
-                /* Başlıqlar */
                 h1 { font-size: 1.2rem !important; }
                 h2 { font-size: 1rem !important; }
                 
-                /* Kartların daxili boşluqları */
                 section, .signup-card, .login-card, .lesson-card, .question-container, .feedback-container {
                     padding-left: 1rem !important;
                     padding-right: 1rem !important;
@@ -60,8 +56,10 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
             }
 
             .celestial-bg {
+                /* Fon rəngi bütün bədəni əhatə etməlidir */
                 background: radial-gradient(circle at top right, #e2e8f0, #f3f6ff);
                 min-height: 100vh;
+                background-attachment: fixed;
             }
             
             ::-webkit-scrollbar { width: 0px; }
@@ -72,7 +70,7 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
         </style>
     </head>
     
-    <body class="bg-[#f3f6ff] text-[#213041] celestial-bg relative">
+    <body class="celestial-bg text-[#213041] relative">
         
         {!hideHeader && (
             <header class="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-[#d1e4ff]">
@@ -109,7 +107,7 @@ const desktopInactiveClass = "text-[#213041] opacity-60 font-bold hover:opacity-
         )}
 
         <main class:list={[
-            "px-3 md:px-10 max-w-[1300px] mx-auto relative",
+            "w-full relative", 
             {"pt-14 md:pt-28": !hideHeader}, 
             {"pb-32 lg:pb-12": !hideNavbar}
         ]}>
