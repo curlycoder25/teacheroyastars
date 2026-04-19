@@ -1,23 +1,56 @@
-/* Grid Sistemi: Mobildə nəhəng olmasın deyə max-width verdik */
-.modules-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-[500px] md:max-w-none mx-auto w-full px-4 md:px-0;
-}
-
+/* --- UNIVERSE BANNER (Təmiz və İncə Header) --- */
 .universe-banner {
-    @apply bg-[#155f98] text-white p-8 md:p-16 rounded-[32px] md:rounded-[48px] relative overflow-hidden shadow-2xl mb-10 mx-3 md:mx-0;
+    /* Raket və digər ikonlar tamamilə silindi */
+    @apply bg-[#155f98] text-white p-6 md:p-14 rounded-[20px] md:rounded-[40px] relative overflow-hidden shadow-lg mb-8 mx-3 md:mx-0 border-2 border-white/5;
+    min-height: auto;
 }
 
 .universe-title {
-    @apply text-2xl md:text-6xl font-black mb-4 leading-tight italic uppercase tracking-tight;
+    /* Başlıq tək və ya max 2 sətir, mərkəzə daha yaxın */
+    @apply text-xl md:text-5xl font-black mb-1 md:mb-3 italic uppercase tracking-tighter;
 }
 
 .universe-text {
-    @apply text-white/90 text-[11px] md:text-lg max-w-xl font-medium italic leading-relaxed;
+    /* Təsvir mətni incə və oxunaqlı */
+    @apply text-white/70 text-[10px] md:text-lg max-w-[280px] md:max-w-2xl font-medium italic leading-snug;
 }
 
-/* Mobildə bəzi ağır ikonları gizlədirik */
+/* Raketi və dekorativ ikonları tamamilə gizlədirik */
+.banner-icon-rocket, 
+.universe-banner span.absolute, 
+.universe-banner i, 
+.universe-banner .material-symbols-outlined {
+    display: none !important;
+}
+
+/* --- MODULES GRID --- */
+.modules-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 mx-auto w-full px-4 md:px-0;
+    /* Grid-in yuxarıdan bannerlə olan məsafəsi */
+    margin-top: 1rem; 
+}
+
+/* --- MOBİL ÜÇÜN MASTER DÜZƏLİŞLƏR --- */
 @media (max-width: 768px) {
-    .bg-decor-rocket, .banner-icon-rocket {
+    .universe-banner {
+        margin-left: 0.75rem !important;
+        margin-right: 0.75rem !important;
+        padding: 1.5rem !important; /* Çox incə hündürlük */
+    }
+
+    .universe-title {
+        font-size: 20px !important;
+        line-height: 1.1 !important;
+    }
+
+    .universe-text {
+        font-size: 10px !important;
+        max-width: 100% !important; /* Mətn artıq raket olmadığı üçün tam enə yayıla bilər */
+    }
+
+    /* Learning Modules yazısını gizlətmək üçün (əgər html-də ayrıca teqdirsə) */
+    h2.text-sm.font-bold.mb-4, 
+    .learning-modules-label {
         display: none !important;
     }
 }

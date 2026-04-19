@@ -5,14 +5,19 @@ import '../styles/topics.css';
 ---
 
 <MainLayout title="Topics">
-    <div class="bg-decor-star">
-        <span class="material-symbols-outlined !text-4xl text-tertiary">star</span>
-    </div>
-    <div class="bg-decor-rocket">
-        <span class="material-symbols-outlined !text-6xl text-primary">rocket_launch</span>
-    </div>
 
     <section class="universe-banner group hover:shadow-primary/40">
+        
+        <!-- Ulduz -->
+        <div class="bg-decor-star">
+            <span class="material-symbols-outlined !text-4xl text-tertiary">star</span>
+        </div>
+
+        <!-- Raket -->
+        <div class="bg-decor-rocket">
+            <span class="material-symbols-outlined !text-6xl text-primary">rocket_launch</span>
+        </div>
+
         <div class="relative z-10">
             <h2 class="universe-title">Your Learning<br/>Universe</h2>
             <p class="universe-text">
@@ -29,9 +34,12 @@ import '../styles/topics.css';
         </div>
     </section>
 
+    <!-- BURANI SİLDİK -->
+    <!--
     <div class="module-header">
         <h3 class="module-title">Learning Modules</h3>
     </div>
+    -->
 
     <div class="modules-grid">
         <Card 
@@ -68,4 +76,5 @@ import '../styles/topics.css';
         <div class="dot dot-inactive"></div>
         <div class="dot dot-inactive"></div>
     </div>
+
 </MainLayout>
