@@ -4,16 +4,17 @@ export default {
     theme: {
         extend: {
             colors: {
-                "primary": "var(--primary)",
-                "secondary": "var(--secondary)",
-                "tertiary": "var(--tertiary)",
-                "surface": "var(--surface)",
-                "on-surface": "var(--on-surface)",
-                "on-surface-variant": "var(--on-surface-variant)",
-                "surface-container-high": "var(--surface-container-high)",
-                "surface-container-lowest": "var(--surface-container-lowest)",
-                "primary-fixed": "var(--primary-fixed)",
-                "tertiary-container": "var(--tertiary-container)",
+                // Rəngləri funksiya vasitəsilə təyin edirik ki, opacity/60 işləsin
+                "primary": "withOpacityValue('--primary')",
+                "secondary": "withOpacityValue('--secondary')",
+                "tertiary": "withOpacityValue('--tertiary')",
+                "surface": "withOpacityValue('--surface')",
+                "on-surface": "withOpacityValue('--on-surface')",
+                "on-surface-variant": "withOpacityValue('--on-surface-variant')",
+                "surface-container-high": "withOpacityValue('--surface-container-high')",
+                "surface-container-lowest": "withOpacityValue('--surface-container-lowest')",
+                "primary-fixed": "withOpacityValue('--primary-fixed')",
+                "tertiary-container": "withOpacityValue('--tertiary-container')",
             },
             fontFamily: {
                 sans: ['Plus Jakarta Sans', 'sans-serif'],
@@ -26,4 +27,14 @@ export default {
         },
     },
     plugins: [],
+}
+
+// Opacity dəstəyi üçün köməkçi funksiya
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue !== undefined) {
+      return `rgba(var(${variable}), ${opacityValue})`;
+    }
+    return `rgb(var(${variable}))`;
+  };
 }
