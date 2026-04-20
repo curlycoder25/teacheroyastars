@@ -11,83 +11,95 @@
 /* Layout və Fon */
 .hero-section {
     @apply relative min-h-screen flex flex-col items-center justify-center py-8 md:py-12 px-4 overflow-hidden;
+    /* Arxa fon artıq mövzuya uyğun dəyişir */
+    background: radial-gradient(circle at top right, var(--surface-container-high), var(--surface));
 }
 
 .hero-gradient-overlay {
-    @apply absolute inset-0 opacity-10 pointer-events-none bg-gradient-to-b from-[#155f98] to-transparent;
+    /* Overlay rəngini primary rənginə bağladıq */
+    @apply absolute inset-0 opacity-5 pointer-events-none;
+    background: linear-gradient(to b, var(--primary), transparent);
 }
 
-/* Logo Dizaynı - Mobildə Kiçildildi */
+/* Logo Dizaynı */
 .logo-container {
-    @apply relative mb-8 md:mb-12 flex justify-center items-center;
+    @apply relative mb-6 md:mb-10 flex justify-center items-center;
 }
 
 .logo-star-icon {
-    @apply absolute -top-8 -right-4 text-[#feb300] animate-star;
+    /* Ulduz rəngi mövzuya görə dəyişir (Sarı/Pink) */
+    @apply absolute -top-6 -right-2 text-tertiary animate-star;
 }
 
 .logo-star-icon .material-symbols-outlined {
-    font-size: 32px !important; /* Mobildə ikon kiçildi */
+    font-size: 28px !important; 
 }
 
 @media (min-width: 768px) {
-    .logo-star-icon .material-symbols-outlined { font-size: 48px !important; }
+    .logo-star-icon .material-symbols-outlined { font-size: 42px !important; }
 }
 
 .logo-frame {
-    @apply bg-white rounded-full p-3 md:p-4 shadow-2xl shadow-[#155f98]/10 border-2 md:border-4 border-[#83bdfd]/20 relative overflow-hidden;
+    @apply bg-white rounded-full p-2 md:p-3 shadow-2xl border-2 border-surface-container-high relative overflow-hidden;
 }
 
 .logo-image-wrapper {
-    /* Mobildə 32 (128px), Desktopda 48 (192px) */
-    @apply w-32 h-32 md:w-48 md:h-48 rounded-full bg-[#83bdfd] flex items-center justify-center overflow-hidden;
+    @apply w-28 h-28 md:w-44 md:h-44 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden;
 }
 
-/* Tipoqrafiya (Mətnlər) - Daha zərif */
+/* Tipoqrafiya - Yazılar bir az kiçildildi */
 .hero-title {
-    /* text-2xl mobildə çox daha professional durur */
-    @apply text-2xl md:text-5xl lg:text-6xl font-black text-[#213041] tracking-tighter leading-tight px-2 uppercase italic text-center;
+    /* text-xl/text-4xl daha incə və professional görünür */
+    @apply text-xl md:text-4xl lg:text-5xl font-black text-on-surface tracking-tighter leading-tight px-2 uppercase italic text-center;
+}
+
+/* "English" sözü üçün dinamik rəng vurğusu */
+.hero-title span {
+    color: var(--secondary) !important;
 }
 
 .hero-subtitle {
-    /* text-xs mobildə daha "app-like" görünür */
-    @apply text-[#213041]/70 text-sm md:text-xl font-medium max-w-[280px] md:max-w-md mx-auto italic leading-relaxed text-center mt-3 md:mt-4;
+    @apply text-on-surface/60 text-[11px] md:text-lg font-medium max-w-[240px] md:max-w-md mx-auto italic leading-relaxed text-center mt-2 md:mt-4;
 }
 
-/* Düymələr - Hündürlük azaldıldı */
+/* Düymələr - Daha zərif hündürlük */
 .btn-container {
-    @apply flex flex-col sm:flex-row gap-3 mt-8 w-full max-w-lg mx-auto px-6;
+    @apply flex flex-col sm:flex-row gap-3 mt-6 w-full max-w-[400px] mx-auto px-6;
 }
 
 .btn-primary {
-    /* py-3.5 mobildə daha zərifdir */
-    @apply bg-[#b5161e] text-white py-3.5 md:py-5 px-8 rounded-full font-black text-sm md:text-lg shadow-xl shadow-[#b5161e]/20 active:scale-95 transition-all uppercase tracking-widest text-center no-underline sm:flex-1;
+    /* Qırmızıdan Pink-ə keçid secondary rəngi ilə */
+    @apply bg-secondary text-white py-3 md:py-4 px-6 rounded-full font-black text-[11px] md:text-sm shadow-lg active:scale-95 transition-all uppercase tracking-[0.2em] text-center no-underline sm:flex-1 italic;
+    box-shadow: 0 8px 20px -6px var(--secondary);
 }
 
 .btn-secondary {
-    @apply bg-white text-[#213041] py-3.5 md:py-5 px-8 rounded-full font-black text-sm md:text-lg border-2 border-[#d1e4ff] active:scale-95 transition-all backdrop-blur-md uppercase tracking-widest text-center no-underline sm:flex-1;
+    @apply bg-white text-on-surface py-3 md:py-4 px-6 rounded-full font-black text-[11px] md:text-sm border-2 border-surface-container-high active:scale-95 transition-all backdrop-blur-md uppercase tracking-[0.2em] text-center no-underline sm:flex-1 italic;
 }
 
-/* Statistika Kartları - Kompakt */
+/* Statistika Kartları - Daha kompakt */
 .stats-grid {
-    @apply mt-10 md:mt-16 grid grid-cols-2 gap-3 md:gap-8 w-full max-w-2xl mx-auto px-2;
+    @apply mt-8 md:mt-12 grid grid-cols-2 gap-3 md:gap-6 w-full max-w-xl mx-auto px-4;
 }
 
 .stat-card {
-    /* p-4 mobildə hündürlüyü azaldır */
-    @apply bg-white/50 backdrop-blur-sm p-4 md:p-8 rounded-[24px] md:rounded-[32px] flex flex-col items-center gap-2 md:gap-3 border border-[#d1e4ff] shadow-sm;
+    @apply bg-white/40 backdrop-blur-md p-3 md:p-6 rounded-[20px] md:rounded-[32px] flex flex-col items-center gap-2 border border-white/60 shadow-sm transition-all hover:shadow-md;
 }
 
 .stat-card-text {
-    @apply text-[8px] md:text-xs font-black uppercase tracking-widest text-[#213041]/50 text-center leading-tight;
+    @apply text-[7px] md:text-[10px] font-black uppercase tracking-widest text-on-surface/40 text-center leading-tight italic;
 }
 
+/* Ikon rəngləri mövzuya uyğun */
+.stat-card:first-child .material-symbols-outlined { color: var(--tertiary); }
+.stat-card:last-child .material-symbols-outlined { color: var(--secondary); }
+
 .stat-card .material-symbols-outlined {
-    font-size: 20px !important;
+    font-size: 18px !important;
 }
 
 @media (min-width: 768px) {
-    .stat-card .material-symbols-outlined { font-size: 28px !important; }
+    .stat-card .material-symbols-outlined { font-size: 24px !important; }
 }
 
 /* Material Symbols Default */

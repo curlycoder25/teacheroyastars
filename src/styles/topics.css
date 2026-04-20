@@ -1,33 +1,51 @@
-/* --- UNIVERSE BANNER (Təmiz və İncə Header) --- */
+/* --- UNIVERSE BANNER (Dinamik & İncə Header) --- */
 .universe-banner {
-    /* Raket və digər ikonlar tamamilə silindi */
-    @apply bg-[#155f98] text-white p-6 md:p-14 rounded-[20px] md:rounded-[40px] relative overflow-hidden shadow-lg mb-8 mx-3 md:mx-0 border-2 border-white/5;
+    /* Artıq #155f98 yox, var(--primary) istifadə edirik */
+    background-color: var(--primary) !important;
+    @apply text-white p-6 md:p-14 rounded-[20px] md:rounded-[40px] relative overflow-hidden shadow-lg mb-8 mx-3 md:mx-0 border-2 border-white/5;
     min-height: auto;
+    transition: background-color 0.3s ease;
 }
 
 .universe-title {
-    /* Başlıq tək və ya max 2 sətir, mərkəzə daha yaxın */
     @apply text-xl md:text-5xl font-black mb-1 md:mb-3 italic uppercase tracking-tighter;
 }
 
 .universe-text {
-    /* Təsvir mətni incə və oxunaqlı */
-    @apply text-white/70 text-[10px] md:text-lg max-w-[280px] md:max-w-2xl font-medium italic leading-snug;
+    /* Yazı rəngini də bir az yumşaldırıq ki, hər fonda yaxşı görünsün */
+    @apply text-white/80 text-[10px] md:text-lg max-w-[280px] md:max-w-2xl font-medium italic leading-snug;
 }
 
-/* Raketi və dekorativ ikonları tamamilə gizlədirik */
+/* Raketi və artıq qalan bütün ikonları gizlədirik */
 .banner-icon-rocket, 
 .universe-banner span.absolute, 
 .universe-banner i, 
-.universe-banner .material-symbols-outlined {
+.universe-banner .material-symbols-outlined,
+.banner-icon-magic {
     display: none !important;
 }
 
 /* --- MODULES GRID --- */
 .modules-grid {
     @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 mx-auto w-full px-4 md:px-0;
-    /* Grid-in yuxarıdan bannerlə olan məsafəsi */
     margin-top: 1rem; 
+}
+
+/* --- KARTLARIN CSS-DƏN GƏLƏN SƏRHƏDLƏRİNİ SİLİRİK --- */
+/* Əgər əvvəllər CSS-də .card və ya .module-card yazıb rəng vermisənsə, onları bura bağla */
+.modules-grid > * {
+    /* Kartların fonu data-theme-ə görə dəyişsin */
+    background-color: var(--surface-container-lowest) !important;
+    border-color: var(--surface-container-high) !important;
+    color: var(--on-surface) !important;
+}
+
+/* Qırmızı (Secondary) kartlar üçün dinamik rəng */
+.modules-grid > [class*="bg-secondary"],
+.modules-grid > .bg-secondary {
+    background-color: var(--secondary) !important;
+    color: white !important;
+    border: none !important;
 }
 
 /* --- MOBİL ÜÇÜN MASTER DÜZƏLİŞLƏR --- */
@@ -35,7 +53,7 @@
     .universe-banner {
         margin-left: 0.75rem !important;
         margin-right: 0.75rem !important;
-        padding: 1.5rem !important; /* Çox incə hündürlük */
+        padding: 1.75rem 1.25rem !important;
     }
 
     .universe-title {
@@ -45,12 +63,13 @@
 
     .universe-text {
         font-size: 10px !important;
-        max-width: 100% !important; /* Mətn artıq raket olmadığı üçün tam enə yayıla bilər */
+        max-width: 100% !important;
     }
 
-    /* Learning Modules yazısını gizlətmək üçün (əgər html-də ayrıca teqdirsə) */
+    /* Artıq qalan başlıqları gizlət */
     h2.text-sm.font-bold.mb-4, 
-    .learning-modules-label {
+    .learning-modules-label,
+    .module-header {
         display: none !important;
     }
 }

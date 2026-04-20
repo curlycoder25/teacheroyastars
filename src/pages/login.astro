@@ -6,49 +6,49 @@ import '../styles/login.css';
 <MainLayout title="Login" isIndex={true} hideHeader={true} hideNavbar={true}>
     
     <div class="login-bg-decor">
-        <div class="absolute top-[15%] left-[10%] text-[#155f98]/10">
-            <span class="material-symbols-outlined !text-9xl rotate-12">star</span>
+        <div class="absolute top-[10%] left-[5%] text-white/30">
+            <span class="material-symbols-outlined !text-[120px] md:!text-[200px] rotate-12">star</span>
         </div>
-        <div class="absolute bottom-[10%] right-[5%] text-[#feb300]/10">
-            <span class="material-symbols-outlined !text-[160px] -rotate-12">auto_awesome</span>
+        <div class="absolute bottom-[10%] right-[2%] text-white/20">
+            <span class="material-symbols-outlined !text-[140px] md:!text-[250px] -rotate-12">auto_awesome</span>
         </div>
     </div>
 
     <section class="login-section">
         
-        <div class="mb-10 text-center">
+        <div class="mb-8 md:mb-12 text-center">
             <div class="flex items-center justify-center mb-6">
-                <div class="p-4 bg-[#155f98] rounded-[28px] shadow-2xl shadow-blue-900/20">
+                <div class="p-4 bg-primary rounded-[28px] shadow-2xl shadow-primary/20">
                     <span class="material-symbols-outlined text-white text-4xl">auto_awesome</span>
                 </div>
             </div>
-            <h1 class="text-3xl font-black text-[#213041] tracking-tighter uppercase">
-                Teacher <span class="text-[#af101a]">Roya’s</span> Stars
+            <h1 class="text-2xl md:text-4xl font-black text-on-surface tracking-tighter uppercase italic">
+                Teacher <span class="text-secondary">Roya’s</span> Stars
             </h1>
-            <p class="text-slate-400 font-medium mt-2 text-sm">Your journey to the stars starts here.</p>
+            <p class="text-on-surface/50 font-medium mt-2 text-xs md:text-sm italic">Your journey to the stars starts here.</p>
         </div>
 
         <div class="login-card">
-            <div class="mb-8">
-                <h2 class="text-2xl font-black text-[#213041] uppercase tracking-tight">Welcome Back</h2>
-                <p class="text-slate-400 text-sm mt-1 font-medium">Please enter your credentials</p>
+            <div class="mb-10">
+                <h2 class="text-2xl md:text-3xl font-black text-on-surface uppercase tracking-tight italic">Welcome Back</h2>
+                <p class="text-on-surface/40 text-xs md:text-sm mt-1 font-medium italic">Please enter your credentials</p>
             </div>
 
-            <form id="login-form" class="space-y-5">
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-[#155f98] ml-2">Email Address</label>
+            <form id="login-form" class="space-y-6">
+                <div class="space-y-3">
+                    <label class="text-[10px] font-black uppercase tracking-[0.2em] text-primary ml-2">Email Address</label>
                     <input required class="login-input" placeholder="example@roya.edu" type="email" />
                 </div>
 
-                <div class="space-y-2">
+                <div class="space-y-3">
                     <div class="flex justify-between items-center px-2">
-                        <label class="text-[10px] font-black uppercase tracking-widest text-[#155f98]">Password</label>
-                        <a href="#" class="text-[10px] font-black text-[#af101a] uppercase hover:underline">Forgot?</a>
+                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-primary">Password</label>
+                        <a href="#" class="text-[10px] font-black text-secondary uppercase hover:underline tracking-widest">Forgot?</a>
                     </div>
                     <div class="relative flex items-center">
                         <input required class="login-input pr-12" placeholder="••••••••" type="password" />
-                        <button class="absolute right-4 text-slate-400 hover:text-primary" type="button">
-                            <span class="material-symbols-outlined text-lg">visibility</span>
+                        <button class="absolute right-5 text-on-surface/30 hover:text-primary transition-colors" type="button">
+                            <span class="material-symbols-outlined !text-xl">visibility</span>
                         </button>
                     </div>
                 </div>
@@ -58,20 +58,24 @@ import '../styles/login.css';
                 </button>
             </form>
 
-            <div class="mt-10 pt-8 border-t border-slate-50 text-center">
-                <p class="text-sm text-slate-400 font-medium">Don't have an account?</p>
-                <a class="inline-block mt-2 text-[#155f98] font-black uppercase text-xs tracking-widest hover:underline" href="/signup">Sign up for Teacher Roya’s Stars</a>
+            <div class="mt-10 pt-8 border-t border-surface-container-high text-center">
+                <p class="text-[11px] text-on-surface/40 font-black uppercase tracking-widest">Don't have an account?</p>
+                <a class="inline-block mt-3 text-secondary font-black uppercase text-[10px] tracking-[0.2em] hover:underline" href="/signup">Sign up for Teacher Roya’s Stars</a>
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-4 mt-8 w-full max-w-md px-2">
-            <div class="stat-card bg-blue-50 border-blue-100">
-                <span class="material-symbols-outlined text-blue-600 mb-1">school</span>
-                <span class="text-[9px] font-black text-blue-600 uppercase tracking-widest">Student Hub</span>
+        <div class="grid grid-cols-2 gap-4 mt-12 w-full max-w-md px-2">
+            <div class="hub-card group">
+                <div class="hub-icon-box bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined">school</span>
+                </div>
+                <span class="hub-text">Student Hub</span>
             </div>
-            <div class="stat-card bg-yellow-50 border-yellow-100">
-                <span class="material-symbols-outlined text-yellow-600 mb-1">star_rate</span>
-                <span class="text-[9px] font-black text-yellow-700 uppercase tracking-widest">Star Rewards</span>
+            <div class="hub-card group">
+                <div class="hub-icon-box bg-tertiary/10 text-tertiary">
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                </div>
+                <span class="hub-text">Star Rewards</span>
             </div>
         </div>
     </section>
@@ -87,3 +91,16 @@ import '../styles/login.css';
         });
     }
 </script>
+
+<style>
+    /* HUB KARTLARI ÜÇÜN XÜSUSİ STİLLƏR */
+    .hub-card {
+        @apply bg-white/60 backdrop-blur-md border border-white/40 p-4 rounded-[28px] flex flex-col items-center gap-3 transition-all cursor-pointer hover:bg-white hover:shadow-xl hover:-translate-y-1 active:scale-95;
+    }
+    .hub-icon-box {
+        @apply w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110;
+    }
+    .hub-text {
+        @apply text-[9px] font-black uppercase tracking-[0.2em] text-on-surface/60 group-hover:text-on-surface transition-colors;
+    }
+</style>

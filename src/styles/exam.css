@@ -1,62 +1,100 @@
-/* Başlıq Bölməsi */
+/* --- Başlıq Bölməsi --- */
 .exam-header {
     @apply mb-10 text-center relative pt-4;
 }
 
 .exam-header-icon {
     @apply absolute -top-10 -right-4 opacity-20 pointer-events-none select-none;
+    color: var(--secondary) !important;
 }
 
 .exam-title {
-    /* İtalic deyil, düz və yığcam font ölçüsü */
-    @apply text-3xl md:text-5xl font-black text-slate-800 tracking-tighter uppercase;
+    @apply text-3xl md:text-5xl font-black text-on-surface tracking-tighter uppercase italic;
 }
 
 .exam-subtitle {
-    @apply text-slate-500 font-medium text-sm md:text-base italic mt-2;
+    @apply text-on-surface/50 font-medium text-sm md:text-base italic mt-2;
 }
 
-/* Grid Sistemi */
+/* --- Grid Sistemi --- */
 .exam-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-[1200px] mx-auto;
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-[1200px] mx-auto px-4;
 }
 
-/* Star Commander Track (Alt Kapsul) */
+/* --- KARTLARIN DİNAMİK RƏNGLƏRİ (Məcburi Pink) --- */
+
+/* 1. Aktiv/Tünd Kart (Məsələn Grade 9 Exam - Köhnə Qırmızı) */
+.exam-grid > .bg-secondary, 
+.exam-grid > [class*="bg-secondary"],
+.exam-grid > [style*="#af101a"] {
+    background-color: var(--secondary) !important; /* Qırmızıdan Pink-ə keçid */
+    @apply shadow-2xl shadow-pink-900/10 border-none rounded-[32px] md:rounded-[44px];
+}
+
+/* 2. Kilidli və ya Ağ Kartlar */
+.exam-grid > .bg-surface-container-lowest,
+.exam-grid > [class*="bg-white"],
+.exam-grid > [class*="bg-surface"] {
+    background-color: var(--surface-container-lowest) !important; 
+    border: 2px solid var(--surface-container-high) !important;
+    @apply rounded-[32px] md:rounded-[44px] shadow-sm;
+}
+
+/* 3. Kart Daxili Düymələr (Review Mission / Continue Learning) */
+.exam-grid .btn-primary,
+.exam-grid button,
+.exam-grid a[class*="bg-white"],
+.exam-grid [style*="#af101a"] {
+    /* Əgər kart tünddürsə düymə ağ olar, içindəki yazı pink */
+    @apply rounded-full font-black uppercase tracking-widest transition-all duration-300;
+}
+
+/* Qırmızı düymələri birbaşa PINK edirik */
+.exam-grid [class*="text-[#af101a]"], 
+.exam-grid .text-secondary {
+    color: var(--secondary) !important;
+}
+
+/* --- Star Commander Track (Alt Kapsul) --- */
 .reward-card {
-    @apply mt-12 p-8 md:p-10 rounded-[40px] bg-white border-4 border-dashed border-primary/10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden transition-all duration-500 max-w-[1200px] mx-auto;
+    background-color: var(--surface-container-lowest) !important;
+    border: 4px dashed var(--surface-container-high) !important;
+    @apply mt-12 p-8 md:p-10 rounded-[40px] flex flex-col md:flex-row items-center gap-8 relative overflow-hidden transition-all duration-500 max-w-[1200px] mx-auto;
 }
 
-.reward-card-hover-bg {
-    @apply absolute inset-0 bg-primary/5 opacity-0 transition-opacity pointer-events-none;
-}
-
-.reward-image-wrapper {
-    @apply relative shrink-0;
-}
-
-.reward-img-circle {
-    @apply w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-4 border-white shadow-xl relative z-10;
+.reward-card:hover {
+    @apply -translate-y-1 shadow-2xl shadow-pink-500/5;
+    border-color: var(--primary) !important;
 }
 
 .reward-badge {
-    @apply absolute -bottom-2 -right-2 bg-tertiary text-white rounded-full p-2 shadow-lg z-20 border-2 border-white;
-}
-
-.reward-content {
-    @apply text-center md:text-left flex-1 relative z-10 space-y-1;
+    background-color: var(--tertiary) !important;
+    @apply absolute -bottom-2 -right-2 text-white rounded-full p-2 shadow-lg z-20 border-2 border-white;
 }
 
 .reward-title {
-    @apply font-black text-lg md:text-xl text-slate-800 uppercase tracking-tight;
+    @apply font-black text-lg md:text-xl text-on-surface uppercase tracking-tight italic;
 }
 
-.reward-text {
-    @apply text-slate-500 text-sm font-medium leading-relaxed italic;
-}
-
-/* Düymə */
+/* --- Düymə (Məcburi Pink) --- */
 .btn-reward {
-    @apply bg-primary text-white px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest active:scale-95 transition-all shadow-md shadow-red-900/10 relative z-10;
+    background-color: var(--secondary) !important;
+    @apply text-white px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest active:scale-95 transition-all shadow-lg relative z-10 italic;
+    box-shadow: 0 10px 20px -5px var(--secondary) !important;
+}
+
+.btn-reward:hover {
+    @apply brightness-110 shadow-pink-500/40;
+}
+
+/* --- MOBİL MASTER DÜZƏLİŞLƏR --- */
+@media (max-width: 768px) {
+    .reward-card {
+        @apply p-6 !important;
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+        border-radius: 32px !important;
+    }
 }
 
 .material-symbols-outlined {

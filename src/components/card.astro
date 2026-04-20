@@ -21,10 +21,16 @@ const {
   class: className 
 } = Astro.props;
 
+// ARTIQ HARDCODED RƏNG YOXDUR - Hamısı global.css dəyişənləridir
 const variants = {
-  red: "bg-[#b5161e] text-white shadow-xl shadow-[#b5161e]/15 border-white/10 hover:brightness-105",
-  white: "bg-white text-[#213041] border-[#d1e4ff] shadow-sm hover:shadow-lg hover:border-[#155f98]/20",
-  gray: "bg-[#f3f6ff] border-[#d1e4ff] grayscale opacity-60 pointer-events-none"
+  // 'red' variantı əslində sənin 'Secondary' rəngindir (Pink-də tünd pink olacaq)
+  red: "bg-secondary text-white shadow-xl shadow-secondary/15 border-white/10 hover:brightness-105",
+  
+  // 'white' variantı sənin 'Surface' rəngindir
+  white: "bg-surface-container-lowest text-on-surface border-surface-container-high shadow-sm hover:shadow-lg hover:border-primary/20",
+  
+  // 'gray' variantı stabil qalır
+  gray: "bg-slate-100 border-slate-200 grayscale opacity-60 pointer-events-none"
 };
 
 const Element = href ? 'a' : 'div';
@@ -48,7 +54,7 @@ const Element = href ? 'a' : 'div';
     {badgeText && (
       <span class:list={[
         "inline-block px-3 py-1 rounded-full text-[8px] md:text-[9px] font-black uppercase tracking-[0.15em] border self-start shadow-sm italic",
-        variant === 'red' ? 'bg-white/20 border-white/10' : 'bg-[#f3f6ff] border-[#d1e4ff]'
+        variant === 'red' ? 'bg-white/20 border-white/10' : 'bg-surface border-surface-container-high'
       ]}>
         {badgeText}
       </span>
@@ -58,7 +64,7 @@ const Element = href ? 'a' : 'div';
         <h3 class="text-lg md:text-2xl font-black italic tracking-tight leading-tight uppercase mb-1">{title}</h3>
         <p class:list={[
             "text-[10px] md:text-xs font-medium leading-relaxed italic pr-8",
-            variant === 'red' ? 'text-white/80' : 'text-[#213041]/50'
+            variant === 'red' ? 'text-white/80' : 'text-on-surface/50'
         ]}>
             {description}
         </p>
@@ -74,16 +80,16 @@ const Element = href ? 'a' : 'div';
         </div>
         <div class:list={[
           "h-2 w-full rounded-full overflow-hidden shadow-inner p-0.5 border",
-          variant === 'red' ? 'bg-white/20 border-white/5' : 'bg-[#f3f6ff] border-[#d1e4ff]'
+          variant === 'red' ? 'bg-white/20 border-white/5' : 'bg-surface border-surface-container-high'
         ]}>
-          <div class="h-full bg-[#feb300] rounded-full shadow-[0_0_12px_rgba(255,179,0,0.6)]" style={`width: ${progress}%`}></div>
+          <div class="h-full bg-tertiary rounded-full shadow-[0_0_12px_var(--tertiary)]" style={`width: ${progress}%`}></div>
         </div>
       </div>
     )}
     
     <div class:list={[
-        "w-full py-2.5 md:py-3.5 rounded-full font-black text-center text-[9px] md:text-[10px] uppercase tracking-[0.2em] shadow-lg italic",
-        variant === 'red' ? 'bg-white text-[#b5161e]' : 'bg-[#b5161e] text-white'
+        "w-full py-2.5 md:py-3.5 rounded-full font-black text-center text-[9px] md:text-[10px] uppercase tracking-[0.2em] shadow-lg italic transition-colors",
+        variant === 'red' ? 'bg-white text-secondary' : 'bg-secondary text-white'
     ]}>
         {variant === 'red' ? 'Review Mission' : variant === 'gray' ? 'Locked' : 'Continue Learning'}
     </div>

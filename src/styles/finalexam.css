@@ -4,39 +4,42 @@
 }
 
 .exam-hero-title {
-    @apply text-xl md:text-5xl font-black text-[#213041] tracking-tighter uppercase;
+    @apply text-xl md:text-5xl font-black text-on-surface tracking-tighter uppercase italic;
 }
 
 .exam-hero-subtitle {
-    @apply text-[#213041]/60 font-medium text-[10px] md:text-lg italic mt-1;
+    @apply text-on-surface/60 font-medium text-[10px] md:text-lg italic mt-1;
 }
 
-/* --- BÖLMƏ BAŞLIQLARI (Listening, Grammar və s.) --- */
+/* --- BÖLMƏ BAŞLIQLARI --- */
 .section-label {
     @apply flex items-center gap-2 mb-4 px-4 max-w-[1200px] mx-auto;
 }
 
 .section-label-text {
-    @apply text-base md:text-2xl font-black text-[#213041] uppercase tracking-tight;
+    @apply text-base md:text-2xl font-black text-on-surface uppercase tracking-tight italic;
 }
 
-/* --- LİSTENİNG KARTI (NAZİK VƏ YIĞCAM) --- */
+/* --- LİSTENİNG KARTI (Dinamik) --- */
 .exam-card-white {
-    @apply relative bg-white p-4 md:p-12 rounded-[24px] md:rounded-[48px] shadow-lg shadow-blue-900/5 border border-slate-100 mb-6 max-w-[1200px] mx-auto;
+    @apply relative bg-surface-container-lowest p-4 md:p-12 rounded-[24px] md:rounded-[48px] shadow-lg shadow-black/5 border border-surface-container-high mb-6 max-w-[1200px] mx-auto;
 }
 
 .audio-player {
-    @apply bg-[#f3f6ff] p-3 md:p-8 rounded-[18px] md:rounded-[32px] flex flex-row items-center gap-3 border border-[#d1e4ff];
+    @apply bg-surface p-3 md:p-8 rounded-[18px] md:rounded-[32px] flex flex-row items-center gap-3 border border-surface-container-high;
 }
 
 .audio-player .play-btn {
-    @apply w-10 h-10 md:w-16 md:h-16 rounded-full bg-[#af101a] text-white flex items-center justify-center flex-shrink-0;
+    /* Qırmızı əvəzinə secondary (Pink rejimdə çəhrayı) */
+    @apply w-10 h-10 md:w-16 md:h-16 rounded-full text-white flex items-center justify-center flex-shrink-0 shadow-lg;
+    background-color: var(--secondary) !important;
 }
 
-/* --- GRAMMAR TEST KARTI (RƏNGLİ VƏ ENLİ) --- */
+/* --- GRAMMAR TEST KARTI (Maviddən Pink-ə) --- */
 .exam-card-colored {
-    /* Mobildə p-4 hündürlüyü azaldır */
-    @apply bg-[#155f98] p-4 md:p-12 rounded-[24px] md:rounded-[48px] shadow-2xl relative overflow-hidden mb-6 border-4 border-white/5 max-w-[1200px] mx-auto;
+    /* Mavi əvəzinə primary rənginə bağlandı */
+    @apply p-4 md:p-12 rounded-[24px] md:rounded-[48px] shadow-2xl relative overflow-hidden mb-6 border-4 border-white/10 max-w-[1200px] mx-auto text-white;
+    background-color: var(--primary) !important;
 }
 
 .test-option-grid {
@@ -44,8 +47,7 @@
 }
 
 .test-option-btn {
-    /* Variantlar artıq daha nazikdir */
-    @apply flex items-center justify-between p-3 md:p-6 rounded-[14px] md:rounded-[28px] font-black uppercase text-[9px] md:text-sm transition-all text-left w-full border;
+    @apply flex items-center justify-between p-3 md:p-6 rounded-[14px] md:rounded-[28px] font-black uppercase text-[9px] md:text-sm transition-all text-left w-full border italic;
 }
 
 .option-default {
@@ -53,68 +55,54 @@
 }
 
 .option-selected {
-    @apply bg-white text-[#155f98] shadow-xl border-transparent;
+    /* Seçilmiş variantın mətni primary (mavi/pink) rəngdə olur */
+    @apply bg-white shadow-xl border-transparent;
+    color: var(--primary) !important;
 }
 
-/* --- IMAGE DESCRIPTION (YENİDƏN QURULDU) --- */
+/* --- IMAGE DESCRIPTION --- */
 .image-exam-grid {
     @apply grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-10 max-w-[1200px] mx-auto px-2;
 }
 
 .exam-image-container {
-    @apply rounded-[24px] md:rounded-[40px] overflow-hidden aspect-video md:aspect-auto md:min-h-[300px] shadow-lg border-2 md:border-4 border-white bg-slate-200;
+    @apply rounded-[24px] md:rounded-[40px] overflow-hidden aspect-video md:aspect-auto md:min-h-[300px] shadow-lg border-2 md:border-4 border-white bg-surface-container-high;
 }
 
 .exam-textarea {
-    @apply w-full bg-white border-none rounded-[20px] md:rounded-[32px] p-4 md:p-8 font-bold text-[#213041] focus:ring-4 focus:ring-[#155f98]/10 transition-all outline-none min-h-[100px] md:min-h-[150px] text-xs md:text-base shadow-sm;
+    @apply w-full bg-surface-container-lowest border-2 border-transparent rounded-[20px] md:rounded-[32px] p-4 md:p-8 font-bold text-on-surface transition-all outline-none min-h-[100px] md:min-h-[150px] text-xs md:text-base shadow-inner focus:border-primary/20;
 }
 
-/* --- MATERİAL SYMBOLS --- */
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 1;
+/* --- STATUS BAR (Timer və Level) --- */
+.exam-status-bar div, .exam-status-bar button {
+    @apply font-black uppercase tracking-widest italic;
+    background-color: var(--surface-container-high) !important;
+    color: var(--on-surface) !important;
 }
 
-/* --- MOBİL MASTER DÜZƏLİŞLƏR (POSTCSS XƏTASIZ) --- */
+/* --- SUBMİT DÜYMƏSİ --- */
+.submit-exam-btn {
+    @apply w-full py-4 md:py-6 rounded-full font-black uppercase tracking-[0.2em] text-white shadow-xl active:scale-95 transition-all italic;
+    background-color: var(--secondary) !important;
+    box-shadow: 0 10px 25px -5px var(--secondary);
+}
+
+/* --- MOBİL MASTER DÜZƏLİŞLƏR --- */
 @media (max-width: 768px) {
-    /* Bütün ana blokları kənarlara yayırıq (Enli görünüş) */
     .exam-card-white, .exam-card-colored, .exam-hero, .section-label, .image-exam-grid {
         margin-left: 0.5rem !important;
         margin-right: 0.5rem !important;
     }
 
-    /* Grammar sualı mətni */
     .exam-card-colored h3 {
-        font-size: 15px !important;
-        line-height: 1.3 !important;
-        margin-bottom: 1rem !important;
-        color: white !important;
-    }
-
-    /* Image Description hissəsi */
-    .image-exam-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 1rem !important;
+        @apply text-sm md:text-lg mb-4 leading-relaxed text-white !important;
     }
 
     .exam-image-container {
-        height: 180px !important; /* Şəkil hissəsi mobildə balacalaşdı */
+        height: 180px !important;
     }
+}
 
-    /* Timer və Level düymələri */
-    .exam-status-bar {
-        @apply flex gap-2 mb-6 !important;
-    }
-
-    .exam-status-bar div, .exam-status-bar button {
-        padding: 0.4rem 0.8rem !important;
-        font-size: 9px !important;
-        border-radius: 999px !important;
-    }
-
-    /* Səhifə sonu düyməsi (Submit) */
-    .submit-exam-btn {
-        @apply py-4 text-xs !important;
-        margin: 2rem 0.5rem !important;
-    }
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1;
 }

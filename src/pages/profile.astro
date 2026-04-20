@@ -12,14 +12,14 @@ const user = {
     initials: "JD"
 };
 
-// Color Themes
+// Color Themes - data-theme dəyərləri CSS-dəki [data-theme="..."] ilə eyni olmalıdır
 const themes = [
-    { name: "Default", color: "bg-[#155f98]", active: true },
-    { name: "Green", color: "bg-emerald-500" },
-    { name: "Yellow", color: "bg-[#feb300]" },
-    { name: "Pink", color: "bg-pink-400" },
-    { name: "Purple", color: "bg-purple-600" },
-    { name: "Red", color: "bg-[#af101a]" }
+    { name: "Default", color: "bg-[#155f98]", value: "default" },
+    { name: "Green", color: "bg-emerald-500", value: "green" },
+    { name: "Yellow", color: "bg-[#feb300]", value: "yellow" },
+    { name: "Pink", color: "bg-pink-400", value: "pink" },
+    { name: "Purple", color: "bg-purple-600", value: "purple" },
+    { name: "Red", color: "bg-[#af101a]", value: "red" }
 ];
 ---
 
@@ -43,20 +43,20 @@ const themes = [
             
             <div class="text-center">
                 <h2 class="profile-name">{user.name} {user.surname}</h2>
-                <div class="inline-flex items-center gap-2 mt-3 bg-[#feb300]/10 px-4 py-1.5 rounded-full border border-yellow-200/50">
-                    <span class="material-symbols-outlined text-[#feb300] !text-lg">workspace_premium</span>
-                    <span class="text-[#213041] font-black text-[10px] uppercase tracking-widest">{user.status}</span>
+                <div class="inline-flex items-center gap-2 mt-3 bg-tertiary/10 px-4 py-1.5 rounded-full border border-tertiary/20">
+                    <span class="material-symbols-outlined text-tertiary !text-lg">workspace_premium</span>
+                    <span class="text-on-surface font-black text-[10px] uppercase tracking-widest">{user.status}</span>
                 </div>
             </div>
         </section>
 
         <section class="section-wrapper">
             <div class="section-label">
-                <span class="material-symbols-outlined !text-xl text-[#155f98]">person</span>
+                <span class="material-symbols-outlined !text-xl text-primary">person</span>
                 <h3 class="section-label-text">Account Details</h3>
             </div>
             
-            <form class="profile-form">
+            <form class="profile-form" id="profileForm">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="input-group">
                         <label class="field-label">First Name</label>
@@ -92,18 +92,22 @@ const themes = [
 
         <section class="section-wrapper">
             <div class="section-label">
-                <span class="material-symbols-outlined !text-xl text-[#155f98]">palette</span>
+                <span class="material-symbols-outlined !text-xl text-primary">palette</span>
                 <h3 class="section-label-text">Interface Theme</h3>
             </div>
             
             <div class="profile-form">
-                <div class="theme-grid">
+                <div class="theme-grid" id="themePicker">
                     {themes.map((theme) => (
-                        <button class={`theme-btn ${theme.active ? 'bg-blue-50 border-blue-400 shadow-sm' : 'bg-transparent border-transparent'}`}>
-                            <div class={`w-10 h-10 rounded-full ${theme.color} border-4 border-white shadow-inner flex items-center justify-center`}>
-                                {theme.active && <span class="material-symbols-outlined text-white !text-sm">check</span>}
+                        <button 
+                            type="button" 
+                            data-theme-value={theme.value}
+                            class="theme-btn border-transparent"
+                        >
+                            <div class={`w-10 h-10 rounded-full ${theme.color} border-4 border-white shadow-inner flex items-center justify-center pointer-events-none`}>
+                                <span class="check-icon material-symbols-outlined text-white !text-sm hidden">check</span>
                             </div>
-                            <span class="text-[9px] font-black uppercase text-slate-500">{theme.name}</span>
+                            <span class="text-[9px] font-black uppercase text-slate-500 pointer-events-none">{theme.name}</span>
                         </button>
                     ))}
                 </div>
@@ -117,3 +121,48 @@ const themes = [
             </a>
         </section>
 </MainLayout>
+
+<script>
+    const themeButtons = document.querySelectorAll('[data-theme-value]');
+    const profileForm = document.getElementById('profileForm');
+    
+    // Cari seçimi localStorage-dan götür və ya default et
+    let currentTheme = localStorage.getItem('theme') || 'default';
+
+    // UI-ni cari seçilmiş mövzuya görə yenilə
+    function updateThemeUI(selected: string) {
+        themeButtons.forEach(btn => {
+            const val = btn.getAttribute('data-theme-value');
+            const check = btn.querySelector('.check-icon');
+            
+            if (val === selected) {
+                btn.classList.add('theme-active');
+                check?.classList.remove('hidden');
+            } else {
+                btn.classList.remove('theme-active');
+                check?.classList.add('hidden');
+            }
+        });
+    }
+
+    // Klik hadisəsi
+    themeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentTheme = btn.getAttribute('data-theme-value') || 'default';
+            updateThemeUI(currentTheme);
+        });
+    });
+
+    // Save düyməsinə basanda tətbiq et
+    profileForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        localStorage.setItem('theme', currentTheme);
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // Kiçik bildiriş (Opsional)
+        alert('Galaxy Theme Updated!');
+    });
+
+    // İlkin yüklənmədə aktiv olanı göstər
+    updateThemeUI(currentTheme);
+</script>

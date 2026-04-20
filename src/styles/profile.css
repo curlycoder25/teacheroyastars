@@ -73,3 +73,17 @@
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 1;
 }
+/* ... mövcud kodların ... */
+
+.theme-active {
+    @apply bg-blue-50/50 border-primary/30 shadow-sm !important;
+}
+
+/* data-theme tətbiq olunduqda profil səhifəsindəki spesifik ikon rəngləri də dəyişsin */
+[data-theme="pink"] .section-label span {
+    @apply text-primary !important;
+}
+
+[data-theme="pink"] .avatar-upload-btn {
+    @apply bg-primary !important;
+}

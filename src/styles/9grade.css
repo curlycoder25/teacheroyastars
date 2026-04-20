@@ -1,48 +1,99 @@
-/* Ana Banner */
+/* --- ANA BANNER (Zərif & Dinamik Pink) --- */
 .exam-banner {
-    @apply relative overflow-hidden bg-[#155f98] rounded-[32px] md:rounded-[48px] p-8 md:p-20 text-white shadow-2xl shadow-blue-900/20 mb-10 md:mb-16 border-4 border-white/5;
+    background-color: var(--primary) !important;
+    @apply relative overflow-hidden rounded-[24px] md:rounded-[40px] p-6 md:p-14 text-white shadow-2xl mb-8 md:mb-12 border-2 md:border-4 border-white/10;
+    transition: background-color 0.3s ease;
 }
 
 .exam-banner-badge {
-    @apply bg-white/20 backdrop-blur-md px-4 py-1.5 md:px-5 md:py-2 rounded-full text-[9px] md:text-[11px] font-black uppercase tracking-[0.2em] border border-white/10 inline-block mb-4 md:mb-6;
+    @apply bg-white/15 backdrop-blur-md px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] border border-white/10 inline-block mb-3 md:mb-5;
 }
 
 .exam-banner-title {
-    @apply text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter uppercase leading-tight mb-4;
+    @apply text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter uppercase leading-[0.95] mb-3 italic;
 }
 
 .exam-banner-text {
-    @apply opacity-80 max-w-xl font-medium text-sm md:text-lg lg:text-xl leading-relaxed pr-4;
+    @apply opacity-80 max-w-lg font-medium text-[11px] md:text-base leading-relaxed pr-4 italic;
 }
 
-/* Bölmə Başlıqları */
+/* --- BÖLMƏ BAŞLIQLARI --- */
 .section-header {
-    @apply flex items-center justify-between mb-8 md:mb-10 px-4 md:px-6;
+    @apply flex items-center justify-between mb-6 md:mb-8 px-2 md:px-4;
 }
 
 .section-title {
-    @apply text-lg md:text-2xl lg:text-3xl font-black text-[#213041] tracking-tight uppercase;
+    @apply text-base md:text-xl lg:text-2xl font-black text-on-surface tracking-tight uppercase italic;
 }
 
-/* Grid Sistemi */
+/* --- GRID SİSTEMİ & MOCK EXAM KARTI (Məcburi Pink) --- */
 .exams-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16;
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 px-2;
 }
 
-/* Past Papers Siyahısı */
+/* Şəkildəki (image_fa9999.png) qırmızı kartı məcburi PINK edən hissə */
+.exams-grid > div[class*="bg-[#af101a]"],
+.exams-grid > div[class*="bg-red-"],
+.exams-grid > div[style*="background-color: #af101a"],
+.exams-grid > div[style*="background-color: #b5161e"],
+.exams-grid > div:first-child {
+    background-color: var(--secondary) !important;
+    border: none !important;
+    @apply shadow-2xl shadow-pink-900/15 rounded-[28px] md:rounded-[36px] transition-all duration-300;
+}
+
+/* Kart daxili elementlər */
+.exams-grid div[class*="bg-white/20"],
+.exams-grid div[class*="bg-black/10"],
+.exams-grid span[class*="bg-white/20"] {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    @apply border-white/10 text-white !important;
+}
+
+/* Progress Bar (Pink rejimdə parlayan sarı/pink tonu) */
+.exams-grid div[class*="bg-[#feb300]"],
+.exams-grid .bg-tertiary {
+    background-color: var(--tertiary) !important;
+    box-shadow: 0 0 12px var(--tertiary);
+}
+
+/* Ağ kartların içindəki "Start Now" düyməsi */
+.exams-grid .bg-primary,
+.exams-grid [class*="bg-blue"] {
+    background-color: var(--secondary) !important;
+    color: white !important;
+    @apply border-none shadow-lg shadow-pink-500/20 font-black uppercase tracking-widest py-3 rounded-full text-center;
+}
+
+/* --- PAST PAPERS SİYAHISI --- */
 .past-papers-list {
-    @apply space-y-3 md:space-y-4 px-2 md:px-3 pb-16 max-w-4xl mx-auto;
+    @apply space-y-2 md:space-y-3 px-2 md:px-3 pb-12 max-w-3xl mx-auto;
 }
 
 .past-paper-item {
-    @apply flex items-center gap-3 md:gap-4 bg-white p-3 md:p-5 rounded-[16px] md:rounded-[24px] border-2 border-[#d1e4ff] shadow-lg shadow-blue-900/5 active:scale-[0.98] transition-all cursor-pointer hover:border-primary/30;
+    background-color: var(--surface-container-lowest) !important;
+    border: 2px solid var(--surface-container-high) !important;
+    @apply flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-[16px] md:rounded-[24px] shadow-sm active:scale-[0.98] transition-all cursor-pointer hover:border-primary/40;
 }
 
 .past-paper-number {
-    @apply w-10 h-10 md:w-14 md:h-14 bg-[#f3f6ff] rounded-[12px] md:rounded-[18px] flex items-center justify-center text-[#b5161e] font-black text-lg md:text-xl shadow-inner border border-[#d1e4ff];
+    background-color: var(--surface) !important;
+    border-color: var(--surface-container-high) !important;
+    color: var(--secondary) !important;
+    @apply w-10 h-10 md:w-12 md:h-12 rounded-[12px] md:rounded-[18px] flex items-center justify-center font-black text-lg md:text-xl shadow-inner;
 }
 
-/* Material Symbols Ayarı */
+.past-paper-title {
+    @apply text-[11px] md:text-sm font-black text-on-surface uppercase tracking-tight italic;
+}
+
+/* --- MOBİL ÜÇÜN MASTER DÜZƏLİŞLƏR --- */
+@media (max-width: 768px) {
+    .exam-banner {
+        @apply p-6 !important;
+    }
+}
+
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 1;
 }

@@ -1,47 +1,93 @@
-/* Başlıq Bölməsi */
+/* --- SUBTOPICS HEADER --- */
 .subtopics-header {
     @apply mb-12 text-center pt-8;
 }
 
 .subtopics-title {
-    /* Navbar-a uyğun: Düz (italic deyil), Böyük və Qalın */
-    @apply text-4xl md:text-6xl font-black text-slate-900 mb-4 tracking-tighter uppercase;
+    @apply text-4xl md:text-6xl font-black text-on-surface mb-4 tracking-tighter uppercase italic;
 }
 
 .subtopics-subtitle {
-    @apply text-slate-500 text-base md:text-lg font-medium leading-relaxed max-w-md mx-auto;
+    @apply text-on-surface/50 text-base md:text-lg font-medium leading-relaxed max-w-md mx-auto italic;
 }
 
-/* Kartların Konteyneri - Macbook-da çox yayılmasın deyə max-w-4xl */
+/* --- KARTLARIN KONTEYNERİ --- */
 .subtopics-container {
-    @apply space-y-6 max-w-4xl mx-auto px-4;
+    @apply space-y-8 max-w-4xl mx-auto px-4;
 }
 
-/* Motivasiya Bloku (Aşağıdakı Raket qutusu) */
+/* --- KART RƏNGLƏRİNİN OPTİMİZASİYASI --- */
+
+/* 1. Əsas Tünd Kart (Compound Nouns olan hissə) */
+.subtopics-container > .bg-secondary, 
+.subtopics-container > [class*="bg-secondary"] {
+    /* Artıq kəskin bənövşəyi-qırmızı deyil, zərif tünd çəhrayı */
+    background-color: #E91E63 !important; 
+    @apply shadow-2xl shadow-pink-900/10 border-none rounded-[32px] md:rounded-[44px];
+}
+
+/* 2. Ağ Kartlar (Açıq çəhrayı fon ilə) */
+.subtopics-container > .bg-surface-container-lowest,
+.subtopics-container > [class*="bg-white"],
+.subtopics-container > [class*="bg-surface"] {
+    /* Fonu tam ağ deyil, çox açıq süd-çəhrayı (lavender blush) edirik */
+    background-color: #FFF5F8 !important; 
+    border-color: #F8BBD0 !important; 
+    @apply border-2 rounded-[32px] md:rounded-[44px] transition-all duration-300;
+}
+
+/* 3. "Continue Learning" və "Review Mission" Düymələri */
+/* Bu hissə kartın daxilindəki düymənin qırmızısını tam PINK edir */
+.subtopics-container .btn-primary,
+.subtopics-container [class*="bg-secondary"] {
+    background-color: #FF4081 !important; /* Canlı Pink */
+    color: white !important;
+    @apply border-none shadow-lg shadow-pink-500/20 font-black uppercase tracking-widest;
+}
+
+.subtopics-container .btn-primary:hover {
+    @apply brightness-110 -translate-y-0.5 shadow-pink-500/40;
+}
+
+/* --- MOTİVASİYA BLOKU (Aşağıdakı Raket) --- */
 .motivation-wrapper {
     @apply mt-20 flex justify-center pb-12;
 }
 
 .motivation-card {
-    @apply p-12 bg-white/40 backdrop-blur-xl rounded-[48px] text-center w-full max-w-md border border-white shadow-sm relative overflow-hidden transition-all duration-500;
+    @apply p-12 bg-white/60 backdrop-blur-xl rounded-[48px] text-center w-full max-w-md border border-white/80 shadow-sm relative overflow-hidden transition-all duration-500;
 }
 
 .motivation-gradient {
-    @apply absolute inset-0 bg-gradient-to-br from-[#feb300]/10 to-transparent pointer-events-none;
+    @apply absolute inset-0 opacity-10 pointer-events-none;
+    background: linear-gradient(135deg, var(--tertiary), transparent);
 }
 
 .motivation-icon-circle {
     @apply w-24 h-24 mx-auto mb-6 bg-white rounded-full flex items-center justify-center shadow-lg transition-all duration-500;
 }
 
+.motivation-icon-circle span {
+    /* İkon rəngi mövzu çəhrayısına uyğunlaşır */
+    color: #E91E63 !important;
+}
+
 .motivation-title {
-    @apply font-black text-slate-800 text-xl tracking-tight;
+    @apply font-black text-on-surface text-xl tracking-tight uppercase italic;
 }
 
 .motivation-subtitle {
-    @apply text-slate-400 text-xs font-black uppercase tracking-[0.2em] mt-3 leading-relaxed;
+    @apply text-on-surface/40 text-[10px] font-black uppercase tracking-[0.2em] mt-3 leading-relaxed;
 }
 
+/* --- MATERIAL SYMBOLS --- */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 1;
+}
+
+/* Progress Bar Rəngi */
+.subtopics-container [class*="bg-[#feb300]"],
+.subtopics-container .bg-tertiary {
+    background-color: var(--tertiary) !important;
+    box-shadow: 0 0 15px var(--tertiary);
 }

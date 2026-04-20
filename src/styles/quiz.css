@@ -1,96 +1,140 @@
-/* Quiz Banner (Progress hissəsi) */
+/* Quiz Banner */
 .quiz-banner {
-    @apply relative overflow-hidden bg-[#af101a] rounded-[28px] md:rounded-[48px] p-6 md:p-12 text-white shadow-2xl shadow-red-900/20 mb-6 md:mb-10 max-w-[1100px] mx-auto;
+    @apply relative overflow-hidden rounded-[28px] md:rounded-[48px] p-6 md:p-12 text-white shadow-2xl mb-6 md:mb-10 max-w-[1100px] mx-auto;
+    
+    background: var(--secondary);
+    box-shadow: 0 20px 40px var(--primary-fixed);
 }
 
+/* PRACTICE QUIZ badge - ağ text */
 .quiz-banner-badge {
-    @apply inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest border border-white/10 mb-3 md:mb-4;
+    @apply inline-block px-3 py-1 backdrop-blur-md rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest border mb-3 md:mb-4;
+    
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.2);
+    color: white; /* 🔥 istədiyin kimi ağ */
 }
 
 .quiz-banner-title {
-    @apply text-xl md:text-4xl font-black tracking-tighter uppercase leading-tight;
+    @apply text-xl md:text-4xl font-black tracking-tighter uppercase leading-tight text-white;
 }
 
-/* Sual Kartı */
+/* Question Card */
 .question-container {
-    @apply bg-white rounded-[28px] md:rounded-[40px] p-6 md:p-12 shadow-xl shadow-blue-900/5 border border-slate-100 space-y-6 md:space-y-10 max-w-[1100px] mx-auto mb-6 md:mb-10;
+    @apply rounded-[28px] md:rounded-[40px] p-6 md:p-12 shadow-xl border space-y-6 md:space-y-10 max-w-[1100px] mx-auto mb-6 md:mb-10;
+    
+    background: var(--surface-container-lowest);
+    border-color: var(--surface-container-high);
 }
 
 .question-text {
-    @apply text-lg md:text-3xl font-black text-[#213041] leading-tight uppercase tracking-tight pr-2;
+    @apply text-lg md:text-3xl font-black leading-tight uppercase tracking-tight pr-2;
+    color: var(--on-surface);
 }
 
-/* Variant Düymələri */
+/* Options */
 .option-btn {
     @apply flex items-center p-4 md:p-6 rounded-[20px] md:rounded-[32px] transition-all duration-300 active:scale-[0.98] text-left border;
 }
 
 .option-active {
-    @apply bg-[#155f98] text-white ring-4 md:ring-8 ring-blue-900/5 shadow-lg shadow-blue-900/20 border-transparent;
+    @apply text-white shadow-lg border-transparent;
+    
+    background: var(--primary); /* 🔥 pink olacaq */
+    box-shadow: 0 10px 30px var(--primary-fixed);
 }
 
 .option-default {
-    @apply bg-slate-50 text-[#213041] border-slate-100 hover:bg-white hover:shadow-md;
+    background: var(--surface);
+    color: var(--on-surface);
+    border-color: var(--surface-container-high);
 }
 
+/* Letter box */
 .option-letter-box {
     @apply w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded-lg md:rounded-2xl font-black mr-4 md:mr-5 text-xs md:text-sm flex-shrink-0;
+    
+    background: var(--primary-fixed);
+    color: white;
 }
 
-/* Rəy və Ulduz Bölməsi (MAKSİMAL KOMPAKT) */
+/* Feedback Card */
 .quiz-feedback-card {
-    @apply bg-white rounded-[28px] md:rounded-[40px] p-5 md:p-10 border border-slate-100 shadow-xl shadow-blue-900/5 relative overflow-hidden mb-12 md:mb-20 max-w-[900px] mx-auto;
+    @apply rounded-[28px] md:rounded-[40px] p-5 md:p-10 border shadow-xl relative overflow-hidden mb-12 md:mb-20 max-w-[900px] mx-auto;
+    
+    background: var(--surface-container-lowest);
+    border-color: var(--surface-container-high);
 }
 
 .quiz-feedback-card h4 {
-    @apply text-base md:text-2xl font-black text-[#213041] uppercase tracking-tight text-center;
+    @apply text-base md:text-2xl font-black uppercase tracking-tight text-center;
+    color: var(--on-surface);
 }
 
 .quiz-feedback-card p {
-    @apply text-[8px] md:text-[10px] text-slate-400 font-black uppercase tracking-widest text-center mt-1;
+    @apply text-[8px] md:text-[10px] font-black uppercase tracking-widest text-center mt-1;
+    color: var(--on-surface-variant);
 }
 
-/* Feedback Textarea (Hündürlüyü daha da azaldıldı) */
+/* ⭐ Ulduzlar - HƏMİŞƏ SARI */
+.quiz-feedback-card .material-symbols-outlined {
+    color: #FFD700 !important; /* 🔥 gold */
+}
+
+/* Textarea */
 .feedback-textarea {
-    @apply w-full bg-slate-50 border-none rounded-[18px] md:rounded-[32px] p-4 md:p-7 text-[11px] md:text-base text-[#213041] placeholder:text-slate-400 min-h-[80px] md:min-h-[160px] transition-all font-medium shadow-inner outline-none mt-4;
+    @apply w-full border-none rounded-[18px] md:rounded-[32px] p-4 md:p-7 text-[11px] md:text-base min-h-[80px] md:min-h-[160px] transition-all font-medium shadow-inner outline-none mt-4;
+    
+    background: var(--surface);
+    color: var(--on-surface);
 }
 
-/* Material Symbols */
+/* Submit button */
+#submit-quiz-btn,
+#submit-review-btn {
+    background: var(--primary); /* 🔥 pink olacaq */
+    color: white;
+    border-radius: 999px;
+    transition: all 0.3s ease;
+}
+
+#submit-quiz-btn:hover,
+#submit-review-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px var(--primary-fixed);
+}
+
+/* Icons default */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 1;
 }
 
-/* MOBİL ÜÇÜN MASTER DÜZƏLİŞLƏR */
+/* Mobile fixes */
 @media (max-width: 768px) {
-    /* Kartı daha enli və yığcam edirik */
     .quiz-feedback-card {
-        padding: 1.25rem !important; /* Daxili boşluq azaldıldı */
+        padding: 1.25rem !important;
         margin-left: 0.5rem !important;
         margin-right: 0.5rem !important;
-        space-y: 1rem !important; /* Elementlər arasındakı məsafə */
+        space-y: 1rem !important;
     }
 
-    /* Ulduzların sıxlığı */
     .quiz-feedback-card .flex.justify-center {
         gap: 0.25rem !important;
         margin: 0.5rem 0 !important;
     }
-    
+
     .quiz-feedback-card .material-symbols-outlined {
-        font-size: 28px !important; /* Ulduzlar bir az daha kiçildildi */
+        font-size: 28px !important;
     }
 
-    /* Submit düyməsi: Daha incə və mütənasib */
-    #submit-quiz-btn, #submit-review-btn {
-        padding-top: 0.7rem !important;
-        padding-bottom: 0.7rem !important;
+    #submit-quiz-btn,
+    #submit-review-btn {
+        padding: 0.7rem !important;
         font-size: 9px !important;
         margin-top: 0.75rem !important;
-        border-radius: 999px !important;
         width: 100% !important;
     }
 
-    /* İkonları gizlətmək */
     .material-symbols-outlined.absolute {
         display: none !important;
     }
