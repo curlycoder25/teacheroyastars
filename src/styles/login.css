@@ -23,9 +23,14 @@
 }
 
 /* --- İNPUTLAR --- */
-.login-input {
-    @apply w-full px-6 py-4 bg-surface border-2 border-transparent rounded-2xl focus:ring-4 focus:ring-primary/10 focus:border-primary/20 text-on-surface font-bold outline-none transition-all placeholder:text-slate-400 text-sm;
-}
+.hub-text {
+        /* text-on-surface/60 yerine ayrıştırarak yazıyoruz */
+        @apply text-[9px] font-black uppercase tracking-[0.2em] group-hover:text-on-surface transition-colors;
+        
+        /* Eğer on-surface bir CSS değişkeniyse */
+        color: var(--on-surface);
+        opacity: 0.6;
+    }
 
 /* --- DÜYMƏ (Gradyent) --- */
 .btn-login {

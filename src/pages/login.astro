@@ -100,7 +100,12 @@ import '../styles/login.css';
     .hub-icon-box {
         @apply w-12 h-12 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-110;
     }
-    .hub-text {
-        @apply text-[9px] font-black uppercase tracking-[0.2em] text-on-surface/60 group-hover:text-on-surface transition-colors;
+.hub-text {
+        /* text-on-surface/60 yerine ayrıştırarak yazıyoruz */
+        @apply text-[9px] font-black uppercase tracking-[0.2em] group-hover:text-on-surface transition-colors;
+        
+        /* Eğer on-surface bir CSS değişkeniyse */
+        color: var(--on-surface);
+        opacity: 0.6;
     }
 </style>

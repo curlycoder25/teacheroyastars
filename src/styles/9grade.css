@@ -73,7 +73,9 @@
 .past-paper-item {
     background-color: var(--surface-container-lowest) !important;
     border: 2px solid var(--surface-container-high) !important;
-    @apply flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-[16px] md:rounded-[24px] shadow-sm active:scale-[0.98] transition-all cursor-pointer hover:border-primary/40;
+    /* @apply flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-[16px] md:rounded-[24px] shadow-sm active:scale-[0.98] transition-all cursor-pointer hover:border-primary/40; */
+
+@apply flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-[16px] md:rounded-[24px] shadow-sm active:scale-[0.98] transition-all cursor-pointer hover:border-primary/40;
 }
 
 .past-paper-number {

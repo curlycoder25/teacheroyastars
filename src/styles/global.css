@@ -2,20 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    /* --- DEFAULT BLUE THEME --- */
-    --primary: #4885C1;
-    --secondary: #D32F2F;
-    --tertiary: #FFB300;
-    --surface: #f3f6ff;
-    --on-surface: #213041;
-    --on-surface-variant: #4e5d6f;
-    --surface-container-high: #d1e4ff;
-    --surface-container-lowest: #ffffff;
-    --primary-fixed: #83bdfd;
-    --tertiary-container: #feb300;
-}
 
+
+
+:root {
+    /* HEX kodlarını RGB karşılıkları ile değiştirdik */
+ --primary: 72, 133, 193;           /* #4885C1 */
+    --secondary: 211, 47, 47;         /* #D32F2F */
+    --tertiary: 255, 179, 0;          /* #FFB300 */
+    --surface: 243, 246, 255;         /* #f3f6ff */
+    --on-surface: 33, 48, 65;         /* #213041 */
+    --on-surface-variant: 78, 93, 111;/* #4e5d6f */
+    --surface-container-high: 209, 228, 255;
+    --surface-container-lowest: 255, 255, 255;
+    --primary-fixed: 131, 189, 253;
+    --tertiary-container: 255, 179, 0;
+}
 [data-theme="pink"] {
     /* --- PREMIUM PINK & WHITE THEME --- */
     
