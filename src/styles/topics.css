@@ -1,10 +1,10 @@
 /* --- UNIVERSE BANNER (Dinamik & İncə Header) --- */
 .universe-banner {
-    /* Artıq #155f98 yox, var(--primary) istifadə edirik */
-    background-color: var(--primary) !important;
+    /* RGB formatına keçid və !important ilə rəngin tam oturması */
+    background-color: rgb(var(--primary)) !important;
     @apply text-white p-6 md:p-14 rounded-[20px] md:rounded-[40px] relative overflow-hidden shadow-lg mb-8 mx-3 md:mx-0 border-2 border-white/5;
     min-height: auto;
-    transition: background-color 0.3s ease;
+    /* Senior-un tapşırığı: transition silindi */
 }
 
 .universe-title {
@@ -12,7 +12,6 @@
 }
 
 .universe-text {
-    /* Yazı rəngini də bir az yumşaldırıq ki, hər fonda yaxşı görünsün */
     @apply text-white/80 text-[10px] md:text-lg max-w-[280px] md:max-w-2xl font-medium italic leading-snug;
 }
 
@@ -31,19 +30,18 @@
     margin-top: 1rem; 
 }
 
-/* --- KARTLARIN CSS-DƏN GƏLƏN SƏRHƏDLƏRİNİ SİLİRİK --- */
-/* Əgər əvvəllər CSS-də .card və ya .module-card yazıb rəng vermisənsə, onları bura bağla */
+/* --- KARTLARIN OPTİMİZASİYASI --- */
 .modules-grid > * {
-    /* Kartların fonu data-theme-ə görə dəyişsin */
-    background-color: var(--surface-container-lowest) !important;
-    border-color: var(--surface-container-high) !important;
-    color: var(--on-surface) !important;
+    /* Dəyişənləri rgb() daxilində çağırırıq */
+    background-color: rgb(var(--surface-container-lowest)) !important;
+    border-color: rgb(var(--surface-container-high)) !important;
+    color: rgb(var(--on-surface)) !important;
 }
 
 /* Qırmızı (Secondary) kartlar üçün dinamik rəng */
 .modules-grid > [class*="bg-secondary"],
 .modules-grid > .bg-secondary {
-    background-color: var(--secondary) !important;
+    background-color: rgb(var(--secondary)) !important;
     color: white !important;
     border: none !important;
 }

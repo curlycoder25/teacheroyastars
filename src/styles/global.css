@@ -2,48 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 :root {
-    /* HEX kodlarını RGB karşılıkları ile değiştirdik */
- --primary: 72, 133, 193;           /* #4885C1 */
-    --secondary: 211, 47, 47;         /* #D32F2F */
-    --tertiary: 255, 179, 0;          /* #FFB300 */
-    --surface: 243, 246, 255;         /* #f3f6ff */
-    --on-surface: 33, 48, 65;         /* #213041 */
-    --on-surface-variant: 78, 93, 111;/* #4e5d6f */
-    --surface-container-high: 209, 228, 255;
-    --surface-container-lowest: 255, 255, 255;
-    --primary-fixed: 131, 189, 253;
-    --tertiary-container: 255, 179, 0;
+    /* --- DEFAULT BLUE THEME (Şəkildəki canlı rənglər) --- */
+    --primary: 72 133 193;                /* Canlı Mavi */
+    --secondary: 181 22 30;               /* Canlı Qırmızı (#b5161e) */
+    --tertiary: 255 179 0;                /* Parlaq Sarı */
+    --surface: 243 246 255;               /* Çox açıq mavi fon */
+    --on-surface: 33 48 65;               /* Tünd mətn */
+    --on-surface-variant: 78 93 111;
+    --surface-container-high: 209 228 255; /* Borderlər */
+    --surface-container-lowest: 255 255 255; /* Ağ kartlar */
+    --primary-fixed: 131 189 253;
+    --tertiary-container: 254 179 0;
 }
+
 [data-theme="pink"] {
-    /* --- PREMIUM PINK & WHITE THEME --- */
-    
-    /* Ana rəng (Ulduzlar, ikonlar, vurğular) */
-    --primary: #FF4081;           /* Canlı və zərif çəhrayı */
-    
-    /* Düymələr və Tünd Kartlar (Qırmızını əvəz edən) */
-    --secondary: #E91E63;         /* Klassik Pink (Daha şirin və professional) */
-    
-    /* Progress bar və xüsusi detallar */
-    --tertiary: #F06292;          /* Yumşaq çəhrayı */
-    
-    /* Ana arxa fon (Bütün saytın fonu) */
-    --surface: #FFF0F5;           /* Lavender Blush (Çox açıq çəhrayımsı ağ) */
-    
-    /* Mətn rəngi (Qara deyil, çox tünd bənövşəyi/pink) */
-    --on-surface: #3D0019;        
-    --on-surface-variant: #880E4F;
-    
-    /* Borderlər və zərif çərçivələr */
-    --surface-container-high: #F8BBD0; /* Açıq çəhrayı border */
-    
-    /* Kartların daxili fonu (İstədiyin o ağ/pink balansını yaradır) */
-    --surface-container-lowest: #FFF5F8; /* Süd rənginə yaxın çox açıq pink */
-    
-    /* Kölgələr və sabit elementlər üçün */
-    --primary-fixed: #F48FB1;
-    --tertiary-container: #FF80AB;
+    /* --- PREMIUM PINK THEME --- */
+    --primary: 255 64 129;
+    --secondary: 233 30 99;
+    --tertiary: 240 98 146;
+    --surface: 255 240 245;
+    --on-surface: 61 0 25;
+    --on-surface-variant: 136 14 79;
+    --surface-container-high: 248 187 208;
+    --surface-container-lowest: 255 245 248;
+    --primary-fixed: 244 143 177;
+    --tertiary-container: 255 128 171;
 }

@@ -5,13 +5,13 @@ const { title, hideHeader = false, hideNavbar = false, isIndex = false } = Astro
 const pathname = Astro.url.pathname;
 const currentPath = pathname.replace(/^\/|\/$/g, "");
 
-// Mobil Naviqasiya Klassları
-const mobileActiveClass = "bg-secondary text-white rounded-full px-3 py-1.5 flex flex-col items-center transition-all duration-300 shadow-md scale-95";
-const mobileInactiveClass = "text-on-surface opacity-50 flex flex-col items-center px-3 py-1.5 transition-all duration-300";
+// Mobil Naviqasiya Klassları (Transitionlar silindi, RGB rənglərə uyğunlaşdı)
+const mobileActiveClass = "bg-secondary text-white rounded-full px-3 py-1.5 flex flex-col items-center shadow-md scale-95";
+const mobileInactiveClass = "text-on-surface opacity-50 flex flex-col items-center px-3 py-1.5";
 
-// Desktop Naviqasiya Klassları (Şəkildəki kimi mərkəzlənmiş və zərif)
-const desktopActiveClass = "text-secondary font-black border-b-2 border-secondary pb-1 flex items-center gap-2 transition-all text-[11px] uppercase tracking-[0.2em]";
-const desktopInactiveClass = "text-on-surface opacity-40 font-bold hover:opacity-100 flex items-center gap-2 transition-all text-[11px] uppercase tracking-[0.2em]";
+// Desktop Naviqasiya Klassları
+const desktopActiveClass = "text-secondary font-black border-b-2 border-secondary pb-1 flex items-center gap-2 text-[11px] uppercase tracking-[0.2em]";
+const desktopInactiveClass = "text-on-surface opacity-40 font-bold hover:opacity-100 flex items-center gap-2 text-[11px] uppercase tracking-[0.2em]";
 ---
 
 <html lang="az">
@@ -26,8 +26,6 @@ const desktopInactiveClass = "text-on-surface opacity-40 font-bold hover:opacity
                 document.documentElement.setAttribute('data-theme', theme);
             })();
         </script>
-
-        <script src="https://cdn.tailwindcss.com"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -63,7 +61,8 @@ const desktopInactiveClass = "text-on-surface opacity-40 font-bold hover:opacity
             }
 
             .celestial-bg {
-                background: radial-gradient(circle at top right, var(--surface-container-high), var(--surface));
+                /* Dəyişənləri rgb() daxilində çağırmaq daha təhlükəsizdir */
+                background: radial-gradient(circle at top right, rgb(var(--surface-container-high)), rgb(var(--surface)));
                 min-height: 100vh;
                 background-attachment: fixed;
             }
@@ -76,14 +75,14 @@ const desktopInactiveClass = "text-on-surface opacity-40 font-bold hover:opacity
         </style>
     </head>
     
-    <body class="celestial-bg text-on-surface relative transition-colors duration-300">
+    <body class="celestial-bg text-on-surface relative">
         
         {!hideHeader && (
-            <header class="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-surface-container-high">
+            <header class="fixed top-0 w-full z-[100] bg-white/80 backdrop-blur-xl border-b border-surface-container-high/50">
                 <div class="flex items-center justify-between px-4 md:px-10 py-3 w-full max-w-[1400px] mx-auto">
                     
-                    <a href="/welcome" class="flex items-center gap-1 group no-underline whitespace-nowrap flex-shrink-0 cursor-pointer">
-                        <span class="material-symbols-outlined text-secondary logo-icon md:!text-2xl transition-transform group-hover:rotate-12" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+                    <a href="/" class="flex items-center gap-1 group no-underline whitespace-nowrap flex-shrink-0 cursor-pointer">
+                        <span class="material-symbols-outlined text-secondary logo-icon md:!text-2xl" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
                         <h1 class="logo-text md:text-lg font-black tracking-tighter uppercase leading-none">
                             <span class="text-primary">Teacher </span><span class="text-secondary">Roya’s</span> <span class="text-primary">Stars</span>
                         </h1>
@@ -114,12 +113,12 @@ const desktopInactiveClass = "text-on-surface opacity-40 font-bold hover:opacity
 
                     <div class="flex justify-end flex-shrink-0">
                         {isIndex ? (
-                            <button class="bg-secondary text-white px-6 py-2 rounded-full font-bold text-xs shadow-lg shadow-secondary/10 active:scale-95 transition-all uppercase tracking-widest">
+                            <button class="bg-secondary text-white px-6 py-2 rounded-full font-bold text-xs shadow-lg shadow-secondary/10 active:scale-95 uppercase tracking-widest">
                                 Sign Up
                             </button>
                         ) : (
                             <a href="/profile" class="flex flex-col items-center gap-0.5 group no-underline">
-                                <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary-fixed flex items-center justify-center text-white font-bold text-[10px] border-2 border-white shadow-sm group-hover:scale-105 transition-transform">
+                                <div class="w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary-fixed flex items-center justify-center text-white font-bold text-[10px] border-2 border-white shadow-sm">
                                     JD
                                 </div>
                                 <span class="text-[6px] md:text-[8px] font-black uppercase tracking-widest text-primary opacity-60">Profile</span>
@@ -139,7 +138,7 @@ const desktopInactiveClass = "text-on-surface opacity-40 font-bold hover:opacity
         </main>
 
         {!hideNavbar && (
-            <nav class="mobile-nav lg:hidden fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.05)] px-2 pb-5 pt-2 flex justify-around items-center border-t border-white/50">
+            <nav class="mobile-nav lg:hidden fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-xl rounded-t-[1.5rem] shadow-[0_-4px_20px_rgba(0,0,0,0.05)] px-2 pb-5 pt-2 flex justify-around items-center border-t border-surface-container-high/50">
                 <a href="/" class="no-underline">
                     <div class={currentPath === "" ? mobileActiveClass : mobileInactiveClass}>
                         <span class="material-symbols-outlined !text-lg">home</span>

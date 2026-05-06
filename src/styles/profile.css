@@ -16,7 +16,7 @@
 }
 
 .avatar-upload-btn {
-    @apply absolute bottom-1 right-1 bg-[#155f98] text-white p-2.5 rounded-full shadow-lg active:scale-90 transition-transform border-4 border-white flex items-center justify-center;
+    @apply absolute bottom-1 right-1 bg-[#155f98] text-white p-2.5 rounded-full shadow-lg active:scale-90 border-4 border-white flex items-center justify-center;
 }
 
 .profile-name {
@@ -49,7 +49,7 @@
 }
 
 .profile-input {
-    @apply w-full bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-transparent outline-none focus:ring-2 focus:ring-blue-200 transition-all;
+    @apply w-full bg-[#f3f6ff] rounded-2xl px-5 py-4 text-[#213041] font-bold text-sm border border-transparent outline-none focus:ring-2 focus:ring-blue-200;
 }
 
 /* Mövzu (Theme) Bölməsi */
@@ -58,28 +58,28 @@
 }
 
 .theme-btn {
-    @apply flex flex-col items-center gap-3 p-4 rounded-3xl transition-all active:scale-90 border-2;
+    @apply flex flex-col items-center gap-3 p-4 rounded-3xl active:scale-90 border-2;
 }
 
 /* Düymələr */
 .btn-save {
-    @apply w-full bg-[#155f98] text-white py-5 rounded-full font-black flex items-center justify-center gap-3 active:scale-95 transition-all shadow-xl shadow-blue-900/20 uppercase text-xs tracking-widest;
+    @apply w-full bg-[#155f98] text-white py-5 rounded-full font-black flex items-center justify-center gap-3 active:scale-95 shadow-xl shadow-blue-900/20 uppercase text-xs tracking-widest;
 }
 
 .btn-logout {
-    @apply w-full bg-white border-4 border-red-50 text-[#af101a] py-5 rounded-full font-black flex items-center justify-center gap-3 active:bg-red-50 transition-all no-underline uppercase text-xs tracking-widest mt-10;
+    @apply w-full bg-white border-4 border-red-50 text-[#af101a] py-5 rounded-full font-black flex items-center justify-center gap-3 active:bg-red-50 no-underline uppercase text-xs tracking-widest mt-10;
 }
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 1;
 }
-/* ... mövcud kodların ... */
 
+/* Aktiv Mövzu Düzəlişi - Xəta verən /30 silindi */
 .theme-active {
-    @apply bg-blue-50/50 border-primary/30 shadow-sm !important;
+    @apply bg-blue-50 border-primary shadow-sm !important;
 }
 
-/* data-theme tətbiq olunduqda profil səhifəsindəki spesifik ikon rəngləri də dəyişsin */
+/* Pink Tema Tənzimləmələri */
 [data-theme="pink"] .section-label span {
     @apply text-primary !important;
 }
@@ -87,3 +87,5 @@
 [data-theme="pink"] .avatar-upload-btn {
     @apply bg-primary !important;
 }
+
+/* Seniorun istəyi: Əlavə transition effektləri təmizləndi */

@@ -2,17 +2,17 @@
 .quiz-banner {
     @apply relative overflow-hidden rounded-[28px] md:rounded-[48px] p-6 md:p-12 text-white shadow-2xl mb-6 md:mb-10 max-w-[1100px] mx-auto;
     
-    background: var(--secondary);
-    box-shadow: 0 20px 40px var(--primary-fixed);
+    background: rgb(var(--secondary));
+    box-shadow: 0 20px 40px rgba(var(--primary-fixed), 0.3);
 }
 
 /* PRACTICE QUIZ badge - ağ text */
 .quiz-banner-badge {
     @apply inline-block px-3 py-1 backdrop-blur-md rounded-full text-[9px] md:text-[10px] font-black uppercase tracking-widest border mb-3 md:mb-4;
     
-    background: rgba(255,255,255,0.15);
-    border-color: rgba(255,255,255,0.2);
-    color: white; /* 🔥 istədiyin kimi ağ */
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: white;
 }
 
 .quiz-banner-title {
@@ -23,38 +23,39 @@
 .question-container {
     @apply rounded-[28px] md:rounded-[40px] p-6 md:p-12 shadow-xl border space-y-6 md:space-y-10 max-w-[1100px] mx-auto mb-6 md:mb-10;
     
-    background: var(--surface-container-lowest);
-    border-color: var(--surface-container-high);
+    background: rgb(var(--surface-container-lowest));
+    border-color: rgb(var(--surface-container-high));
 }
 
 .question-text {
     @apply text-lg md:text-3xl font-black leading-tight uppercase tracking-tight pr-2;
-    color: var(--on-surface);
+    color: rgb(var(--on-surface));
 }
 
 /* Options */
 .option-btn {
-    @apply flex items-center p-4 md:p-6 rounded-[20px] md:rounded-[32px] transition-all duration-300 active:scale-[0.98] text-left border;
+    /* Transition silindi */
+    @apply flex items-center p-4 md:p-6 rounded-[20px] md:rounded-[32px] active:scale-[0.98] text-left border;
 }
 
 .option-active {
     @apply text-white shadow-lg border-transparent;
     
-    background: var(--primary); /* 🔥 pink olacaq */
-    box-shadow: 0 10px 30px var(--primary-fixed);
+    background: rgb(var(--primary));
+    box-shadow: 0 10px 30px rgba(var(--primary-fixed), 0.4);
 }
 
 .option-default {
-    background: var(--surface);
-    color: var(--on-surface);
-    border-color: var(--surface-container-high);
+    background: rgb(var(--surface));
+    color: rgb(var(--on-surface));
+    border-color: rgb(var(--surface-container-high));
 }
 
 /* Letter box */
 .option-letter-box {
     @apply w-8 h-8 md:w-12 md:h-12 flex items-center justify-center rounded-lg md:rounded-2xl font-black mr-4 md:mr-5 text-xs md:text-sm flex-shrink-0;
     
-    background: var(--primary-fixed);
+    background: rgb(var(--primary-fixed));
     color: white;
 }
 
@@ -62,46 +63,45 @@
 .quiz-feedback-card {
     @apply rounded-[28px] md:rounded-[40px] p-5 md:p-10 border shadow-xl relative overflow-hidden mb-12 md:mb-20 max-w-[900px] mx-auto;
     
-    background: var(--surface-container-lowest);
-    border-color: var(--surface-container-high);
+    background: rgb(var(--surface-container-lowest));
+    border-color: rgb(var(--surface-container-high));
 }
 
 .quiz-feedback-card h4 {
     @apply text-base md:text-2xl font-black uppercase tracking-tight text-center;
-    color: var(--on-surface);
+    color: rgb(var(--on-surface));
 }
 
 .quiz-feedback-card p {
     @apply text-[8px] md:text-[10px] font-black uppercase tracking-widest text-center mt-1;
-    color: var(--on-surface-variant);
+    color: rgb(var(--on-surface-variant));
 }
 
 /* ⭐ Ulduzlar - HƏMİŞƏ SARI */
 .quiz-feedback-card .material-symbols-outlined {
-    color: #FFD700 !important; /* 🔥 gold */
+    color: #FFD700 !important; 
 }
 
 /* Textarea */
 .feedback-textarea {
-    @apply w-full border-none rounded-[18px] md:rounded-[32px] p-4 md:p-7 text-[11px] md:text-base min-h-[80px] md:min-h-[160px] transition-all font-medium shadow-inner outline-none mt-4;
+    /* Transition silindi */
+    @apply w-full border-none rounded-[18px] md:rounded-[32px] p-4 md:p-7 text-[11px] md:text-base min-h-[80px] md:min-h-[160px] font-medium shadow-inner outline-none mt-4;
     
-    background: var(--surface);
-    color: var(--on-surface);
+    background: rgb(var(--surface));
+    color: rgb(var(--on-surface));
 }
 
 /* Submit button */
 #submit-quiz-btn,
 #submit-review-btn {
-    background: var(--primary); /* 🔥 pink olacaq */
+    background: rgb(var(--primary));
     color: white;
-    border-radius: 999px;
-    transition: all 0.3s ease;
+    @apply rounded-full py-4 md:py-6 px-8 md:px-12 font-black uppercase tracking-widest;
 }
 
 #submit-quiz-btn:hover,
 #submit-review-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 10px 25px var(--primary-fixed);
+    @apply brightness-110;
 }
 
 /* Icons default */
@@ -115,27 +115,12 @@
         padding: 1.25rem !important;
         margin-left: 0.5rem !important;
         margin-right: 0.5rem !important;
-        space-y: 1rem !important;
-    }
-
-    .quiz-feedback-card .flex.justify-center {
-        gap: 0.25rem !important;
-        margin: 0.5rem 0 !important;
-    }
-
-    .quiz-feedback-card .material-symbols-outlined {
-        font-size: 28px !important;
     }
 
     #submit-quiz-btn,
     #submit-review-btn {
-        padding: 0.7rem !important;
-        font-size: 9px !important;
-        margin-top: 0.75rem !important;
+        padding: 1rem !important;
+        font-size: 10px !important;
         width: 100% !important;
-    }
-
-    .material-symbols-outlined.absolute {
-        display: none !important;
     }
 }
