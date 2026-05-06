@@ -6,25 +6,33 @@ import '../styles/exam.css';
 
 <MainLayout title="Stellar Examinations">
     
-    <section class="exam-header">
-        <div class="exam-header-icon">
-            <span class="material-symbols-outlined !text-5xl text-tertiary">auto_awesome</span>
+    <!-- Header Section -->
+    <section class="relative mb-12 text-center pt-8 px-4">
+        <div class="absolute -top-4 right-1/4 opacity-20 pointer-events-none select-none hidden md:block">
+            <span class="material-symbols-outlined !text-7xl text-[#af101a]">auto_awesome</span>
         </div>
-        <h2 class="exam-title">Stellar Examinations</h2>
-        <p class="exam-subtitle">Choose your mission and test your cosmic knowledge.</p>
+        <h2 class="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter uppercase italic leading-none">
+            Stellar Examinations
+        </h2>
+        <p class="text-slate-500 font-bold text-sm md:text-lg italic mt-3 max-w-2xl mx-auto uppercase tracking-wide">
+            Choose your mission and test your cosmic knowledge.
+        </p>
     </section>
 
-    <div class="exam-grid">
-        <Card 
-            variant="red"
-            href="/9grade"
-            badgeText="Most Popular"
-            title="Grade 9 Exam"
-            description="Master the foundations of the ninth galaxy. Complete all 12 modules to earn your Bronze Star."
-            progress="65"
-            iconName="rocket_launch"
-            class="md:col-span-2" 
-        />
+    <!-- Exam Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-[1200px] mx-auto px-4">
+        <!-- Grade 9 - Ölçüsünə görə 2 sütunu tutur -->
+        <div class="md:col-span-2">
+            <Card 
+                variant="red"
+                href="/9grade"
+                badgeText="Most Popular"
+                title="Grade 9 Exam"
+                description="Master the foundations of the ninth galaxy. Complete all 12 modules to earn your Bronze Star."
+                progress="65"
+                iconName="rocket_launch"
+            />
+        </div>
         
         <Card 
             variant="gray"
@@ -41,31 +49,27 @@ import '../styles/exam.css';
             title="General Grammar"
             description="Explore the universal laws of language that govern all stellar communication."
             iconName="menu_book"
-        >
-            <div slot="action-button" class="w-full bg-primary text-white py-4 rounded-full font-black uppercase text-[10px] tracking-widest text-center">
-                Explore Universe
-            </div>
-        </Card>
+        />
     </div>
 
-    <div class="reward-card group">
-        <div class="reward-card-hover-bg group-hover:opacity-100"></div>
+    <!-- Reward Track Card -->
+    <div class="reward-card group relative mt-16 p-8 md:p-10 rounded-[40px] flex flex-col md:flex-row items-center gap-8 overflow-hidden max-w-[1200px] mx-auto mb-20 border-4 border-dashed border-slate-200 bg-white hover:border-[#af101a]/30 transition-all duration-500">
         
-        <div class="reward-image-wrapper">
-            <div class="reward-img-circle">
+        <div class="relative shrink-0">
+            <div class="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-white shadow-xl">
                 <img alt="Nebula View" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="/api/placeholder/100/100"/>
             </div>
-            <div class="reward-badge">
-                <span class="material-symbols-outlined !text-xl flex items-center justify-center">workspace_premium</span>
+            <div class="absolute -bottom-2 -right-2 bg-[#feb300] text-white rounded-full p-2 shadow-lg z-20 border-2 border-white flex items-center justify-center">
+                <span class="material-symbols-outlined !text-xl leading-none">workspace_premium</span>
             </div>
         </div>
         
-        <div class="reward-content">
-            <h4 class="reward-title">Star Commander Track</h4>
-            <p class="reward-text">Earn your wings by completing all exam categories with a score above 90%.</p>
+        <div class="flex-1 text-center md:text-left">
+            <h4 class="font-black text-xl md:text-2xl text-slate-800 uppercase tracking-tight italic mb-2">Star Commander Track</h4>
+            <p class="text-slate-500 font-medium text-sm md:text-base italic leading-relaxed">Earn your wings by completing all exam categories with a score above 90%.</p>
         </div>
         
-        <button class="btn-reward">
+        <button class="shrink-0 bg-[#af101a] text-white px-10 py-5 rounded-full font-black text-xs uppercase tracking-[0.2em] active:scale-95 transition-all shadow-xl shadow-red-900/20 italic">
             View Rewards
         </button>
     </div>

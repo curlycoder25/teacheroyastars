@@ -1,101 +1,91 @@
-/* --- ANA BANNER (Zərif & Dinamik Pink) --- */
-.exam-banner {
-    background-color: var(--primary) !important;
-    @apply relative overflow-hidden rounded-[24px] md:rounded-[40px] p-6 md:p-14 text-white shadow-2xl mb-8 md:mb-12 border-2 md:border-4 border-white/10;
-    transition: background-color 0.3s ease;
+/* --- TEMA DƏYİŞƏNLƏRİ (Global CSS-ə əsasən) --- */
+
+/* Default olaraq Mavi/Göy rejimi */
+:root {
+    --primary: 72 133 193;                /* rgb(72, 133, 193) */
+    --secondary: 181 22 30;               /* rgb(181, 22, 30) */
+    --tertiary: 255 179 0;                /* rgb(255, 179, 0) */
+    --surface: 243 246 255;
+    --on-surface: 33 48 65;
+    --surface-container-high: 209 228 255;
+    --surface-container-lowest: 255 255 255;
+    
+    /* Kölgə (Shadow) dəyişəni - primary rəngə əsaslanır */
+    --theme-shadow: rgba(var(--primary), 0.2);
 }
 
-.exam-banner-badge {
-    @apply bg-white/15 backdrop-blur-md px-3 py-1 md:px-4 md:py-1.5 rounded-full text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] border border-white/10 inline-block mb-3 md:mb-5;
+/* Pink rejimi aktiv olanda rənglərin yerini dəyişirik */
+[data-theme="pink"] {
+    --primary: 255 64 129;                /* Pink */
+    --secondary: 233 30 99;               /* Tünd Pink */
+    --tertiary: 240 98 146;
+    --surface: 255 240 245;
+    --on-surface: 61 0 25;
+    --surface-container-high: 248 187 208;
+    --surface-container-lowest: 255 245 248;
+    
+    --theme-shadow: rgba(var(--primary), 0.25);
 }
 
-.exam-banner-title {
-    @apply text-2xl md:text-4xl lg:text-5xl font-black tracking-tighter uppercase leading-[0.95] mb-3 italic;
-}
+/* --- KOMPONENT STİLLƏRİ --- */
 
-.exam-banner-text {
-    @apply opacity-80 max-w-lg font-medium text-[11px] md:text-base leading-relaxed pr-4 italic;
-}
-
-/* --- BÖLMƏ BAŞLIQLARI --- */
-.section-header {
-    @apply flex items-center justify-between mb-6 md:mb-8 px-2 md:px-4;
-}
-
-.section-title {
-    @apply text-base md:text-xl lg:text-2xl font-black text-on-surface tracking-tight uppercase italic;
-}
-
-/* --- GRID SİSTEMİ & MOCK EXAM KARTI (Məcburi Pink) --- */
-.exams-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 px-2;
-}
-
-/* Şəkildəki (image_fa9999.png) qırmızı kartı məcburi PINK edən hissə */
-.exams-grid > div[class*="bg-[#af101a]"],
-.exams-grid > div[class*="bg-red-"],
-.exams-grid > div[style*="background-color: #af101a"],
-.exams-grid > div[style*="background-color: #b5161e"],
-.exams-grid > div:first-child {
-    background-color: var(--secondary) !important;
-    border: none !important;
-    @apply shadow-2xl shadow-pink-900/15 rounded-[28px] md:rounded-[36px] transition-all duration-300;
-}
-
-/* Kart daxili elementlər */
-.exams-grid div[class*="bg-white/20"],
-.exams-grid div[class*="bg-black/10"],
-.exams-grid span[class*="bg-white/20"] {
-    background-color: rgba(255, 255, 255, 0.2) !important;
-    @apply border-white/10 text-white !important;
-}
-
-/* Progress Bar (Pink rejimdə parlayan sarı/pink tonu) */
-.exams-grid div[class*="bg-[#feb300]"],
-.exams-grid .bg-tertiary {
-    background-color: var(--tertiary) !important;
-    box-shadow: 0 0 12px var(--tertiary);
-}
-
-/* Ağ kartların içindəki "Start Now" düyməsi */
-.exams-grid .bg-primary,
-.exams-grid [class*="bg-blue"] {
-    background-color: var(--secondary) !important;
-    color: white !important;
-    @apply border-none shadow-lg shadow-pink-500/20 font-black uppercase tracking-widest py-3 rounded-full text-center;
-}
-
-/* --- PAST PAPERS SİYAHISI --- */
-.past-papers-list {
-    @apply space-y-2 md:space-y-3 px-2 md:px-3 pb-12 max-w-3xl mx-auto;
-}
-
-.past-paper-item {
-    background-color: var(--surface-container-lowest) !important;
-    border: 2px solid var(--surface-container-high) !important;
-    /* @apply flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-[16px] md:rounded-[24px] shadow-sm active:scale-[0.98] transition-all cursor-pointer hover:border-primary/40; */
-
-@apply flex items-center gap-3 md:gap-4 p-3 md:p-4 rounded-[16px] md:rounded-[24px] shadow-sm active:scale-[0.98] transition-all cursor-pointer hover:border-primary/40;
-}
-
-.past-paper-number {
-    background-color: var(--surface) !important;
-    border-color: var(--surface-container-high) !important;
-    color: var(--secondary) !important;
-    @apply w-10 h-10 md:w-12 md:h-12 rounded-[12px] md:rounded-[18px] flex items-center justify-center font-black text-lg md:text-xl shadow-inner;
-}
-
-.past-paper-title {
-    @apply text-[11px] md:text-sm font-black text-on-surface uppercase tracking-tight italic;
-}
-
-/* --- MOBİL ÜÇÜN MASTER DÜZƏLİŞLƏR --- */
-@media (max-width: 768px) {
-    .exam-banner {
-        @apply p-6 !important;
-    }
-}
-
+/* Material Symbols */
 .material-symbols-outlined {
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: 'FILL' 1, 'wght' 400;
+}
+
+/* Dinamik Banner */
+.theme-banner {
+    background-color: rgb(var(--primary)) !important;
+    box-shadow: 0 20px 40px -10px var(--theme-shadow);
+    transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Dinamik Əsas Kartlar */
+.theme-card-main {
+    background-color: rgb(var(--primary)) !important;
+    box-shadow: 0 20px 40px -10px var(--theme-shadow);
+}
+
+/* Dinamik Düymələr (Solid) */
+.theme-button-solid {
+    background-color: rgb(var(--secondary)) !important;
+    box-shadow: 0 10px 20px -5px rgba(var(--secondary), 0.3);
+    transition: all 0.3s ease;
+}
+
+.theme-button-solid:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+/* Dinamik Link və Yazı Rəngləri */
+.theme-text-primary {
+    color: rgb(var(--primary)) !important;
+}
+
+/* Dinamik Progress Bar */
+.theme-progress-bar {
+    background-color: rgb(var(--tertiary)) !important;
+    box-shadow: 0 0 15px rgb(var(--tertiary) / 0.5);
+}
+
+/* Dinamik Past Paper Elementləri */
+.theme-paper-number {
+    background-color: rgb(var(--surface));
+    color: rgb(var(--primary));
+    border: 1px solid rgb(var(--surface-container-high));
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Yazıların İtallic Fixi */
+.italic {
+    font-style: italic;
+}
+
+/* Responsive Master Fix */
+@media (max-width: 768px) {
+    .theme-banner {
+        border-radius: 0 0 2rem 2rem !important; /* Config-dəki lg ölçüsünə uyğun */
+    }
 }

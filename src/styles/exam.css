@@ -1,102 +1,49 @@
-/* --- Başlıq Bölməsi --- */
-.exam-header {
-    @apply mb-10 text-center relative pt-4;
+/* Google Material Symbols tənzimləmələri */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-.exam-header-icon {
-    @apply absolute -top-10 -right-4 opacity-20 pointer-events-none select-none;
-    color: var(--secondary) !important;
+/* Card variant rəngləri üçün tənzimləmə (Əgər Card komponenti class-ları qəbul edirsə) */
+
+/* Red Variant (Məcburi Pink/Qırmızı) */
+[data-variant="red"] {
+    background-color: #af101a !important;
+    border-radius: 44px !important;
+    @apply shadow-2xl shadow-red-900/20 border-none;
 }
 
-.exam-title {
-    @apply text-3xl md:text-5xl font-black text-on-surface tracking-tighter uppercase italic;
+/* White/Surface Variant */
+[data-variant="white"], [data-variant="gray"] {
+    background-color: #ffffff !important;
+    border: 2px solid #f1f5f9 !important;
+    border-radius: 44px !important;
+    @apply shadow-sm hover:shadow-xl hover:border-[#af101a]/10 transition-all duration-300;
 }
 
-.exam-subtitle {
-    @apply text-on-surface/50 font-medium text-sm md:text-base italic mt-2;
+/* Reward Card Hover Effekti */
+.reward-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(175, 16, 26, 0.03) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
-/* --- Grid Sistemi --- */
-.exam-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-[1200px] mx-auto px-4;
+.reward-card:hover::before {
+    opacity: 1;
 }
 
-/* --- KARTLARIN DİNAMİK RƏNGLƏRİ (Məcburi Pink) --- */
-
-/* 1. Aktiv/Tünd Kart (Məsələn Grade 9 Exam - Köhnə Qırmızı) */
-.exam-grid > .bg-secondary, 
-.exam-grid > [class*="bg-secondary"],
-.exam-grid > [style*="#af101a"] {
-    background-color: var(--secondary) !important; /* Qırmızıdan Pink-ə keçid */
-    @apply shadow-2xl shadow-pink-900/10 border-none rounded-[32px] md:rounded-[44px];
-}
-
-/* 2. Kilidli və ya Ağ Kartlar */
-.exam-grid > .bg-surface-container-lowest,
-.exam-grid > [class*="bg-white"],
-.exam-grid > [class*="bg-surface"] {
-    background-color: var(--surface-container-lowest) !important; 
-    border: 2px solid var(--surface-container-high) !important;
-    @apply rounded-[32px] md:rounded-[44px] shadow-sm;
-}
-
-/* 3. Kart Daxili Düymələr (Review Mission / Continue Learning) */
-.exam-grid .btn-primary,
-.exam-grid button,
-.exam-grid a[class*="bg-white"],
-.exam-grid [style*="#af101a"] {
-    /* Əgər kart tünddürsə düymə ağ olar, içindəki yazı pink */
-    @apply rounded-full font-black uppercase tracking-widest transition-all duration-300;
-}
-
-/* Qırmızı düymələri birbaşa PINK edirik */
-.exam-grid [class*="text-[#af101a]"], 
-.exam-grid .text-secondary {
-    color: var(--secondary) !important;
-}
-
-/* --- Star Commander Track (Alt Kapsul) --- */
-.reward-card {
-    background-color: var(--surface-container-lowest) !important;
-    border: 4px dashed var(--surface-container-high) !important;
-    @apply mt-12 p-8 md:p-10 rounded-[40px] flex flex-col md:flex-row items-center gap-8 relative overflow-hidden transition-all duration-500 max-w-[1200px] mx-auto;
-}
-
-.reward-card:hover {
-    @apply -translate-y-1 shadow-2xl shadow-pink-500/5;
-    border-color: var(--primary) !important;
-}
-
-.reward-badge {
-    background-color: var(--tertiary) !important;
-    @apply absolute -bottom-2 -right-2 text-white rounded-full p-2 shadow-lg z-20 border-2 border-white;
-}
-
-.reward-title {
-    @apply font-black text-lg md:text-xl text-on-surface uppercase tracking-tight italic;
-}
-
-/* --- Düymə (Məcburi Pink) --- */
-.btn-reward {
-    background-color: var(--secondary) !important;
-    @apply text-white px-8 py-4 rounded-full font-black text-xs uppercase tracking-widest active:scale-95 transition-all shadow-lg relative z-10 italic;
-    box-shadow: 0 10px 20px -5px var(--secondary) !important;
-}
-
-.btn-reward:hover {
-    @apply brightness-110 shadow-pink-500/40;
-}
-
-/* --- MOBİL MASTER DÜZƏLİŞLƏR --- */
+/* Kiçik ekranlar üçün düzəlişlər */
 @media (max-width: 768px) {
     .reward-card {
-        @apply p-6 !important;
-        margin-left: 0.5rem !important;
-        margin-right: 0.5rem !important;
-        border-radius: 32px !important;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        border-radius: 32px;
+        @apply p-6;
     }
-}
-
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 1;
+    
+    .exam-title {
+        @apply text-3xl leading-tight;
+    }
 }

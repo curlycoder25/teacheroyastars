@@ -1,123 +1,122 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
-import SuccessModal from '../components/SuccessModal.astro'; // Modalı import etdik
+import SuccessModal from '../components/SuccessModal.astro';
 import '../styles/examresult.css';
 ---
 
 <MainLayout title="Exam Result">
-    
-    <section class="result-banner">
-        <div class="result-star-decor">
-            <span class="material-symbols-outlined !text-[120px]">star</span>
-        </div>
+    <div class="pink-mode min-h-screen"> 
         
-        <div class="relative z-10 flex flex-col items-center text-center">
-            <span class="result-badge">Grade 9 (Mock 1)</span>
-            <h2 class="result-score-title">You're a Star!</h2>
-            
-            <div class="result-numbers">
-                <span class="result-main-score">22</span>
-                <span class="result-total-score">/ 25</span>
+        <section class="theme-banner relative overflow-hidden py-16 px-6 mb-12 rounded-b-xl shadow-2xl">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10 pointer-events-none">
+                <span class="material-symbols-outlined !text-[20rem] text-white">star</span>
             </div>
             
-            <p class="result-praise">
-                You've mastered the fundamentals. Almost there!
-            </p>
-        </div>
-    </section>
-
-    <section class="review-section">
-        <div class="review-header">
-            <h3 class="text-xl font-black text-slate-800 uppercase tracking-tight">Review Answers</h3>
-            <span class="text-sm font-bold text-red-600 bg-red-50 px-3 py-1 rounded-full">3 Incorrect</span>
-        </div>
-
-        <div class="space-y-5">
-            <div class="question-card correct-border">
-                <div class="status-icon bg-emerald-100 text-emerald-600">
-                    <span class="material-symbols-outlined !text-2xl">check</span>
+            <div class="relative z-10 flex flex-col items-center text-center text-white">
+                <span class="bg-white/20 backdrop-blur-md px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-6 border border-white/10">
+                    Grade 9 (Mock 1)
+                </span>
+                <h2 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase italic tracking-tighter mb-4 leading-none">You're a Star!</h2>
+                
+                <div class="flex items-baseline gap-2 my-6">
+                    <span class="text-7xl md:text-9xl font-black drop-shadow-xl">22</span>
+                    <span class="text-2xl md:text-4xl font-bold opacity-70">/ 25</span>
                 </div>
-                <div class="space-y-1">
-                    <p class="question-text">Question 1: What is the closest star to Earth?</p>
-                    <p class="answer-text text-emerald-600">Your answer: The Sun</p>
-                </div>
+                
+                <p class="max-w-xs text-sm md:text-base font-bold opacity-90 italic leading-relaxed">
+                    You've mastered the fundamentals. Almost there!
+                </p>
+            </div>
+        </section>
+
+        <section class="max-w-4xl mx-auto px-6 mb-16">
+            <div class="flex items-center justify-between mb-10">
+                <h3 class="text-xl md:text-2xl font-black text-on-surface uppercase tracking-tight italic">Review Answers</h3>
+                <span class="bg-secondary/10 text-secondary text-xs font-black px-5 py-2 rounded-full border border-secondary/10 uppercase tracking-widest">
+                    3 Incorrect
+                </span>
             </div>
 
-            <div class="question-card incorrect-border">
-                <div class="status-icon bg-red-100 text-red-600">
-                    <span class="material-symbols-outlined !text-2xl">close</span>
+            <div class="space-y-6">
+                <div class="bg-surface-container-lowest border-2 border-surface-container-high p-6 rounded-lg flex gap-5 hover:border-emerald-200 transition-all shadow-sm">
+                    <div class="w-14 h-14 shrink-0 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shadow-inner">
+                        <span class="material-symbols-outlined !text-3xl font-bold">check</span>
+                    </div>
+                    <div class="space-y-2">
+                        <p class="font-black text-on-surface leading-tight text-sm md:text-lg italic">Question 1: What is the closest star to Earth?</p>
+                        <p class="text-emerald-600 font-black text-xs md:text-sm uppercase tracking-wide">Your answer: The Sun</p>
+                    </div>
                 </div>
-                <div class="space-y-3 flex-1">
-                    <p class="question-text">Question 2: Which galaxy is closest to the Milky Way?</p>
-                    <div class="flex flex-col gap-2">
-                        <p class="answer-text text-red-600">Your answer: Andromeda Galaxy</p>
-                        <div class="bg-emerald-50 px-4 py-3 rounded-[20px] w-fit border border-emerald-100">
-                            <p class="text-[10px] text-emerald-700 font-black uppercase tracking-widest mb-1">Correct answer:</p>
-                            <p class="answer-text text-emerald-600">Large Magellanic Cloud</p>
+
+                <div class="bg-surface-container-lowest border-2 border-surface-container-high p-6 rounded-lg flex gap-5 hover:border-secondary/20 transition-all shadow-sm">
+                    <div class="w-14 h-14 shrink-0 rounded-lg bg-secondary/5 text-secondary flex items-center justify-center shadow-inner">
+                        <span class="material-symbols-outlined !text-3xl font-bold">close</span>
+                    </div>
+                    <div class="space-y-4 flex-1">
+                        <p class="font-black text-on-surface leading-tight text-sm md:text-lg italic">Question 2: Which galaxy is closest to the Milky Way?</p>
+                        <div class="flex flex-col gap-3">
+                            <p class="text-secondary font-black text-xs md:text-sm uppercase tracking-wide">Your answer: Andromeda Galaxy</p>
+                            <div class="bg-emerald-50/50 px-5 py-4 rounded-lg w-fit border border-emerald-100">
+                                <p class="text-[10px] text-emerald-700 font-black uppercase tracking-[0.2em] mb-1 opacity-70">Correct answer:</p>
+                                <p class="text-emerald-600 font-black italic text-sm md:text-base">Large Magellanic Cloud</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="question-card correct-border">
-                <div class="status-icon bg-emerald-100 text-emerald-600">
-                    <span class="material-symbols-outlined !text-2xl">check</span>
+        <section class="max-w-2xl mx-auto px-6 pb-24">
+            <div class="bg-surface border-2 border-dashed border-surface-container-high rounded-xl p-10 md:p-14 space-y-10 text-center">
+                <div class="space-y-2">
+                    <h3 class="text-2xl md:text-3xl font-black text-on-surface uppercase italic">Enjoyed this Exam?</h3>
+                    <p class="text-[10px] md:text-xs font-black text-on-surface-variant uppercase tracking-[0.3em]">Help us improve the curriculum.</p>
                 </div>
-                <div class="space-y-1">
-                    <p class="question-text">Question 3: How many planets are in our solar system?</p>
-                    <p class="answer-text text-emerald-600">Your answer: 8</p>
+
+                <div class="flex justify-center gap-3">
+                    {[1, 2, 3, 4, 5].map((i) => (
+                        <button class="text-tertiary transition-all hover:scale-125 active:scale-75" type="button">
+                            <span class="material-symbols-outlined !text-5xl star-filled">star</span>
+                        </button>
+                    ))}
+                </div>
+
+                <div class="space-y-5">
+                    <textarea 
+                        class="w-full bg-surface-container-lowest border-2 border-surface-container-high rounded-lg p-8 text-on-surface placeholder:text-on-surface-variant/30 focus:bg-white transition-all outline-none min-h-[160px] text-sm font-bold italic" 
+                        placeholder="Tell us what you liked..."
+                    ></textarea>
+                    
+                    <button id="submit-review" class="bg-primary w-full text-white py-6 rounded-full font-black shadow-2xl shadow-primary/20 active:scale-95 transition-all uppercase text-xs tracking-[0.2em] italic">
+                        Submit Review
+                    </button>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="feedback-container">
-        <div class="text-center">
-            <h3 class="text-xl font-black text-slate-800 mb-2 uppercase">Enjoyed this Exam?</h3>
-            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Help us improve the curriculum.</p>
-        </div>
-
-        <div class="flex justify-center gap-3">
-            {[1, 2, 3, 4, 5].map((i) => (
-                <span class="material-symbols-outlined !text-4xl text-[#feb300] cursor-pointer hover:scale-125 transition-transform">star</span>
-            ))}
-        </div>
-
-        <div class="space-y-4">
-            <textarea 
-                class="feedback-textarea" 
-                placeholder="Tell us what you liked..."
-            ></textarea>
-            
-            <button id="submit-review" class="w-full bg-[#af101a] text-white py-5 rounded-full font-black shadow-lg shadow-red-900/20 active:scale-95 transition-all uppercase text-xs tracking-widest">
-                Submit Review
-            </button>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <SuccessModal />
-
 </MainLayout>
 
 <script>
     const submitBtn = document.getElementById('submit-review');
     const modal = document.getElementById('success-modal');
-    const closeBtn = document.getElementById('close-modal');
+    // SuccessModal içindəki davam et düyməsini tapmaq üçün (komponentin içindəki ID-yə görə)
+    const continueBtn = document.getElementById('close-modal');
     const rocket = document.querySelector('#rocket-container span');
 
     if (submitBtn && modal) {
         submitBtn.addEventListener('click', () => {
-            // Modalı göstər
             modal.classList.add('show');
         });
     }
 
-    if (closeBtn && modal && rocket) {
-        closeBtn.addEventListener('click', () => {
-            // Raketi uçurt
-            rocket.classList.add('fly-away');
+    if (continueBtn && modal) {
+        continueBtn.addEventListener('click', () => {
+            // Əgər raket animasiyası varsa işə sal
+            if (rocket) rocket.classList.add('fly-away');
             
-            // Animasiya bitdikdən sonra yönləndir
+            // Animasiya müddətindən sonra topics səhifəsinə yönləndir
             setTimeout(() => {
                 modal.classList.remove('show');
                 window.location.href = '/topics';

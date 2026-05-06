@@ -1,144 +1,165 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import '../styles/finalexam.css';
-import '../styles/global.css';
 ---
 
 <MainLayout title="Final Mastery Exam">
-    
-    <header class="exam-hero">
-        <h1 class="exam-hero-title">
-            Final Mastery <span class="text-[#b5161e]">Exam</span>
-        </h1>
-        <p class="exam-hero-subtitle">Demonstrate your progress, little star! Good luck on your cosmic mission.</p>
+    <!-- Standart Göy üçün 'theme-pink' class-ını silmək kifayətdir -->
+    <div class="theme-pink min-h-screen pb-24">
         
-        <div class="flex flex-wrap items-center gap-3 pt-4">
-            <div class="flex items-center gap-2 bg-[#b5161e]/10 px-5 py-2 rounded-full border border-[#b5161e]/10">
-                <span class="material-symbols-outlined text-[#b5161e] !text-sm">timer</span>
-                <span class="text-[10px] font-black text-[#b5161e] uppercase tracking-widest">45:00 Left</span>
-            </div>
-            <div class="flex items-center gap-2 bg-[#feb300]/10 px-5 py-2 rounded-full border border-[#feb300]/10">
-                <span class="material-symbols-outlined text-[#feb300] !text-sm">stars</span>
-                <span class="text-[10px] font-black text-[#feb300] uppercase tracking-widest">Level 4</span>
-            </div>
-        </div>
-    </header>
-
-    <div class="section-label">
-        <div class="p-2.5 bg-primary/10 rounded-xl">
-            <span class="material-symbols-outlined text-primary !text-xl">headphones</span>
-        </div>
-        <h2 class="section-label-text">1. Listening</h2>
-    </div>
-
-    <section class="exam-card-white group">
-        <div class="absolute -top-10 -right-10 text-[#feb300] opacity-10 group-hover:scale-110 transition-transform duration-1000">
-            <span class="material-symbols-outlined !text-[180px]">star</span>
-        </div>
-        
-        <div class="relative z-10 space-y-6">
-            <p class="text-slate-500 font-medium text-sm md:text-base italic">Listen to the short story and prepare for the questions below.</p>
+        <header class="max-w-5xl mx-auto pt-10 px-4 mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-slate-800 tracking-tighter uppercase italic leading-none mb-4">
+                Final Mastery <span class="theme-text-primary">Exam</span>
+            </h1>
+            <p class="text-slate-500 font-bold text-sm md:text-lg italic uppercase tracking-wider opacity-70">
+                Demonstrate your progress, little star! Good luck on your cosmic mission.
+            </p>
             
-            <div class="audio-player">
-                <button class="w-16 h-16 bg-[#af101a] text-white rounded-full flex items-center justify-center shadow-xl active:scale-90 transition-transform">
-                    <span class="material-symbols-outlined !text-3xl">play_arrow</span>
-                </button>
-                <div class="flex-1 w-full space-y-3">
-                    <div class="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-widest">
-                        <span>The Starry Night.mp3</span>
-                        <span>02:45</span>
+            <div class="flex flex-wrap items-center gap-3 pt-6">
+                <div class="flex items-center gap-2 theme-bg-soft px-5 py-2 rounded-full border theme-border-soft">
+                    <span class="material-symbols-outlined theme-text-primary !text-sm">timer</span>
+                    <span class="text-[10px] font-black theme-text-primary uppercase tracking-widest">45:00 Left</span>
+                </div>
+                <div class="flex items-center gap-2 bg-yellow-50 px-5 py-2 rounded-full border border-yellow-100">
+                    <span class="material-symbols-outlined text-[#feb300] !text-sm">stars</span>
+                    <span class="text-[10px] font-black text-[#feb300] uppercase tracking-widest">Level 4</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="max-w-5xl mx-auto px-4 space-y-12">
+            
+            <!-- 1. Listening -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 theme-bg-soft rounded-2xl">
+                        <span class="material-symbols-outlined theme-text-primary !text-2xl">headphones</span>
                     </div>
-                    <div class="h-2.5 bg-white rounded-full overflow-hidden p-0.5 border border-[#d1e4ff]">
-                        <div class="h-full w-1/3 bg-[#feb300] rounded-full shadow-[0_0_10px_rgba(254,179,0,0.3)]"></div>
+                    <h2 class="text-xl font-black text-slate-800 uppercase italic tracking-tight">1. Listening</h2>
+                </div>
+
+                <section class="bg-white border-2 border-slate-100 p-6 md:p-10 rounded-[40px] shadow-xl shadow-slate-200/50 group relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 text-yellow-400 opacity-10 group-hover:scale-110 transition-transform duration-1000">
+                        <span class="material-symbols-outlined !text-[200px]">star</span>
+                    </div>
+                    <div class="relative z-10 space-y-6">
+                        <p class="text-slate-500 font-medium text-sm md:text-base italic uppercase tracking-wide">Listen to the short story and prepare for the questions below.</p>
+                        <div class="flex flex-col md:flex-row items-center gap-6 bg-slate-50 p-6 rounded-[32px] border border-slate-100">
+                            <button class="theme-button-solid w-16 h-16 text-white rounded-full flex items-center justify-center shadow-xl active:scale-90 transition-all shrink-0">
+                                <span class="material-symbols-outlined !text-3xl">play_arrow</span>
+                            </button>
+                            <div class="flex-1 w-full space-y-3">
+                                <div class="flex justify-between text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                                    <span>The Starry Night.mp3</span>
+                                    <span>02:45</span>
+                                </div>
+                                <div class="h-3 bg-white rounded-full overflow-hidden p-0.5 border border-slate-200">
+                                    <div class="h-full w-1/3 bg-yellow-400 rounded-full shadow-lg"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 2. Grammar Tests -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-blue-50 rounded-2xl">
+                        <span class="material-symbols-outlined text-blue-600 !text-2xl">rule</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 uppercase italic tracking-tight">2. Grammar Tests</h2>
+                </div>
+
+                <section class="theme-card-main group relative overflow-hidden p-8 md:p-12 rounded-[44px] text-white shadow-2xl border-4 border-white/10">
+                    <div class="absolute -top-10 -right-10 opacity-20 text-white group-hover:rotate-45 transition-transform duration-1000">
+                        <span class="material-symbols-outlined !text-[250px]">auto_awesome</span>
+                    </div>
+                    <div class="relative z-10 space-y-8">
+                        <span class="inline-block bg-white/20 text-white text-[10px] font-black uppercase tracking-widest px-5 py-2 rounded-full backdrop-blur-md border border-white/10">Question 01</span>
+                        <h3 class="text-2xl md:text-4xl font-black text-white uppercase leading-tight italic pr-8">Which sentence uses the present perfect tense correctly?</h3>
+                        <div class="grid gap-4">
+                            <button class="theme-option-btn">
+                                <span class="font-bold italic">A. She have finished her homework already.</span>
+                                <span class="material-symbols-outlined opacity-30">radio_button_unchecked</span>
+                            </button>
+                            <button class="theme-option-btn theme-option-active">
+                                <span class="font-bold italic">B. She has finished her homework already.</span>
+                                <span class="material-symbols-outlined">check_circle</span>
+                            </button>
+                            <button class="theme-option-btn">
+                                <span class="font-bold italic">C. She finishing her homework already.</span>
+                                <span class="material-symbols-outlined opacity-30">radio_button_unchecked</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 3. Writing Task -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-yellow-50 rounded-2xl">
+                        <span class="material-symbols-outlined text-yellow-600 !text-2xl">edit_note</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 uppercase italic tracking-tight">3. Writing Task</h2>
+                </div>
+
+                <section class="bg-white border-2 border-slate-100 p-8 md:p-12 rounded-[40px] shadow-lg">
+                    <div class="space-y-8">
+                        <label class="block text-xl md:text-2xl font-black text-slate-800 uppercase italic leading-tight">
+                            Rewrite in passive voice: <br/>
+                            <span class="theme-text-primary tracking-tight">"The teacher inspires the students."</span>
+                        </label>
+                        <div class="relative">
+                            <textarea class="theme-textarea min-h-[180px]" placeholder="Type your answer here..."></textarea>
+                            <div class="absolute bottom-6 right-8 hidden md:flex items-center gap-2 text-[10px] font-black text-slate-300 uppercase tracking-widest">
+                                <span class="material-symbols-outlined !text-sm">keyboard</span>
+                                <span>Auto-saving Mission</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- 4. Image Description -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                    <div class="p-3 bg-slate-100 rounded-2xl">
+                        <span class="material-symbols-outlined text-slate-600 !text-2xl">image</span>
+                    </div>
+                    <h2 class="text-xl font-black text-slate-800 uppercase italic tracking-tight">4. Image Description</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="rounded-[40px] overflow-hidden h-[300px] lg:h-full border-4 border-white shadow-xl group">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&q=80&w=1000" alt="Study space"/>
+                    </div>
+                    <div class="bg-white border-2 border-slate-100 p-8 md:p-10 rounded-[40px] flex flex-col justify-between shadow-lg">
+                        <div class="space-y-4">
+                            <h4 class="text-xl font-black text-slate-800 uppercase italic">Describe what you see in the image.</h4>
+                            <p class="text-[10px] text-slate-400 font-black uppercase tracking-[0.2em]">Use at least 3 adjectives to describe the mood.</p>
+                        </div>
+                        <textarea class="theme-textarea mt-8 !min-h-[180px]" placeholder="Example: The bright and organized desk..."></textarea>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <div class="section-label">
-        <div class="p-2.5 bg-blue-50 rounded-xl">
-            <span class="material-symbols-outlined text-[#155f98] !text-xl">rule</span>
-        </div>
-        <h2 class="section-label-text">2. Grammar Tests</h2>
-    </div>
-
-    <section class="exam-card-colored group">
-        <div class="absolute -top-10 -right-10 opacity-20 text-white group-hover:rotate-45 transition-transform duration-1000">
-            <span class="material-symbols-outlined !text-[200px]">auto_awesome</span>
-        </div>
-        
-        <div class="relative z-10 space-y-6">
-            <span class="inline-block bg-white/20 text-white text-[9px] font-black uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-md">Question 01</span>
-            <h3 class="text-xl md:text-3xl font-black text-white uppercase leading-tight pr-8">Which sentence uses the present perfect tense correctly?</h3>
-            
-            <div class="grid gap-3 md:gap-4">
-                <button class="test-option-btn option-default">
-                    <span>A. She have finished her homework already.</span>
-                    <span class="material-symbols-outlined opacity-30">radio_button_unchecked</span>
-                </button>
-                <button class="test-option-btn option-selected">
-                    <span>B. She has finished her homework already.</span>
-                    <span class="material-symbols-outlined">check_circle</span>
-                </button>
-                <button class="test-option-btn option-default">
-                    <span>C. She finishing her homework already.</span>
-                    <span class="material-symbols-outlined opacity-30">radio_button_unchecked</span>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-label">
-        <div class="p-2.5 bg-yellow-50 rounded-xl">
-            <span class="material-symbols-outlined text-[#7b5400] !text-xl">edit_note</span>
-        </div>
-        <h2 class="section-label-text">3. Writing Task</h2>
-    </div>
-
-    <section class="exam-card-white">
-        <div class="space-y-6">
-            <label class="block text-lg md:text-xl font-black text-slate-800 uppercase leading-snug">
-                Rewrite in passive voice: <br/>
-                <span class="text-[#af101a] tracking-tight">"The teacher inspires the students."</span>
-            </label>
-            <div class="relative">
-                <textarea class="exam-textarea" placeholder="Type your answer here..."></textarea>
-                <div class="absolute bottom-6 right-8 hidden md:flex items-center gap-2 text-[10px] font-black text-slate-300 uppercase tracking-widest">
-                    <span class="material-symbols-outlined !text-sm">keyboard</span>
-                    <span>Auto-saving Mission</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-label">
-        <div class="p-2.5 bg-slate-100 rounded-xl">
-            <span class="material-symbols-outlined text-slate-600 !text-xl">image</span>
-        </div>
-        <h2 class="section-label-text">4. Image Description</h2>
-    </div>
-
-    <section class="image-exam-grid">
-        <div class="exam-image-container group">
-            <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&q=80&w=1000" alt="Study space"/>
-        </div>
-        <div class="exam-card-white !mb-0 flex flex-col justify-between">
-            <div class="space-y-4">
-                <h4 class="text-xl font-black text-slate-800 uppercase leading-tight">Describe what you see in the image.</h4>
-                <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest">Use at least 3 adjectives to describe the mood.</p>
-            </div>
-            <textarea class="exam-textarea mt-6 lg:mt-0 !min-h-[180px]" placeholder="Example: The bright and organized desk..."></textarea>
-        </div>
-    </section>
-
-    <div class="flex justify-center pb-24">
-        <button class="group relative px-12 py-5 bg-[#af101a] text-white rounded-full font-black text-base shadow-xl shadow-red-900/20 active:scale-95 transition-all uppercase tracking-widest">
-            <div class="relative flex items-center gap-3">
+        <div class="flex justify-center pt-20 pb-10">
+            <button id="final-submit" class="theme-button-solid px-16 py-6 text-white rounded-full font-black text-lg shadow-2xl active:scale-95 transition-all uppercase tracking-[0.2em] italic flex items-center gap-4">
                 <span>Submit Exam</span>
-                <span class="material-symbols-outlined !text-xl">send</span>
-            </div>
-        </button>
+                <span class="material-symbols-outlined !text-2xl">send</span>
+            </button>
+        </div>
     </div>
-
 </MainLayout>
+
+<script>
+    const submitBtn = document.getElementById('final-submit');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', () => {
+            window.location.href = '/examresult';
+        });
+    }
+</script>

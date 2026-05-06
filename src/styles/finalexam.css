@@ -1,108 +1,100 @@
-/* --- LAYOUT VƏ HERO --- */
-.exam-hero {
-    @apply mb-6 md:mb-12 px-4 pt-4 md:pt-6 max-w-[1200px] mx-auto;
-}
+/* --- TEMA DƏYİŞƏNLƏRİNİN İDARƏ EDİLMƏSİ --- */
 
-.exam-hero-title {
-    @apply text-xl md:text-5xl font-black text-on-surface tracking-tighter uppercase italic;
-}
-
-.exam-hero-subtitle {
-    @apply text-on-surface/60 font-medium text-[10px] md:text-lg italic mt-1;
-}
-
-/* --- BÖLMƏ BAŞLIQLARI --- */
-.section-label {
-    @apply flex items-center gap-2 mb-4 px-4 max-w-[1200px] mx-auto;
-}
-
-.section-label-text {
-    @apply text-base md:text-2xl font-black text-on-surface uppercase tracking-tight italic;
-}
-
-/* --- LİSTENİNG KARTI (Dinamik) --- */
-.exam-card-white {
-    @apply relative bg-surface-container-lowest p-4 md:p-12 rounded-[24px] md:rounded-[48px] shadow-lg shadow-black/5 border border-surface-container-high mb-6 max-w-[1200px] mx-auto;
-}
-
-.audio-player {
-    @apply bg-surface p-3 md:p-8 rounded-[18px] md:rounded-[32px] flex flex-row items-center gap-3 border border-surface-container-high;
-}
-
-.audio-player .play-btn {
-    /* Qırmızı əvəzinə secondary (Pink rejimdə çəhrayı) */
-    @apply w-10 h-10 md:w-16 md:h-16 rounded-full text-white flex items-center justify-center flex-shrink-0 shadow-lg;
-    background-color: var(--secondary) !important;
-}
-
-/* --- GRAMMAR TEST KARTI (Maviddən Pink-ə) --- */
-.exam-card-colored {
-    /* Mavi əvəzinə primary rənginə bağlandı */
-    @apply p-4 md:p-12 rounded-[24px] md:rounded-[48px] shadow-2xl relative overflow-hidden mb-6 border-4 border-white/10 max-w-[1200px] mx-auto text-white;
-    background-color: var(--primary) !important;
-}
-
-.test-option-grid {
-    @apply grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-5 mt-4;
-}
-
-.test-option-btn {
-    @apply flex items-center justify-between p-3 md:p-6 rounded-[14px] md:rounded-[28px] font-black uppercase text-[9px] md:text-sm transition-all text-left w-full border italic;
-}
-
-.option-default {
-    @apply bg-white/10 text-white border-white/10 hover:bg-white/20;
-}
-
-.option-selected {
-    /* Seçilmiş variantın mətni primary (mavi/pink) rəngdə olur */
-    @apply bg-white shadow-xl border-transparent;
-    color: var(--primary) !important;
-}
-
-/* --- IMAGE DESCRIPTION --- */
-.image-exam-grid {
-    @apply grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 mb-10 max-w-[1200px] mx-auto px-2;
-}
-
-.exam-image-container {
-    @apply rounded-[24px] md:rounded-[40px] overflow-hidden aspect-video md:aspect-auto md:min-h-[300px] shadow-lg border-2 md:border-4 border-white bg-surface-container-high;
-}
-
-.exam-textarea {
-    @apply w-full bg-surface-container-lowest border-2 border-transparent rounded-[20px] md:rounded-[32px] p-4 md:p-8 font-bold text-on-surface transition-all outline-none min-h-[100px] md:min-h-[150px] text-xs md:text-base shadow-inner focus:border-primary/20;
-}
-
-/* --- STATUS BAR (Timer və Level) --- */
-.exam-status-bar div, .exam-status-bar button {
-    @apply font-black uppercase tracking-widest italic;
-    background-color: var(--surface-container-high) !important;
-    color: var(--on-surface) !important;
-}
-
-/* --- SUBMİT DÜYMƏSİ --- */
-.submit-exam-btn {
-    @apply w-full py-4 md:py-6 rounded-full font-black uppercase tracking-[0.2em] text-white shadow-xl active:scale-95 transition-all italic;
-    background-color: var(--secondary) !important;
-    box-shadow: 0 10px 25px -5px var(--secondary);
-}
-
-/* --- MOBİL MASTER DÜZƏLİŞLƏR --- */
-@media (max-width: 768px) {
-    .exam-card-white, .exam-card-colored, .exam-hero, .section-label, .image-exam-grid {
-        margin-left: 0.5rem !important;
-        margin-right: 0.5rem !important;
-    }
-
-    .exam-card-colored h3 {
-        @apply text-sm md:text-lg mb-4 leading-relaxed text-white !important;
-    }
-
-    .exam-image-container {
-        height: 180px !important;
-    }
-}
+/* 
+   Sənin global.css faylında rənglər artıq RGB formatındadır.
+   Tailwind Config-də isə rənglər bu dəyişənlərdən oxunur.
+*/
 
 .material-symbols-outlined {
-    font-variation-settings: 'FILL' 1;
+    font-variation-settings: 'FILL' 1, 'wght' 400;
+}
+
+/* --- DİNAMİK KOMPONENTLƏR --- */
+
+/* Dinamik Yazı Rəngi */
+.theme-text-primary { 
+    color: rgb(var(--primary)) !important; 
+}
+
+/* Dinamik Yumşaq Fon (Soft Background) 
+   Burada Tailwind-in alpha-value məntiqini CSS-də tətbiq edirik */
+.theme-bg-soft { 
+    background-color: rgb(var(--primary) / 0.08) !important; 
+}
+
+/* Dinamik Yumşaq Border */
+.theme-border-soft { 
+    border-color: rgb(var(--primary) / 0.15) !important; 
+}
+
+/* Dinamik Əsas Kartlar */
+.theme-card-main {
+    background-color: rgb(var(--primary)) !important;
+    /* Kölgə üçün dəyişən rəngdən istifadə edirik */
+    box-shadow: 0 25px 50px -12px rgb(var(--primary) / 0.25);
+    transition: all 0.4s ease;
+}
+
+/* Dinamik Solid Düymələr (Secondary rəngi ilə) */
+.theme-button-solid {
+    background-color: rgb(var(--secondary)) !important;
+    box-shadow: 0 15px 30px -5px rgb(var(--secondary) / 0.3);
+    color: rgb(var(--surface-container-lowest));
+    transition: all 0.3s ease;
+}
+
+.theme-button-solid:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 20px 35px -5px rgb(var(--secondary) / 0.4);
+}
+
+/* Grammar Option Düymələri */
+.theme-option-btn {
+    /* bg-white/10 yerinə design system-ə uyğun surface istifadə edirik */
+    @apply flex items-center justify-between border-2 p-6 transition-all outline-none italic;
+    background-color: rgb(var(--surface-container-lowest) / 0.1);
+    border-color: rgb(var(--surface-container-lowest) / 0.2);
+    border-radius: theme('borderRadius.lg'); /* Config-dəki 2rem */
+}
+
+.theme-option-btn:hover {
+    background-color: rgb(var(--surface-container-lowest) / 0.2);
+}
+
+.theme-option-active {
+    @apply border-none shadow-xl !important;
+    background-color: rgb(var(--surface-container-lowest)) !important;
+    color: rgb(var(--primary)) !important;
+}
+
+/* Textarea Dizaynı */
+.theme-textarea {
+    @apply w-full border-2 p-8 text-sm md:text-base font-bold italic transition-all outline-none shadow-inner;
+    background-color: rgb(var(--surface));
+    border-color: rgb(var(--surface-container-high));
+    border-radius: theme('borderRadius.xl'); /* Config-dəki 3rem */
+    color: rgb(var(--on-surface));
+}
+
+.theme-textarea:focus {
+    background-color: rgb(var(--surface-container-lowest));
+    border-color: rgb(var(--primary)) !important;
+    box-shadow: 0 0 0 4px rgb(var(--primary) / 0.1);
+}
+
+/* Helper Class */
+.italic { 
+    font-style: italic; 
+}
+
+/* --- RESPONSIVE FIXES --- */
+@media (max-width: 768px) {
+    .theme-card-main {
+        border-radius: theme('borderRadius.lg') !important;
+    }
+    .theme-textarea {
+        @apply p-6;
+        border-radius: theme('borderRadius.lg');
+    }
 }
